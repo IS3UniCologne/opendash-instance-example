@@ -1,0 +1,41 @@
+{
+  "name": "opendash-instance-example",
+  "private": true,
+  "scripts": {
+    "start": "opendash dev",
+    "build": "opendash build"
+  },
+  "dependencies": {
+    "@opendash/core": "nightly",
+    "@opendash/i18n": "nightly",
+    "@opendash/ui": "nightly",
+    "@opendash/plugin-highcharts": "nightly",
+    "@opendash/plugin-openware": "nightly",
+    "@opendash/plugin-parse": "nightly",
+    "antd": "^4.0.0",
+    "highcharts": "^10.0.0",
+    "moment": "^2.0.0",
+    "parse": "^3.0.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "styled-components": "^5.0.0",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@opendash/cli": "nightly",
+    "@types/parse": "^2.0.0",
+    "typescript": "^4.0.0"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "endOfLine": "lf",
+    "overrides": [
+      {
+        "files": "**/translations/**.json",
+        "options": {
+          "printWidth": 1000
+        }
+      }
+    ]
+  }
+}
