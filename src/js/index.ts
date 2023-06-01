@@ -52,6 +52,18 @@ init("opendash", async (factory) => {
 
   await factory.use(new HighchartsPlugin());
 
+  factory.registerStaticNavigationItem({
+    id: "monitoring/dashboard",
+    group: "monitoring",
+    place: "frontpage",
+    order: 1,
+    label: "opendash:monitoring.label",
+    icon: "fa:chart-line",
+    color: "#4385c2",
+    link: "/monitoring/dashboards",
+    routeCondition: "**",
+    activeCondition: "/",
+  });
   // Widgets
 
   factory.registerWidget(await import("./widgets/example"));
