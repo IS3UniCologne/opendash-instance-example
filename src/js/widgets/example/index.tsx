@@ -1,4 +1,4 @@
-import { createWidget } from "@opendash/core";
+import { createWidget } from "@opendash/plugin-monitoring";
 import { ConfigInterface } from "./types";
 
 export default createWidget<ConfigInterface>({

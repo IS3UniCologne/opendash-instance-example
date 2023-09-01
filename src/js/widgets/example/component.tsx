@@ -1,11 +1,12 @@
-import * as React from "react";
+import React from "react";
 
 import {
-  createWidgetComponent,
   FormatRelativeDates,
   useTranslation,
   useOpenDashServices,
 } from "@opendash/core";
+
+import { createWidgetComponent } from "@opendash/plugin-monitoring";
 
 import { ConfigInterface } from "./types";
 
