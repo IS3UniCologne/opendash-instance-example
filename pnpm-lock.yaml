@@ -148,6 +148,9 @@ devDependencies:
   '@types/react':
     specifier: ^18.2.34
     version: 18.2.34
+  '@types/styled-components':
+    specifier: ^5.1.29
+    version: 5.1.29
   typescript:
     specifier: ^4.9.5
     version: 4.9.5
@@ -4293,7 +4296,6 @@ packages:
     dependencies:
       '@types/react': 18.2.34
       hoist-non-react-statics: 3.3.2
-    dev: false
 
   /@types/html-minifier-terser@6.1.0:
     resolution: {integrity: sha512-oh/6byDPnL1zeNXFrDXFLyZjkr1MsBG667IM792caf1L2UPOOMf65NFzjUH/ltyfwjAGfs1rsX1eftK0jC/KIg==}
@@ -4435,6 +4437,14 @@ packages:
     resolution: {integrity: sha512-tIF57KB+ZvOBpAQwSaACfEu7htponHXaFzP7RfKYgsOS0NoYnn+9+jzp7bbq4fWerizI3dTB4NfAZoyeQKWJLw==}
     dependencies:
       '@types/node': 20.8.10
+    dev: true
+
+  /@types/styled-components@5.1.29:
+    resolution: {integrity: sha512-5h/ah9PAblggQ6Laa4peplT4iY5ddA8qM1LMD4HzwToUWs3hftfy0fayeRgbtH1JZUdw5CCaowmz7Lnb8SjIxQ==}
+    dependencies:
+      '@types/hoist-non-react-statics': 3.3.4
+      '@types/react': 18.2.34
+      csstype: 3.1.2
     dev: true
 
   /@types/trusted-types@2.0.5:
