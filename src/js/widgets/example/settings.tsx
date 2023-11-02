@@ -1,6 +1,4 @@
-import * as React from "react";
-
-import { createWidgetComponent } from "@opendash/core";
+import { createWidgetComponent } from "@opendash/plugin-monitoring";
 
 import { ConfigInterface } from "./types";
 
