@@ -2,9 +2,9 @@
   "compilerOptions": {
     "outDir": "dist",
     "module": "ESNext",
-    "target": "es5",
+    "target": "ES2020",
     "declaration": true,
-    "lib": ["dom", "es2019"],
+    "lib": ["dom", "ES2020"],
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
@@ -15,7 +15,10 @@
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitOverride": true,
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules", "dist", "build-tools", "assets", "package.json"]
+  "include": ["src/**/*"]
 }
