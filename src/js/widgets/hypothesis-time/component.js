@@ -18,6 +18,18 @@ import { stringToColor, useTranslation } from "@opendash/core";
 import { getCurrentLanguageSync } from "@opendash/i18n";
 import { HighchartsChart } from "../..";
 import { Button, Select } from "antd";
+
+function get_trip_counts(aggregationPattern, anchor_date, series) {
+    let trip_counts = new Array(aggregationPattern.length).fill(0);
+    series.forEach(({ date, value }) => {
+        const index = aggregationPattern.findIndex((pattern) => (date - anchor_date) >= pattern.start && (date - anchor_date) <= pattern.end);
+        if (index !== -1) {
+            trip_counts[index] += 1;
+        }
+    });
+    return trip_counts
+}
+
 export default createWidgetComponent((_a) => {
     var { config, draft } = _a, context = __rest(_a, ["config", "draft"]);
     const t = useTranslation();
@@ -30,11 +42,12 @@ export default createWidgetComponent((_a) => {
             .join(", "),
     }));
     const selectedUnit = draft.unit || "day";
+    const selectedAggregationInterval = draft.aggregationInterval || "hour";
     const { width, height } = context.useContainerSize();
     const [[item, dimension]] = context.useItemDimensionConfig();
     const [chartConfig, setChartConfig] = React.useState(null);
     React.useEffect(() => {
-        if (!draft.start_a || !draft.end_a || !draft.start_b || !draft.end_b) {
+        if (!draft.start_a || !draft.end_a || !draft.start_b || !draft.end_b || !draft.aggregationPattern) {
             context.updateDraft((current) => {
                 current.start_a = dayjs()
                     .locale(getCurrentLanguageSync())
@@ -53,6 +66,12 @@ export default createWidgetComponent((_a) => {
                     .locale(getCurrentLanguageSync())
                     .endOf(selectedUnit)
                     .valueOf();
+                current.aggregationPattern = []
+                let value = 0;
+                while (value < dayjs(0).endOf('day').valueOf()) {
+                    current.aggregationPattern.push({ 'start': value, 'end': dayjs(value).endOf(selectedAggregationInterval).valueOf() });
+                    value = dayjs(value).add(1, selectedAggregationInterval).valueOf();
+                }
             });
         }
         else {
@@ -64,7 +83,7 @@ export default createWidgetComponent((_a) => {
                         params: {
                             operation: "count",
                             dimension: dimension,
-                            timeinterval: "hour",
+                            timeinterval: draft.aggregationInterval,
                             start: draft.start_a,
                             end: draft.end_a,
                             source: item.source,
@@ -96,7 +115,7 @@ export default createWidgetComponent((_a) => {
                 const units = Object.fromEntries([historyA, historyB].flatMap((history) => history.map(([item, dimension]) => {
                     return [
                         item.valueTypes[dimension].name +
-                            item.valueTypes[dimension].unit,
+                        item.valueTypes[dimension].unit,
                         item.valueTypes[dimension],
                     ];
                 })));
@@ -104,6 +123,7 @@ export default createWidgetComponent((_a) => {
                     ...historyA.map(([item, dimension, values]) => {
                         const valueType = item.valueTypes[dimension];
                         const unit = units[valueType.name + valueType.unit];
+                        const aggregated_values = get_trip_counts(draft.aggregationPattern, draft.start_a, values);
                         return {
                             name: `${t("highcharts:compare.a")}: ${item.name} (${valueType.name})`,
                             unit: `${valueType.unit}`,
@@ -227,42 +247,51 @@ export default createWidgetComponent((_a) => {
         }
     }, [draft.unit, draft.start_a, draft.end_a, draft.start_b, draft.end_b]);
     return (React.createElement(React.Fragment, null,
-        React.createElement("div", { style: {
+        React.createElement("div", {
+            style: {
                 height: 40,
                 lineHeight: "40px",
                 borderBottom: "1px solid #d9d9d9",
-            } },
-            React.createElement("div", { style: {
+            }
+        },
+            React.createElement("div", {
+                style: {
                     float: "left",
                     width: "33%",
                     padding: "0 20px",
                     textAlign: "center",
-                } },
+                }
+            },
                 React.createElement("span", null, t("highcharts:compare.unit")),
-                React.createElement(Select, { style: { marginLeft: 10 }, value: selectedUnit, onChange: (unit) => {
+                React.createElement(Select, {
+                    style: { marginLeft: 10 }, value: selectedUnit, onChange: (unit) => {
                         context.updateDraft((current) => {
                             current.unit = unit;
                             current.start_a = 0;
                             current.start_b = 0;
                         });
-                    } },
+                    }
+                },
                     React.createElement(Select.Option, { value: "hour" }, t("opendash:ui.hour")),
                     React.createElement(Select.Option, { value: "day" }, t("opendash:ui.day")),
                     React.createElement(Select.Option, { value: "week" }, t("opendash:ui.week")),
                     React.createElement(Select.Option, { value: "month" }, t("opendash:ui.month")))),
-            React.createElement("div", { style: {
+            React.createElement("div", {
+                style: {
                     float: "left",
                     width: "33%",
                     padding: "0 20px",
                     textAlign: "center",
-                } },
+                }
+            },
                 React.createElement("span", null,
                     t("highcharts:compare.a"),
                     ": ",
                     t("opendash:ui." + selectedUnit),
                     " ",
                     formatDateSelection(selectedUnit, draft.start_a)),
-                React.createElement(Button, { style: { marginLeft: 10 }, icon: React.createElement(Icon, { icon: "fa:plus" }), onClick: () => {
+                React.createElement(Button, {
+                    style: { marginLeft: 10 }, icon: React.createElement(Icon, { icon: "fa:plus" }), onClick: () => {
                         context.updateDraft((current) => {
                             current.start_a = dayjs(current.start_a)
                                 .add(1, selectedUnit)
@@ -272,8 +301,10 @@ export default createWidgetComponent((_a) => {
                                 .endOf(selectedUnit)
                                 .valueOf();
                         });
-                    } }),
-                React.createElement(Button, { style: { marginLeft: 3 }, icon: React.createElement(Icon, { icon: "fa:minus" }), onClick: () => {
+                    }
+                }),
+                React.createElement(Button, {
+                    style: { marginLeft: 3 }, icon: React.createElement(Icon, { icon: "fa:minus" }), onClick: () => {
                         context.updateDraft((current) => {
                             current.start_a = dayjs(current.start_a)
                                 .subtract(1, selectedUnit)
@@ -283,20 +314,24 @@ export default createWidgetComponent((_a) => {
                                 .endOf(selectedUnit)
                                 .valueOf();
                         });
-                    } })),
-            React.createElement("div", { style: {
+                    }
+                })),
+            React.createElement("div", {
+                style: {
                     float: "left",
                     width: "33%",
                     padding: "0 20px",
                     textAlign: "center",
-                } },
+                }
+            },
                 React.createElement("span", null,
                     t("highcharts:compare.b"),
                     ": ",
                     t("opendash:ui." + selectedUnit),
                     " ",
                     formatDateSelection(selectedUnit, draft.start_b)),
-                React.createElement(Button, { style: { marginLeft: 10 }, icon: React.createElement(Icon, { icon: "fa:plus" }), onClick: () => {
+                React.createElement(Button, {
+                    style: { marginLeft: 10 }, icon: React.createElement(Icon, { icon: "fa:plus" }), onClick: () => {
                         context.updateDraft((current) => {
                             current.start_b = dayjs(current.start_b)
                                 .add(1, selectedUnit)
@@ -306,8 +341,10 @@ export default createWidgetComponent((_a) => {
                                 .endOf(selectedUnit)
                                 .valueOf();
                         });
-                    } }),
-                React.createElement(Button, { style: { marginLeft: 3 }, icon: React.createElement(Icon, { icon: "fa:minus" }), onClick: () => {
+                    }
+                }),
+                React.createElement(Button, {
+                    style: { marginLeft: 3 }, icon: React.createElement(Icon, { icon: "fa:minus" }), onClick: () => {
                         context.updateDraft((current) => {
                             current.start_b = dayjs(current.start_b)
                                 .subtract(1, selectedUnit)
@@ -317,25 +354,26 @@ export default createWidgetComponent((_a) => {
                                 .endOf(selectedUnit)
                                 .valueOf();
                         });
-                    } }))),
+                    }
+                }))),
         chartConfig && (React.createElement(HighchartsChart, { options: chartConfig, width: width, height: height - 40 }))));
 });
 function formatter(opts, key, x, selectedUnit) {
     var _a;
     var date = selectedUnit === "hour"
         ? // @ts-ignore
-            Highcharts.dateFormat("%H:%M:%S", key)
+        Highcharts.dateFormat("%H:%M:%S", key)
         : selectedUnit === "day"
             ? // @ts-ignore
-                Highcharts.dateFormat("%H:%M:%S", key)
+            Highcharts.dateFormat("%H:%M:%S", key)
             : selectedUnit === "week"
                 ? // @ts-ignore
-                    Highcharts.dateFormat("%A, %H:%M:%S", key)
+                Highcharts.dateFormat("%A, %H:%M:%S", key)
                 : selectedUnit === "year"
                     ? // @ts-ignore
-                        Highcharts.dateFormat("%d.%m.%Y %H:%M:%S", key)
+                    Highcharts.dateFormat("%d.%m.%Y %H:%M:%S", key)
                     : // @ts-ignore
-                        Highcharts.dateFormat("%d.%m.%Y %H:%M:%S", key);
+                    Highcharts.dateFormat("%d.%m.%Y %H:%M:%S", key);
     var s = "<div class='eud-tooltip-time'>" + "<b>" + date;
     ("</b>");
     let series = opts.chart.series;
@@ -361,15 +399,15 @@ function formatter(opts, key, x, selectedUnit) {
                     : Math.min(20, Math.max(2, Math.ceil(Math.abs(Math.log10(fp)))));
                 s +=
                     '<br/><span style="color:' +
-                        serie.color +
-                        '">\u25CF</span>: ' +
-                        serie.name +
-                        ": " +
-                        (isNaN(parseFloat(serie.data[i2Use]["y"]))
-                            ? serie.data[i2Use]["y"]
-                            : serie.data[i2Use]["y"].toFixed(fpprecision)) +
-                        " " +
-                        (((_a = opts.chart.options.series[index]) === null || _a === void 0 ? void 0 : _a.unit) || "");
+                    serie.color +
+                    '">\u25CF</span>: ' +
+                    serie.name +
+                    ": " +
+                    (isNaN(parseFloat(serie.data[i2Use]["y"]))
+                        ? serie.data[i2Use]["y"]
+                        : serie.data[i2Use]["y"].toFixed(fpprecision)) +
+                    " " +
+                    (((_a = opts.chart.options.series[index]) === null || _a === void 0 ? void 0 : _a.unit) || "");
             }
         }
         catch (e) {
