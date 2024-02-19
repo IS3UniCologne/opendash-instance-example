@@ -84,10 +84,36 @@ export default createWidgetComponent((_a) => {
                             operation: "count",
                             dimension: dimension,
                             timeinterval: draft.aggregationInterval,
-                            start: draft.start_a,
+                            start: draft.start_a, 
                             end: draft.end_a,
                             source: item.source,
                             id: item.id,
+                        },
+                    },
+                ],
+            };
+            const pipe_version_1 = {
+                stages: [
+                    {
+                        action: "transform_aggregation", # "InMemAggregation"
+                        params: {
+                            operation: "count",
+                            dimension: dimension,
+                            start: draft.start_a, 
+                            end: draft.end_a,
+                            splits: 24,
+                        },
+                    },
+                ],
+            };
+            const pipe_version_2 = {
+                stages: [
+                    {
+                        action: "transform_aggregation", # "InMemAggregation"
+                        params: {
+                            operation: "count",
+                            dimension: dimension,
+                            interval: 60 * 60 * 1000, # in milliseconds
                         },
                     },
                 ],
