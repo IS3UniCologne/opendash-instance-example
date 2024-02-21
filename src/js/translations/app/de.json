@@ -1,0 +1,9 @@
+{
+    "widgets": {
+        "hypothesis": {
+            "title": "Hypothesentest",
+            "timeseries": "Verschiedene Zeitreihen",
+            "description": "Zwei Stichproben T-Test"
+        }
+    }
+}

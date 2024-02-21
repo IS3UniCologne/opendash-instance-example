@@ -12,9 +12,12 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { createWidgetComponent } from "@opendash/plugin-monitoring";
 import { useDataService } from "@opendash/plugin-timeseries";
 import dayjs from "dayjs";
+import ttest2 from '@stdlib/stats/ttest2';
 import * as React from "react";
 import { Icon } from "@opendash/icons";
 import { stringToColor, useTranslation } from "@opendash/core";
+import { Card, Divider, List } from "antd";
+import Avatar from "antd/lib/avatar/avatar";
 import { getCurrentLanguageSync } from "@opendash/i18n";
 import { HighchartsChart } from "../..";
 import { Button, Select } from "antd";
@@ -34,7 +37,6 @@ export default createWidgetComponent((_a) => {
     var { config, draft } = _a, context = __rest(_a, ["config", "draft"]);
     const t = useTranslation();
     const DataService = useDataService();
-    context.setLoading(false);
     context.setName(t("highcharts:name.timeseries_compare", {
         name: context
             .useItemDimensionConfig()
@@ -45,7 +47,7 @@ export default createWidgetComponent((_a) => {
     const selectedAggregationInterval = draft.aggregationInterval || "hour";
     const { width, height } = context.useContainerSize();
     const [[item, dimension]] = context.useItemDimensionConfig();
-    const [chartConfig, setChartConfig] = React.useState(null);
+    const [chartConfig, setChartConfig] = React.useState({ 'title': '', "extra_text": '' });
     React.useEffect(() => {
         if (!draft.start_a || !draft.end_a || !draft.start_b || !draft.end_b || !draft.aggregationPattern) {
             context.updateDraft((current) => {
@@ -84,7 +86,7 @@ export default createWidgetComponent((_a) => {
                             operation: "count",
                             dimension: dimension,
                             timeinterval: draft.aggregationInterval,
-                            start: draft.start_a, 
+                            start: draft.start_a,
                             end: draft.end_a,
                             source: item.source,
                             id: item.id,
@@ -95,11 +97,11 @@ export default createWidgetComponent((_a) => {
             const pipe_version_1 = {
                 stages: [
                     {
-                        action: "transform_aggregation", # "InMemAggregation"
+                        action: "source_aggregation", // "InMemAggregation"
                         params: {
                             operation: "count",
                             dimension: dimension,
-                            start: draft.start_a, 
+                            start: draft.start_a,
                             end: draft.end_a,
                             splits: 24,
                         },
@@ -109,11 +111,11 @@ export default createWidgetComponent((_a) => {
             const pipe_version_2 = {
                 stages: [
                     {
-                        action: "transform_aggregation", # "InMemAggregation"
+                        action: "source_aggregation", // "InMemAggregation"
                         params: {
                             operation: "count",
                             dimension: dimension,
-                            interval: 60 * 60 * 1000, # in milliseconds
+                            interval: 60 * 60 * 1000,  // in milliseconds
                         },
                     },
                 ],
@@ -149,126 +151,21 @@ export default createWidgetComponent((_a) => {
                     ...historyA.map(([item, dimension, values]) => {
                         const valueType = item.valueTypes[dimension];
                         const unit = units[valueType.name + valueType.unit];
-                        const aggregated_values = get_trip_counts(draft.aggregationPattern, draft.start_a, values);
-                        return {
-                            name: `${t("highcharts:compare.a")}: ${item.name} (${valueType.name})`,
-                            unit: `${valueType.unit}`,
-                            color: stringToColor(item.id + "aaaa"),
-                            type: config.type,
-                            yAxis: Object.values(units).indexOf(unit),
-                            data: values.map((x) => [
-                                flattenDate(selectedUnit, x.date),
-                                x.value,
-                                //_date: x.date,
-                            ]),
-                        };
+                        return get_trip_counts(draft.aggregationPattern, draft.start_a, values);
                     }),
                     ...historyB.map(([item, dimension, values]) => {
                         const valueType = item.valueTypes[dimension];
                         const unit = units[valueType.name + valueType.unit];
-                        return {
-                            name: `${t("highcharts:compare.b")}: ${item.name} (${valueType.name})`,
-                            color: stringToColor(item.id + "bbbb"),
-                            unit: `${valueType.unit}`,
-                            type: config.type,
-                            yAxis: Object.values(units).indexOf(unit),
-                            data: values.map((x) => [
-                                flattenDate(selectedUnit, x.date),
-                                x.value,
-                                //_date: x.date,
-                            ]),
-                        };
+                        return get_trip_counts(draft.aggregationPattern, draft.start_b, values);
                     }),
                 ];
-                const result = {
-                    title: null,
-                    subtitle: null,
-                    chart: {
-                        zoomType: "x",
-                    },
-                    xAxis: {
-                        title: {
-                            text: null,
-                        },
-                        type: "datetime",
-                        labels: {
-                            formatter: function formatLabels() {
-                                return formatDateXAxis(selectedUnit, this.value);
-                            },
-                        },
-                    },
-                    yAxis: Object.values(units).map((unit) => ({
-                        title: {
-                            text: `${unit.name} (${unit.unit})`,
-                        },
-                        labels: {
-                            format: "{value}" + unit.unit,
-                        },
-                    })),
-                    legend: {
-                        enabled: true,
-                    },
-                    tooltip: {
-                        shadow: false,
-                        borderWidth: 0,
-                        borderColor: "rgba(100,100,100,0.5)",
-                        backgroundColor: "rgba(250,250,250,1)",
-                        //formatter: formatter,
-                        formatter: function formatTooltip(e) {
-                            return formatter(e, this.key, this.x, selectedUnit);
-                        },
-                    },
-                    credits: {
-                        enabled: false,
-                    },
-                    plotOptions: {
-                        series: {
-                            enableMouseTracking: true,
-                            animation: false,
-                            marker: {
-                                enabled: true,
-                                radius: 0.1,
-                                states: {
-                                    hover: {
-                                        enabled: false,
-                                    },
-                                    select: {
-                                        enabled: true,
-                                        radius: 5,
-                                        //@ts-ignore
-                                        fillColor: Highcharts.color[0],
-                                        //@ts-ignore
-                                        lineColor: Highcharts.color[0],
-                                    },
-                                },
-                            },
-                            states: {
-                                hover: {
-                                    enabled: false,
-                                },
-                                inactive: {
-                                    opacity: 1,
-                                },
-                            },
-                        },
-                        scatter: {
-                            marker: {
-                                radius: 5,
-                                states: {
-                                    hover: {
-                                        enabled: true,
-                                        lineColor: "rgb(100,100,100)",
-                                    },
-                                },
-                            },
-                            states: {
-                                hover: {},
-                            },
-                        },
-                    },
-                    series,
-                };
-                setChartConfig(result);
+                const test_result = ttest2(series[0], series[1]);
+                const extracted_result = {
+                    'title': test_result.rejected ? 'Deutlich verschieden' : 'Identisch',
+                    'extra_info': `Durchschnitt A: ${test_result.xmean.toFixed(2)} - Durchschnitt B: ${test_result.ymean.toFixed(2)} | P-Wert: ${test_result.pValue.toFixed(2)}`,
+                }
+                setChartConfig(extracted_result);
+                context.setLoading(false);
             });
         }
     }, [draft.unit, draft.start_a, draft.end_a, draft.start_b, draft.end_b]);
@@ -382,7 +279,21 @@ export default createWidgetComponent((_a) => {
                         });
                     }
                 }))),
-        chartConfig && (React.createElement(HighchartsChart, { options: chartConfig, width: width, height: height - 40 }))));
+        React.createElement("div", { style: { height: "100%" } },
+            React.createElement(Card, null,
+                React.createElement(Card.Meta, { // change back to dynamic using config s
+                    title: 'Time Based Comparison', description: 'Two sample T-Test', avatar: config.headerImageLink ? (React.createElement(Avatar, { size: 64, src: config.headerImageLink })) : (React.createElement(Avatar, {
+                        size: 64, style: {
+                            backgroundColor: "var(--opendash-color-green)",
+                            verticalAlign: "middle",
+                        }
+                    }, 'H'))
+                }),
+                React.createElement(Divider, null),
+                        /*width > 580 && */ React.createElement(Card.Meta, { // change back to dynamic using config s
+                    title: chartConfig.title, description: chartConfig.extra_info
+                })))
+    ));
 });
 function formatter(opts, key, x, selectedUnit) {
     var _a;

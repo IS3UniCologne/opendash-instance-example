@@ -1,8 +1,17 @@
 {
   "widgets": {
-    "example": {
-      "title": "Example Widget",
-      "description": "This widget is just for demonstration."
+    "hypothesis": {
+      "title": "Hypothesis Test",
+      "description": "Two Sample T-Test",
+      "settings": {
+        "title": "Choose the Comparison Type",
+        "description": "Please choose the comparison type you want to test."
+      },
+      "timeseries": "Different Timeseries",
+      "geozones": "Different Geozones",
+      "timegeo": "Different Timeseries with Geozones",
+      "weekendgeo": "Weekend - Weekday with Geozones",
+      "timeintervalgeo": "Different Times of the Day with Geozones"
     }
   }
 }

@@ -28,6 +28,7 @@
     "@opendash/router": "nightly",
     "@opendash/state": "nightly",
     "@opendash/ui": "nightly",
+    "@stdlib/stats": "^0.2.1",
     "@turf/turf": "^6.5.0",
     "antd": "^5.14.0",
     "dayjs": "^1.11.10",
@@ -49,7 +50,8 @@
     "react-resizable": "^3.0.5",
     "react-window": "^1.8.10",
     "styled-components": "^5.3.11",
-    "tslib": "^2.6.2"
+    "tslib": "^2.6.2",
+    "ttest2": "link:@stdlib/stats/ttest2"
   },
   "devDependencies": {
     "@opendash/cli": "nightly",
