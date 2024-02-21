@@ -44,6 +44,11 @@ init("opendash", async (factory) => {
     "app",
     async () => await import("./translations/app/en.json")
   );
+  factory.registerTranslationResolver(
+    "de",
+    "app",
+    async () => await import("./translations/app/de.json")
+  );
 
   // Adapter + Plugins
 

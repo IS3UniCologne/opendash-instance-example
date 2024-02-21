@@ -5,7 +5,24 @@
       "description": "Two Sample T-Test",
       "settings": {
         "title": "Choose the Comparison Type",
-        "description": "Please choose the comparison type you want to test."
+        "description": "Please choose the comparison type you want to test.",
+        "titleA": "Choose the First Sample",
+        "descriptionA": "Please choose the first sample you want to test.",
+        "titleB": "Choose the Second Sample",
+        "descriptionB": "Please choose the second sample you want to test."
+      },
+      "headers": {
+        "timeseries": "Different Timeseries {{name}}",
+        "geozones": "Different Geozones {{name}}",
+        "timegeo": "Different Timeseries with Geozones {{name}}",
+        "weekendgeo": "Weekend - Weekday with Geozones {{name}}",
+        "timeintervalgeo": "Different Times of the Day with Geozones {{name}}"
+      },
+      "results": {
+        "rejected": "Significantly different",
+        "not_rejected": "Not significantly different",
+        "mean": "Mean",
+        "pvalue": "P-value"
       },
       "timeseries": "Different Timeseries",
       "geozones": "Different Geozones",

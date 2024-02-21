@@ -22,22 +22,30 @@ import { getCurrentLanguageSync } from "@opendash/i18n";
 import { HighchartsChart } from "../..";
 import { Button, Select } from "antd";
 
-function get_trip_counts(aggregationPattern, anchor_date, series) {
-    let trip_counts = new Array(aggregationPattern.length).fill(0);
+
+function get_start_till_end_dict(start, end) {
+    let start_till_end_dict = {};
+    for (let i = start; i < end; i = dayjs(i).add(1, 'hour').valueOf()) {
+        start_till_end_dict[i] = 0;
+    }
+    return start_till_end_dict;
+}
+
+
+function get_trip_counts(series, start, end) {
+    let trip_counts = get_start_till_end_dict(start, end);
     series.forEach(({ date, value }) => {
-        const index = aggregationPattern.findIndex((pattern) => (date - anchor_date) >= pattern.start && (date - anchor_date) <= pattern.end);
-        if (index !== -1) {
-            trip_counts[index] += 1;
-        }
+        const key = dayjs(date).startOf('hour').valueOf();
+        trip_counts[key] = (trip_counts[key] || 0) + 1;
     });
-    return trip_counts
+    return Object.values(trip_counts);
 }
 
 export default createWidgetComponent((_a) => {
     var { config, draft } = _a, context = __rest(_a, ["config", "draft"]);
     const t = useTranslation();
     const DataService = useDataService();
-    context.setName(t("highcharts:name.timeseries_compare", {
+    context.setName(t(`app:widgets.hypothesis.headers.${draft.type}`, {
         name: context
             .useItemDimensionConfig()
             .map(([item, dimension]) => DataService.getItemName(item, dimension))
@@ -49,31 +57,27 @@ export default createWidgetComponent((_a) => {
     const [[item, dimension]] = context.useItemDimensionConfig();
     const [chartConfig, setChartConfig] = React.useState({ 'title': '', "extra_text": '' });
     React.useEffect(() => {
-        if (!draft.start_a || !draft.end_a || !draft.start_b || !draft.end_b || !draft.aggregationPattern) {
+        if (!draft.a_selection || !draft.b_selection) {
             context.updateDraft((current) => {
-                current.start_a = dayjs()
+                start_a = dayjs()
                     .locale(getCurrentLanguageSync())
                     .startOf(selectedUnit)
                     .valueOf();
-                current.end_a = dayjs(current.start_a)
+                end_a = dayjs(start_a)
                     .locale(getCurrentLanguageSync())
                     .endOf(selectedUnit)
                     .valueOf();
-                current.start_b = dayjs(current.start_a)
+                start_b = dayjs(start_a)
                     .locale(getCurrentLanguageSync())
                     .subtract(1, selectedUnit)
                     .startOf(selectedUnit)
                     .valueOf();
-                current.end_b = dayjs(current.start_b)
+                end_b = dayjs(start_b)
                     .locale(getCurrentLanguageSync())
                     .endOf(selectedUnit)
                     .valueOf();
-                current.aggregationPattern = []
-                let value = 0;
-                while (value < dayjs(0).endOf('day').valueOf()) {
-                    current.aggregationPattern.push({ 'start': value, 'end': dayjs(value).endOf(selectedAggregationInterval).valueOf() });
-                    value = dayjs(value).add(1, selectedAggregationInterval).valueOf();
-                }
+                current.a_selection = { start: start_a, end: end_a };
+                current.b_selection = { start: start_b, end: end_b };
             });
         }
         else {
@@ -123,8 +127,8 @@ export default createWidgetComponent((_a) => {
             Promise.all([
                 DataService.fetchDimensionValuesMultiItem([[item, dimension]], {
                     historyType: "aggregate",
-                    start: draft.start_a,
-                    end: draft.end_a,
+                    start: draft.a_selection.start,
+                    end: draft.a_selection.end,
                     aggregation: true,
                     aggregationPipe: pipe,
                     // aggregationOperation: "count",
@@ -132,8 +136,8 @@ export default createWidgetComponent((_a) => {
                 }),
                 DataService.fetchDimensionValuesMultiItem([[item, dimension]], {
                     historyType: "aggregate",
-                    start: draft.start_b,
-                    end: draft.end_b,
+                    start: draft.b_selection.start,
+                    end: draft.b_selection.end,
                     aggregation: true,
                     aggregationPipe: pipe,
                     // aggregationOperation: "count",
@@ -149,26 +153,22 @@ export default createWidgetComponent((_a) => {
                 })));
                 const series = [
                     ...historyA.map(([item, dimension, values]) => {
-                        const valueType = item.valueTypes[dimension];
-                        const unit = units[valueType.name + valueType.unit];
-                        return get_trip_counts(draft.aggregationPattern, draft.start_a, values);
+                        return get_trip_counts(values, draft.a_selection.start, draft.a_selection.end);
                     }),
                     ...historyB.map(([item, dimension, values]) => {
-                        const valueType = item.valueTypes[dimension];
-                        const unit = units[valueType.name + valueType.unit];
-                        return get_trip_counts(draft.aggregationPattern, draft.start_b, values);
+                        return get_trip_counts(values, draft.b_selection.start, draft.b_selection.end);
                     }),
                 ];
                 const test_result = ttest2(series[0], series[1]);
                 const extracted_result = {
-                    'title': test_result.rejected ? 'Deutlich verschieden' : 'Identisch',
-                    'extra_info': `Durchschnitt A: ${test_result.xmean.toFixed(2)} - Durchschnitt B: ${test_result.ymean.toFixed(2)} | P-Wert: ${test_result.pValue.toFixed(2)}`,
+                    'title': test_result.rejected ? t('app:widgets.hypothesis.results.rejected') : t('app:widgets.hypothesis.results.not_rejected'),
+                    'extra_info': `${t('app:widgets.hypothesis.results.mean')} A: ${test_result.xmean.toFixed(2)} - ${t('app:widgets.hypothesis.results.mean')} B: ${test_result.ymean.toFixed(2)} | ${t('app:widgets.hypothesis.results.pvalue')}: ${test_result.pValue.toFixed(2)}`,
                 }
                 setChartConfig(extracted_result);
                 context.setLoading(false);
             });
         }
-    }, [draft.unit, draft.start_a, draft.end_a, draft.start_b, draft.end_b]);
+    }, [draft.unit, draft.a_selection, draft.b_selection]);
     return (React.createElement(React.Fragment, null,
         React.createElement("div", {
             style: {
@@ -210,35 +210,9 @@ export default createWidgetComponent((_a) => {
                 React.createElement("span", null,
                     t("highcharts:compare.a"),
                     ": ",
-                    t("opendash:ui." + selectedUnit),
-                    " ",
-                    formatDateSelection(selectedUnit, draft.start_a)),
-                React.createElement(Button, {
-                    style: { marginLeft: 10 }, icon: React.createElement(Icon, { icon: "fa:plus" }), onClick: () => {
-                        context.updateDraft((current) => {
-                            current.start_a = dayjs(current.start_a)
-                                .add(1, selectedUnit)
-                                .startOf(selectedUnit)
-                                .valueOf();
-                            current.end_a = dayjs(current.start_a)
-                                .endOf(selectedUnit)
-                                .valueOf();
-                        });
-                    }
-                }),
-                React.createElement(Button, {
-                    style: { marginLeft: 3 }, icon: React.createElement(Icon, { icon: "fa:minus" }), onClick: () => {
-                        context.updateDraft((current) => {
-                            current.start_a = dayjs(current.start_a)
-                                .subtract(1, selectedUnit)
-                                .startOf(selectedUnit)
-                                .valueOf();
-                            current.end_a = dayjs(current.start_a)
-                                .endOf(selectedUnit)
-                                .valueOf();
-                        });
-                    }
-                })),
+                    formatDateSelection('day', draft.a_selection.start),
+                    " - ",
+                    formatDateSelection('day', draft.a_selection.end))),
             React.createElement("div", {
                 style: {
                     float: "left",
@@ -248,41 +222,16 @@ export default createWidgetComponent((_a) => {
                 }
             },
                 React.createElement("span", null,
-                    t("highcharts:compare.b"),
+                    t("highcharts:compare.a"),
                     ": ",
-                    t("opendash:ui." + selectedUnit),
-                    " ",
-                    formatDateSelection(selectedUnit, draft.start_b)),
-                React.createElement(Button, {
-                    style: { marginLeft: 10 }, icon: React.createElement(Icon, { icon: "fa:plus" }), onClick: () => {
-                        context.updateDraft((current) => {
-                            current.start_b = dayjs(current.start_b)
-                                .add(1, selectedUnit)
-                                .startOf(selectedUnit)
-                                .valueOf();
-                            current.end_b = dayjs(current.start_b)
-                                .endOf(selectedUnit)
-                                .valueOf();
-                        });
-                    }
-                }),
-                React.createElement(Button, {
-                    style: { marginLeft: 3 }, icon: React.createElement(Icon, { icon: "fa:minus" }), onClick: () => {
-                        context.updateDraft((current) => {
-                            current.start_b = dayjs(current.start_b)
-                                .subtract(1, selectedUnit)
-                                .startOf(selectedUnit)
-                                .valueOf();
-                            current.end_b = dayjs(current.start_b)
-                                .endOf(selectedUnit)
-                                .valueOf();
-                        });
-                    }
-                }))),
+                    formatDateSelection('day', draft.b_selection.start),
+                    " - ",
+                    formatDateSelection('day', draft.b_selection.end)),
+            )),
         React.createElement("div", { style: { height: "100%" } },
             React.createElement(Card, null,
                 React.createElement(Card.Meta, { // change back to dynamic using config s
-                    title: 'Time Based Comparison', description: 'Two sample T-Test', avatar: config.headerImageLink ? (React.createElement(Avatar, { size: 64, src: config.headerImageLink })) : (React.createElement(Avatar, {
+                    title: t(`app:widgets.hypothesis.${draft.type}`), description: t("app:widgets.hypothesis.description"), avatar: config.headerImageLink ? (React.createElement(Avatar, { size: 64, src: config.headerImageLink })) : (React.createElement(Avatar, {
                         size: 64, style: {
                             backgroundColor: "var(--opendash-color-green)",
                             verticalAlign: "middle",
