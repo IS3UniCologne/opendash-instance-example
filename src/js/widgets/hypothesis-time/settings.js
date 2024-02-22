@@ -12,11 +12,16 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { useTranslation } from "@opendash/core";
 import { createWidgetComponent } from "@opendash/plugin-monitoring";
 import { DataItemHistoryOptionsPicker } from "@opendash/plugin-timeseries";
+import GeographySelector from "@opendash/plugin-miaas/dist/components/GeographySelector";
 import { Description, IconSelect as Select } from "@opendash/ui";
-import { Collapse } from "antd";
+import { Collapse, Divider } from "antd";
 import * as React from "react";
 export default createWidgetComponent((_a) => {
     var { draft, updateDraft } = _a, context = __rest(_a, ["draft", "updateDraft"]);
+    const [type, setType] = React.useState(draft.geotype || "zones");
+    const [json, setJSON] = React.useState(draft.districts);
+    const [zones, setZones] = React.useState(draft.districtsFromZones);
+    const [dimension, setDimension] = React.useState(draft.districtFromDimension || null);
     const t = useTranslation();
     return (React.createElement(React.Fragment, null,
         React.createElement(Collapse, { bordered: false, defaultActiveKey: ["type"] },
@@ -74,8 +79,42 @@ export default createWidgetComponent((_a) => {
                             draft.a_selection = nextValue;
                         });
                     }
+                }),
+                React.createElement(Divider),
+                React.createElement(GeographySelector, {
+                    type: type, value: type === "json" ? json : type === "dimension" ? dimension : zones, update: (type, value) => {
+                        setType(type);
+                        if (type === "json") {
+                            setJSON(value);
+                        }
+                        if (type === "dimension") {
+                            setDimension(value);
+                        }
+                        if (type === "zones") {
+                            setZones(value);
+                        }
+                        updateDraft((draft) => {
+                            draft.geotype = type;
+                            if (type === "json") {
+                                draft.districtFromDimension = null;
+                                draft.districts = value;
+                                draft.districtsFromZones = null;
+                            }
+                            if (type === "dimension") {
+                                draft.districtFromDimension = value;
+                                draft.districts = null;
+                                draft.districtsFromZones = null;
+                            }
+                            if (type === "zones") {
+                                draft.districtFromDimension = null;
+                                draft.districts = null;
+                                draft.districtsFromZones = value;
+                            }
+                        });
+                    }
                 })
-            )),
+            )
+        ),
         React.createElement(Collapse, { bordered: false },
             React.createElement(Collapse.Panel, { header: t("app:widgets.hypothesis.settings.titleB"), key: "type" },
                 React.createElement(Description, { children: t("app:widgets.hypothesis.settings.descriptionB") }),
@@ -83,6 +122,39 @@ export default createWidgetComponent((_a) => {
                     options: { live: false, history: true, aggregation: false }, value: draft.b_selection, onChange: (nextValue) => {
                         updateDraft((draft) => {
                             draft.b_selection = nextValue;
+                        });
+                    }
+                }),
+                React.createElement(Divider),
+                React.createElement(GeographySelector, {
+                    type: type, value: type === "json" ? json : type === "dimension" ? dimension : zones, update: (type, value) => {
+                        setType(type);
+                        if (type === "json") {
+                            setJSON(value);
+                        }
+                        if (type === "dimension") {
+                            setDimension(value);
+                        }
+                        if (type === "zones") {
+                            setZones(value);
+                        }
+                        updateDraft((draft) => {
+                            draft.geotype = type;
+                            if (type === "json") {
+                                draft.districtFromDimension = null;
+                                draft.districts = value;
+                                draft.districtsFromZones = null;
+                            }
+                            if (type === "dimension") {
+                                draft.districtFromDimension = value;
+                                draft.districts = null;
+                                draft.districtsFromZones = null;
+                            }
+                            if (type === "zones") {
+                                draft.districtFromDimension = null;
+                                draft.districts = null;
+                                draft.districtsFromZones = value;
+                            }
                         });
                     }
                 })

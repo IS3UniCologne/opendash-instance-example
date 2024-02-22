@@ -19,7 +19,6 @@ import { stringToColor, useTranslation } from "@opendash/core";
 import { Card, Divider, List } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import { getCurrentLanguageSync } from "@opendash/i18n";
-import { HighchartsChart } from "../..";
 import { Button, Select } from "antd";
 
 
