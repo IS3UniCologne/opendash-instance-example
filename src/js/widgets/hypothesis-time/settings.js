@@ -14,7 +14,7 @@ import { createWidgetComponent } from "@opendash/plugin-monitoring";
 import { DataItemHistoryOptionsPicker } from "@opendash/plugin-timeseries";
 import GeographySelector from "@opendash/plugin-miaas/dist/components/GeographySelector";
 import { Description, IconSelect as Select } from "@opendash/ui";
-import { Collapse, Divider } from "antd";
+import { Collapse, Divider, Row, Col, InputNumber, Space } from "antd";
 import * as React from "react";
 export default createWidgetComponent((_a) => {
     var { draft, updateDraft } = _a, context = __rest(_a, ["draft", "updateDraft"]);
@@ -33,20 +33,6 @@ export default createWidgetComponent((_a) => {
                             draft.type = nextValue;
                         });
                     }, options: [
-                        {
-                            label: t("app:widgets.hypothesis.timeseries"),
-                            icon: t("highcharts:types.line_icon"),
-                            tooltip: null,
-                            value: "timeseries",
-                            disabled: false,
-                        },
-                        {
-                            label: t("app:widgets.hypothesis.geozones"),
-                            icon: t("highcharts:types.spline_icon"),
-                            tooltip: null,
-                            value: "geozones",
-                            disabled: false,
-                        },
                         {
                             label: t("app:widgets.hypothesis.timegeo"),
                             icon: t("highcharts:types.area_icon"),
@@ -80,6 +66,29 @@ export default createWidgetComponent((_a) => {
                         });
                     }
                 }),
+                React.createElement(Divider),
+                React.createElement(Row, { gutter: 16, justify: 'end' },
+                    React.createElement(Col, { span: 4 },
+                        React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_from"))),
+                    React.createElement(Col, { span: 4 },
+                        React.createElement(InputNumber, {
+                            value: draft.a_start_hour, onChange: (nextValue) => {
+                                updateDraft((draft) => {
+                                    draft.a_start_hour = nextValue;
+                                });
+                            }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
+                        })),
+                    React.createElement(Col, { span: 4 },
+                        React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_to"))),
+                    React.createElement(Col, { span: 4 },
+                        React.createElement(InputNumber, {
+                            value: draft.a_end_hour, onChange: (nextValue) => {
+                                updateDraft((draft) => {
+                                    draft.a_end_hour = nextValue;
+                                });
+                            }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
+                        }))
+                ),
                 React.createElement(Divider),
                 React.createElement(GeographySelector, {
                     type: type, value: type === "json" ? json : type === "dimension" ? dimension : zones, update: (type, value) => {
@@ -125,6 +134,28 @@ export default createWidgetComponent((_a) => {
                         });
                     }
                 }),
+                React.createElement(Row, { gutter: 16, justify: 'end' },
+                    React.createElement(Col, { span: 4 },
+                        React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_from"))),
+                    React.createElement(Col, { span: 4 },
+                        React.createElement(InputNumber, {
+                            value: draft.b_start_hour, onChange: (nextValue) => {
+                                updateDraft((draft) => {
+                                    draft.b_start_hour = nextValue;
+                                });
+                            }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
+                        })),
+                    React.createElement(Col, { span: 4 },
+                        React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_to"))),
+                    React.createElement(Col, { span: 4 },
+                        React.createElement(InputNumber, {
+                            value: draft.b_end_hour, onChange: (nextValue) => {
+                                updateDraft((draft) => {
+                                    draft.b_end_hour = nextValue;
+                                });
+                            }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
+                        }))
+                ),
                 React.createElement(Divider),
                 React.createElement(GeographySelector, {
                     type: type, value: type === "json" ? json : type === "dimension" ? dimension : zones, update: (type, value) => {

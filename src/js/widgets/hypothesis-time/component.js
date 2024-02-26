@@ -22,20 +22,38 @@ import { getCurrentLanguageSync } from "@opendash/i18n";
 import { Button, Select } from "antd";
 
 
-function get_start_till_end_dict(start, end) {
+function get_start_till_end_dict(start, end, exclude_hours = [], only_weekdays = false, only_weekends = false) {
     let start_till_end_dict = {};
     for (let i = start; i < end; i = dayjs(i).add(1, 'hour').valueOf()) {
+        if (exclude_hours.includes(dayjs(i).hour())
+            || (only_weekdays && ((dayjs(i).day() === 0) || (dayjs(i).day() === 6)))
+            || (only_weekends && (dayjs(i).day() !== 0) && (dayjs(i).day() !== 6))) {
+            continue;
+        }
         start_till_end_dict[i] = 0;
     }
     return start_till_end_dict;
 }
 
 
-function get_trip_counts(series, start, end) {
-    let trip_counts = get_start_till_end_dict(start, end);
+function get_exclude_hours(start, end) {
+    let exclude_hours = [];
+    let i = end + 1;
+    while (i != start) {
+        exclude_hours.push(i);
+        i = (i + 1) % 24;
+    }
+    return exclude_hours;
+}
+
+
+function get_trip_counts(series, start, end, exclude_hours = [], only_weekdays = false, only_weekends = false) {
+    let trip_counts = get_start_till_end_dict(start, end, exclude_hours, only_weekdays, only_weekends);
     series.forEach(({ date, value }) => {
         const key = dayjs(date).startOf('hour').valueOf();
-        trip_counts[key] = (trip_counts[key] || 0) + 1;
+        if (key in trip_counts) {
+            trip_counts[key] = trip_counts[key] + 1;
+        }
     });
     return Object.values(trip_counts);
 }
@@ -81,64 +99,18 @@ export default createWidgetComponent((_a) => {
         }
         else {
             context.saveDraft();
-            const pipe = {
-                stages: [
-                    {
-                        action: "source_aggregation",
-                        params: {
-                            operation: "count",
-                            dimension: dimension,
-                            timeinterval: draft.aggregationInterval,
-                            start: draft.start_a,
-                            end: draft.end_a,
-                            source: item.source,
-                            id: item.id,
-                        },
-                    },
-                ],
-            };
-            const pipe_version_1 = {
-                stages: [
-                    {
-                        action: "source_aggregation", // "InMemAggregation"
-                        params: {
-                            operation: "count",
-                            dimension: dimension,
-                            start: draft.start_a,
-                            end: draft.end_a,
-                            splits: 24,
-                        },
-                    },
-                ],
-            };
-            const pipe_version_2 = {
-                stages: [
-                    {
-                        action: "source_aggregation", // "InMemAggregation"
-                        params: {
-                            operation: "count",
-                            dimension: dimension,
-                            interval: 60 * 60 * 1000,  // in milliseconds
-                        },
-                    },
-                ],
-            };
             Promise.all([
                 DataService.fetchDimensionValuesMultiItem([[item, dimension]], {
-                    historyType: "aggregate",
+                    historyType: "absolute",
                     start: draft.a_selection.start,
                     end: draft.a_selection.end,
-                    aggregation: true,
-                    aggregationPipe: pipe,
                     // aggregationOperation: "count",
                     // aggregationDateUnit: draft.unit,
                 }),
                 DataService.fetchDimensionValuesMultiItem([[item, dimension]], {
-                    historyType: "aggregate",
+                    historyType: "absolute",
                     start: draft.b_selection.start,
                     end: draft.b_selection.end,
-                    aggregation: true,
-                    aggregationPipe: pipe,
                     // aggregationOperation: "count",
                     // aggregationDateUnit: draft.unit,
                 }),
@@ -152,10 +124,24 @@ export default createWidgetComponent((_a) => {
                 })));
                 const series = [
                     ...historyA.map(([item, dimension, values]) => {
-                        return get_trip_counts(values, draft.a_selection.start, draft.a_selection.end);
+                        if (draft.type === 'weekendgeo') {
+                            return get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], true, false);
+                        } else if (draft.type === 'timeintervalgeo') {
+                            const exclude_hours = get_exclude_hours(draft.a_start_hour, draft.a_end_hour);
+                            return get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, exclude_hours, false, false);
+                        } else {
+                            return get_trip_counts(values, draft.a_selection.start, draft.a_selection.end);
+                        }
                     }),
                     ...historyB.map(([item, dimension, values]) => {
-                        return get_trip_counts(values, draft.b_selection.start, draft.b_selection.end);
+                        if (draft.type === 'weekendgeo') {
+                            return get_trip_counts(values, draft.b_selection.start, draft.b_selection.end, [], false, true);
+                        } else if (draft.type === 'timeintervalgeo') {
+                            const exclude_hours = get_exclude_hours(draft.b_start_hour, draft.b_end_hour);
+                            return get_trip_counts(values, draft.b_selection.start, draft.b_selection.end, exclude_hours, false, false);
+                        } else {
+                            return get_trip_counts(values, draft.b_selection.start, draft.b_selection.end);
+                        }
                     }),
                 ];
                 const test_result = ttest2(series[0], series[1]);

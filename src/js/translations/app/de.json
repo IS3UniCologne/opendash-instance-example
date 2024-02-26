@@ -2,8 +2,34 @@
     "widgets": {
         "hypothesis": {
             "title": "Hypothesentest",
+            "settings": {
+                "title": "Auswahl des Vergleichs",
+                "description": "Bitte wählen Sie den Vergleichstyp den Sie testen wollen.",
+                "titleA": "Wählen Sie den ersten Datensatz",
+                "descriptionA": "Bitte wählen Sie den ersten Datensatz den Sie testen wollen.",
+                "titleB": "Wählen Sie den zweiten Datensatz",
+                "descriptionB": "Bitte wählen Sie den zweiten Datensatz den Sie testen wollen.",
+                "hour_from": "Startzeitpunkt",
+                "hour_to": "Endzeitpunkt"
+            },
+            "headers": {
+                "timeseries": "Verschiedene Zeitreihen {{name}}",
+                "geozones": "Verschiedene Geozonen {{name}}",
+                "timegeo": "Verschiedene Zeitreihen mit Geozonen {{name}}",
+                "weekendgeo": "Wochenende - Wochentag mit Geozonen {{name}}",
+                "timeintervalgeo": "Verschiedene Tageszeiten mit Geozonen {{name}}"
+            },
+            "results": {
+                "rejected": "Deutlich verschieden",
+                "not_rejected": "Nicht deutlich verschieden",
+                "mean": "Durchschnitt",
+                "pvalue": "P-Wert"
+            },
             "timeseries": "Verschiedene Zeitreihen",
-            "description": "Zwei Stichproben T-Test"
+            "geozones": "Verschiedene Geozonen",
+            "timegeo": "Verschiedene Zeitreihen mit Geozonen",
+            "weekendgeo": "Wochenende - Wochentag mit Geozonen",
+            "timeintervalgeo": "Verschiedene Tageszeiten mit Geozonen"
         }
     }
 }
