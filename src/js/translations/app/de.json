@@ -2,6 +2,7 @@
     "widgets": {
         "hypothesis": {
             "title": "Hypothesentest",
+            "comparison_description": "Vergleich - Anzahl Fahrten/Stunde",
             "settings": {
                 "title": "Auswahl des Vergleichs",
                 "description": "Bitte wählen Sie den Vergleichstyp den Sie testen wollen.",
@@ -10,7 +11,8 @@
                 "titleB": "Wählen Sie den zweiten Datensatz",
                 "descriptionB": "Bitte wählen Sie den zweiten Datensatz den Sie testen wollen.",
                 "hour_from": "Startzeitpunkt",
-                "hour_to": "Endzeitpunkt"
+                "hour_to": "Endzeitpunkt",
+                "set_name": "Titel der Zeitreihe"
             },
             "headers": {
                 "timeseries": "Verschiedene Zeitreihen {{name}}",
@@ -20,11 +22,19 @@
                 "timeintervalgeo": "Verschiedene Tageszeiten mit Geozonen {{name}}"
             },
             "results": {
-                "rejected": "Deutlich verschieden",
-                "not_rejected": "Nicht deutlich verschieden",
-                "mean": "Durchschnitt",
-                "pvalue": "P-Wert"
+                "high_confidence": "Sehr sicher unterschiedlich",
+                "low_confidence": "Wahrscheinlich unterschiedlich",
+                "not_rejected": "Nicht unterschiedlich",
+                "details": "Detailinformationen:",
+                "nobs": "Anzahl Elemente",
+                "mean": "Durchschnitt: ",
+                "std": "Standardabweichung: ",
+                "pvalue": "P-Wert",
+                "confidence": "Konfidenzintervall Differenz der Mittelwerte",
+                "statistic": "T-Statistik"
             },
+            "result_type": "Typ: ",
+            "result_descriptor": "Ergebnis: ",
             "timeseries": "Verschiedene Zeitreihen",
             "geozones": "Verschiedene Geozonen",
             "timegeo": "Verschiedene Zeitreihen mit Geozonen",

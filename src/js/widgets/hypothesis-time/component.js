@@ -16,7 +16,7 @@ import ttest2 from '@stdlib/stats/ttest2';
 import * as React from "react";
 import { Icon } from "@opendash/icons";
 import { stringToColor, useTranslation } from "@opendash/core";
-import { Card, Divider, List } from "antd";
+import { Card, Divider, Row, Col, Space } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import { getCurrentLanguageSync } from "@opendash/i18n";
 import { Button, Select } from "antd";
@@ -145,9 +145,16 @@ export default createWidgetComponent((_a) => {
                     }),
                 ];
                 const test_result = ttest2(series[0], series[1]);
+                const level = test_result.pValue < 0.01 ? 'high_confidence' : test_result.pValue < 0.05 ? 'low_confidence' : 'not_rejected';
                 const extracted_result = {
-                    'title': test_result.rejected ? t('app:widgets.hypothesis.results.rejected') : t('app:widgets.hypothesis.results.not_rejected'),
-                    'extra_info': `${t('app:widgets.hypothesis.results.mean')} A: ${test_result.xmean.toFixed(2)} - ${t('app:widgets.hypothesis.results.mean')} B: ${test_result.ymean.toFixed(2)} | ${t('app:widgets.hypothesis.results.pvalue')}: ${test_result.pValue.toFixed(2)}`,
+                    'title': t(`app:widgets.hypothesis.results.${level}`),
+                    'color': level === 'high_confidence' ? '#e6a23c' : level === 'low_confidence' ? '#409eff' : '#67c23a',
+                    'nObs_a': series[0].length,
+                    'nObs_b': series[1].length,
+                    'mean_a': test_result.xmean.toFixed(2),
+                    'mean_b': test_result.ymean.toFixed(2),
+                    'pvalue': test_result.pValue.toFixed(3),
+                    'statistic': test_result.statistic.toFixed(2)
                 }
                 setChartConfig(extracted_result);
                 context.setLoading(false);
@@ -170,20 +177,7 @@ export default createWidgetComponent((_a) => {
                     textAlign: "center",
                 }
             },
-                React.createElement("span", null, t("highcharts:compare.unit")),
-                React.createElement(Select, {
-                    style: { marginLeft: 10 }, value: selectedUnit, onChange: (unit) => {
-                        context.updateDraft((current) => {
-                            current.unit = unit;
-                            current.start_a = 0;
-                            current.start_b = 0;
-                        });
-                    }
-                },
-                    React.createElement(Select.Option, { value: "hour" }, t("opendash:ui.hour")),
-                    React.createElement(Select.Option, { value: "day" }, t("opendash:ui.day")),
-                    React.createElement(Select.Option, { value: "week" }, t("opendash:ui.week")),
-                    React.createElement(Select.Option, { value: "month" }, t("opendash:ui.month")))),
+                React.createElement("span", null, t("app:widgets.hypothesis.comparison_description"))),
             React.createElement("div", {
                 style: {
                     float: "left",
@@ -193,7 +187,7 @@ export default createWidgetComponent((_a) => {
                 }
             },
                 React.createElement("span", null,
-                    t("highcharts:compare.a"),
+                    draft.a_title ? draft.a_title : t("highcharts:compare.a"),
                     ": ",
                     formatDateSelection('day', draft.a_selection.start),
                     " - ",
@@ -207,7 +201,7 @@ export default createWidgetComponent((_a) => {
                 }
             },
                 React.createElement("span", null,
-                    t("highcharts:compare.a"),
+                    draft.b_title ? draft.b_title : t("highcharts:compare.b"),
                     ": ",
                     formatDateSelection('day', draft.b_selection.start),
                     " - ",
@@ -215,18 +209,35 @@ export default createWidgetComponent((_a) => {
             )),
         React.createElement("div", { style: { height: "100%" } },
             React.createElement(Card, null,
-                React.createElement(Card.Meta, { // change back to dynamic using config s
-                    title: t(`app:widgets.hypothesis.${draft.type}`), description: t("app:widgets.hypothesis.description"), avatar: config.headerImageLink ? (React.createElement(Avatar, { size: 64, src: config.headerImageLink })) : (React.createElement(Avatar, {
+                React.createElement(Row, { gutter: 16 },
+                    React.createElement(Col, { span: 4 }, React.createElement(Avatar, {
                         size: 64, style: {
-                            backgroundColor: "var(--opendash-color-green)",
+                            backgroundColor: chartConfig.color,
                             verticalAlign: "middle",
                         }
-                    }, 'H'))
-                }),
+                    }, '')
+                    ),
+                    React.createElement(Col, { span: 20 },
+                        React.createElement(Space, { direction: "vertical" },
+                            React.createElement("span", { style: { fontSize: "16px" } }, t("app:widgets.hypothesis.result_type"), React.createElement("span", { style: { fontWeight: "bold", fontSize: "16px" } }, t(`app:widgets.hypothesis.${draft.type}`))),
+                            React.createElement("span", { style: { fontSize: "16px" } }, t("app:widgets.hypothesis.result_descriptor"), React.createElement("span", { style: { fontWeight: "bold", fontSize: "16px" } }, chartConfig.title))
+                        ),
+                    )),
                 React.createElement(Divider, null),
-                        /*width > 580 && */ React.createElement(Card.Meta, { // change back to dynamic using config s
-                    title: chartConfig.title, description: chartConfig.extra_info
-                })))
+                React.createElement(Row, { gutter: 16, justify: "space-around", style: { color: "grey" } },
+                    React.createElement(Col, { span: 24, style: { textAlign: "center", fontWeight: "bold" } }, t("app:widgets.hypothesis.results.details")),
+                    React.createElement(Col, { span: 8 }, React.createElement(Space, { direction: "vertical" },
+                        React.createElement("span", { style: { fontWeight: "bold" } }, draft.a_title ? draft.a_title : t("highcharts:compare.a")),
+                        React.createElement("span", null, t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_a)),
+                        React.createElement("span", null, t("app:widgets.hypothesis.results.mean"), ": ", chartConfig.mean_a)
+                    ),
+                    React.createElement(Col, { span: 8 }, React.createElement(Space, { direction: "vertical" },
+                        React.createElement("span", { style: { fontWeight: "bold" } }, draft.b_title ? draft.b_title : t("highcharts:compare.b")),
+                        React.createElement("span", null, t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_b)),
+                        React.createElement("span", null, t("app:widgets.hypothesis.results.mean"), ": ", chartConfig.mean_b))
+                    ,
+                    React.createElement(Col, { span: 24, style: { textAlign: "center" } }, t("app:widgets.hypothesis.results.pvalue"), ": ", chartConfig.pvalue, ", ", t("app:widgets.hypothesis.results.statistic"), ": ", chartConfig.statistic)),
+            ))
     ));
 });
 function formatter(opts, key, x, selectedUnit) {

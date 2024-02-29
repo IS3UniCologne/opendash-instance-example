@@ -14,7 +14,7 @@ import { createWidgetComponent } from "@opendash/plugin-monitoring";
 import { DataItemHistoryOptionsPicker } from "@opendash/plugin-timeseries";
 import GeographySelector from "@opendash/plugin-miaas/dist/components/GeographySelector";
 import { Description, IconSelect as Select } from "@opendash/ui";
-import { Collapse, Divider, Row, Col, InputNumber, Space } from "antd";
+import { Collapse, Divider, Row, Col, InputNumber, Input } from "antd";
 import * as React from "react";
 export default createWidgetComponent((_a) => {
     var { draft, updateDraft } = _a, context = __rest(_a, ["draft", "updateDraft"]);
@@ -68,6 +68,14 @@ export default createWidgetComponent((_a) => {
                 }),
                 React.createElement(Divider),
                 React.createElement(Row, { gutter: 16, justify: 'end' },
+                    React.createElement(Col, { span: 4 },
+                        React.createElement(Input, {
+                            placeholder: t("app:widgets.hypothesis.settings.set_name"), onChange: (nextValue) => {
+                                updateDraft((draft) => {
+                                    draft.a_title = nextValue.target.value;
+                                });
+                            }
+                        })),
                     React.createElement(Col, { span: 4 },
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_from"))),
                     React.createElement(Col, { span: 4 },
@@ -135,6 +143,14 @@ export default createWidgetComponent((_a) => {
                     }
                 }),
                 React.createElement(Row, { gutter: 16, justify: 'end' },
+                    React.createElement(Col, { span: 4 },
+                        React.createElement(Input, {
+                            placeholder: t("app:widgets.hypothesis.settings.set_name"), onChange: (nextValue) => {
+                                updateDraft((draft) => {
+                                    draft.b_title = nextValue.target.value;
+                                });
+                            }
+                        })),
                     React.createElement(Col, { span: 4 },
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_from"))),
                     React.createElement(Col, { span: 4 },
