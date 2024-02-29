@@ -3,6 +3,7 @@ import { useTranslation } from "@opendash/core";
 import { createWidgetComponent } from "@opendash/plugin-monitoring";
 
 import { useDataService } from "@opendash/plugin-timeseries";
+import React from "react";
 import { ConfigInterface } from "./types";
 
 export default createWidgetComponent<ConfigInterface>(
@@ -16,6 +17,24 @@ export default createWidgetComponent<ConfigInterface>(
 
     const { height, width } = context.useContainerSize();
     const history = context.useFetchDimensionValues();
-    return null;
+
+    const [value, setValue] = React.useState(0);
+
+    React.useEffect(() => {
+      let summe = 0;
+      for (const [config, dimension, data] of history) {
+        console.log("Dimension", config.name, dimension, data);
+
+        for (const { date, value } of data) {
+          console.log(new Date(date), value);
+
+          summe += value;
+        }
+      }
+
+      setValue(value);
+    }, [history]);
+
+    return <div>{value}</div>;
   }
 );

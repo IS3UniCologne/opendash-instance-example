@@ -1,11 +1,12 @@
 import { createWidget } from "@opendash/plugin-monitoring";
+import React from "react";
 import { ConfigInterface } from "./types";
 
 export default createWidget<ConfigInterface>({
   type: "opendash-widget-example",
   meta: {},
-  displayComponent: () => import("./component"),
-  settingsComponent: () => import("./settings"),
+  displayComponent: React.lazy(() => import("./component")),
+  settingsComponent: React.lazy(() => import("./settings")),
 
   dataItems: {
     select: "dimension",
