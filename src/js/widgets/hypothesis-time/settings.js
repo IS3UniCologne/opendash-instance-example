@@ -14,7 +14,7 @@ import { createWidgetComponent } from "@opendash/plugin-monitoring";
 import { DataItemHistoryOptionsPicker } from "@opendash/plugin-timeseries";
 import GeographySelector from "@opendash/plugin-miaas/dist/components/GeographySelector";
 import { Description, IconSelect as Select } from "@opendash/ui";
-import { Collapse, Divider, Row, Col, InputNumber, Input } from "antd";
+import { Collapse, Divider, Row, Col, InputNumber, Input, Space } from "antd";
 import * as React from "react";
 export default createWidgetComponent((_a) => {
     var { draft, updateDraft } = _a, context = __rest(_a, ["draft", "updateDraft"]);
@@ -58,7 +58,15 @@ export default createWidgetComponent((_a) => {
                 }))),
         React.createElement(Collapse, { bordered: false },
             React.createElement(Collapse.Panel, { header: t("app:widgets.hypothesis.settings.titleA"), key: "type" },
-                React.createElement(Description, { children: t("app:widgets.hypothesis.settings.descriptionA") }),
+                React.createElement(Description, {
+                    children: (React.createElement(Space.Compact, { size: 'middle' }, React.createElement(Input, {
+                        value: draft.a_title, placeholder: t("app:widgets.hypothesis.settings.set_name"), onChange: (nextValue) => {
+                            updateDraft((draft) => {
+                                draft.a_title = nextValue.target.value;
+                            });
+                        }
+                    })))
+                }),
                 React.createElement(DataItemHistoryOptionsPicker, {
                     options: { live: false, history: true, aggregation: false }, value: draft.a_selection, onChange: (nextValue) => {
                         updateDraft((draft) => {
@@ -67,15 +75,8 @@ export default createWidgetComponent((_a) => {
                     }
                 }),
                 React.createElement(Divider),
-                React.createElement(Row, { gutter: 16, justify: 'end' },
-                    React.createElement(Col, { span: 4 },
-                        React.createElement(Input, {
-                            placeholder: t("app:widgets.hypothesis.settings.set_name"), onChange: (nextValue) => {
-                                updateDraft((draft) => {
-                                    draft.a_title = nextValue.target.value;
-                                });
-                            }
-                        })),
+                draft.type === 'timeintervalgeo' ? React.createElement(Row, { gutter: [8, 16], justify: 'end', align: 'middle' },
+                    React.createElement(Col, { span: 6 },),
                     React.createElement(Col, { span: 4 },
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_from"))),
                     React.createElement(Col, { span: 4 },
@@ -87,7 +88,7 @@ export default createWidgetComponent((_a) => {
                             }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
                         })),
                     React.createElement(Col, { span: 4 },
-                        React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_to"))),
+                        React.createElement("span", { style: { textAlign: 'right' } }, t("app:widgets.hypothesis.settings.hour_to"))),
                     React.createElement(Col, { span: 4 },
                         React.createElement(InputNumber, {
                             value: draft.a_end_hour, onChange: (nextValue) => {
@@ -95,29 +96,8 @@ export default createWidgetComponent((_a) => {
                                     draft.a_end_hour = nextValue;
                                 });
                             }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
-                        }))
-                )
-            )
-        ),
-        React.createElement(Collapse, { bordered: false, collapsible: 'disabled' },
-            React.createElement(Collapse.Panel, { header: t("app:widgets.hypothesis.settings.titleB"), key: "type" },
-                React.createElement(Description, { children: t("app:widgets.hypothesis.settings.descriptionB") }),
-                React.createElement(DataItemHistoryOptionsPicker, {
-                    options: { live: false, history: true, aggregation: false }, value: draft.b_selection, onChange: (nextValue) => {
-                        updateDraft((draft) => {
-                            draft.b_selection = nextValue;
-                        });
-                    }
-                }),
-                React.createElement(Row, { gutter: 16, justify: 'end' },
-                    React.createElement(Col, { span: 4 },
-                        React.createElement(Input, {
-                            placeholder: t("app:widgets.hypothesis.settings.set_name"), onChange: (nextValue) => {
-                                updateDraft((draft) => {
-                                    draft.b_title = nextValue.target.value;
-                                });
-                            }
                         })),
+                    React.createElement(Col, { span: 6 },),
                     React.createElement(Col, { span: 4 },
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_from"))),
                     React.createElement(Col, { span: 4 },
@@ -138,8 +118,28 @@ export default createWidgetComponent((_a) => {
                                 });
                             }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
                         }))
-                )
-            )),
+                ) : null,
+            )
+        ),
+        draft.type === 'timegeo' ? React.createElement(Collapse, { bordered: false },
+            React.createElement(Collapse.Panel, { header: t("app:widgets.hypothesis.settings.titleB"), key: "type" },
+                React.createElement(Description, {
+                    children: (React.createElement(Space.Compact, { size: 'middle' }, React.createElement(Input, {
+                        value: draft.b_title, placeholder: t("app:widgets.hypothesis.settings.set_name"), onChange: (nextValue) => {
+                            updateDraft((draft) => {
+                                draft.b_title = nextValue.target.value;
+                            });
+                        }
+                    })))
+                }),
+                React.createElement(DataItemHistoryOptionsPicker, {
+                    options: { live: false, history: true, aggregation: false }, value: draft.b_selection, onChange: (nextValue) => {
+                        updateDraft((draft) => {
+                            draft.b_selection = nextValue;
+                        });
+                    }
+                })
+            )) : null,
         React.createElement(Collapse, { bordered: false },
             React.createElement(Collapse.Panel, { header: t("app:widgets.hypothesis.settings.titleGeo"), key: "type" },
                 React.createElement(GeographySelector, {
