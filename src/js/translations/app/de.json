@@ -2,7 +2,7 @@
     "widgets": {
         "hypothesis": {
             "title": "Hypothesentest",
-            "comparison_description": "Vergleich - Anzahl Fahrten/Stunde",
+            "comparison_description": "Vergleich - Anzahl Fahrten pro Stunde",
             "settings": {
                 "title": "Auswahl des Vergleichs",
                 "description": "Bitte wählen Sie den Vergleichstyp den Sie testen wollen.",
@@ -20,9 +20,9 @@
             "headers": {
                 "timeseries": "Verschiedene Zeitreihen {{name}}",
                 "geozones": "Verschiedene Geozonen {{name}}",
-                "timegeo": "Verschiedene Zeitreihen mit Geozonen {{name}}",
-                "weekendgeo": "Wochenende - Wochentag mit Geozonen {{name}}",
-                "timeintervalgeo": "Verschiedene Tageszeiten mit Geozonen {{name}}"
+                "timegeo": "Verschiedene Zeitreihen {{name}}",
+                "weekendgeo": "Wochentag - Wochenende {{name}}",
+                "timeintervalgeo": "Verschiedene Tageszeiten {{name}}"
             },
             "results": {
                 "high_confidence": "Sehr sicher unterschiedlich",
@@ -30,20 +30,20 @@
                 "not_rejected": "Nicht unterschiedlich",
                 "details": "Detailinformationen:",
                 "nobs": "Anzahl Elemente",
-                "mean": "Durchschnitt: ",
-                "std": "Standardabweichung: ",
+                "mean": "Durchschnitt",
                 "pvalue": "P-Wert",
-                "confidence": "Konfidenzintervall Differenz der Mittelwerte",
-                "statistic": "T-Statistik"
+                "statistic": "T-Statistik",
+                "hours": "Uhr",
+                "weekdays": "Wochentag",
+                "weekends": "Wochenende"
             },
             "result_type": "Typ: ",
             "result_descriptor": "Ergebnis: ",
             "timeseries": "Verschiedene Zeitreihen",
-            "geozones": "Verschiedene Geozonen",
-            "timegeo": "Verschiedene Zeitreihen mit Geozonen",
-            "weekendgeo": "Wochenende - Wochentag mit Geozonen",
-            "timeintervalgeo": "Verschiedene Tageszeiten mit Geozonen",
             "geo": "Verschiedene Geozonen"
+            "timegeo": "Verschiedene Zeitreihen",
+            "weekendgeo": "Wochentag - Wochenende",
+            "timeintervalgeo": "Verschiedene Tageszeiten"
         }
     }
 }

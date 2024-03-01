@@ -2,33 +2,44 @@
   "widgets": {
     "hypothesis": {
       "title": "Hypothesis Test",
-      "description": "Two Sample T-Test",
+      "comparison_description": "Comparison - Number of Trips per Hour",
       "settings": {
         "title": "Choose the Comparison Type",
         "description": "Please choose the comparison type you want to test.",
         "titleA": "Choose the First Sample",
         "descriptionA": "Please choose the first sample you want to test.",
         "titleB": "Choose the Second Sample",
-        "descriptionB": "Please choose the second sample you want to test."
+        "descriptionB": "Please choose the second sample you want to test.",
+        "hour_from": "Start Time",
+        "hour_to": "End Time",
+        "set_name": "Title of Time Series"
       },
       "headers": {
         "timeseries": "Different Timeseries {{name}}",
         "geozones": "Different Geozones {{name}}",
-        "timegeo": "Different Timeseries with Geozones {{name}}",
-        "weekendgeo": "Weekend - Weekday with Geozones {{name}}",
-        "timeintervalgeo": "Different Times of the Day with Geozones {{name}}"
+        "timegeo": "Different Timeseries {{name}}",
+        "weekendgeo": "Weekend - Weekday {{name}}",
+        "timeintervalgeo": "Different Times of the Day {{name}}"
       },
       "results": {
-        "rejected": "Significantly different",
-        "not_rejected": "Not significantly different",
+        "high_confidence": "Highly confidently different",
+        "low_confidence": "Probably different",
+        "not_rejected": "Not different",
+        "nobs": "Number of Observations",
         "mean": "Mean",
-        "pvalue": "P-value"
+        "pvalue": "P-value",
+        "statistic": "T-Statistic",
+        "hours": "",
+        "weekdays": "Weekdays",
+        "weekends": "Weekends"
       },
+      "result_type": "Type: ",
+      "result_descriptor": "Result: ",
       "timeseries": "Different Timeseries",
       "geozones": "Different Geozones",
-      "timegeo": "Different Timeseries with Geozones",
-      "weekendgeo": "Weekend - Weekday with Geozones",
-      "timeintervalgeo": "Different Times of the Day with Geozones"
+      "timegeo": "Different Timeseries",
+      "weekendgeo": "Weekend - Weekday",
+      "timeintervalgeo": "Different Times of the Day"
     }
   }
 }
