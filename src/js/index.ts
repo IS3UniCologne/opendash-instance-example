@@ -8,11 +8,9 @@ import { registerIconPack } from "@opendash/icons";
 import { HighchartsPlugin } from "@opendash/plugin-highcharts";
 import { GeoPlugin } from "@opendash/plugin-geo";
 import { GeoPluginMapLibre } from "@opendash/plugin-geo-maplibre";
-import { GTFSPlugin } from "@opendash/plugin-gtfs";
-import { MIAASPlugin } from "@opendash/plugin-miaas";
 import { $monitoring, MonitoringPlugin } from "@opendash/plugin-monitoring";
 import { OpenwarePlugin } from "@opendash/plugin-openware";
-import { $parse, ParsePlugin } from "@opendash/plugin-parse";
+import { ParsePlugin } from "@opendash/plugin-parse";
 import { ParseMonitoringPlugin } from "@opendash/plugin-parse-monitoring";
 import { TimeseriesPlugin } from "@opendash/plugin-timeseries";
 import ExampleWidget from "./widgets/example";
@@ -25,13 +23,17 @@ init("opendash", async (factory) => {
   // Translations:
 
   factory.registerLanguage("en", "English");
-  factory.registerLanguage("zh_Hans", "Chinese");
   factory.registerLanguage("de", "Deutsch", "en", true);
   // ant design translations
 
   factory.registerAntDesignTranslation(
     "en",
     () => import("antd/lib/locale/en_US")
+  );
+
+  factory.registerAntDesignTranslation(
+    "de",
+    () => import("antd/lib/locale/de_DE")
   );
 
   // widget translations
@@ -55,8 +57,6 @@ init("opendash", async (factory) => {
   await factory.use(new MonitoringPlugin());
   await factory.use(new GeoPlugin());
   await factory.use(new GeoPluginMapLibre());
-  await factory.use(new GTFSPlugin());
-  await factory.use(new MIAASPlugin());
   await factory.use(
     new OpenwarePlugin({
       host: "openware.apps.openinc.dev",

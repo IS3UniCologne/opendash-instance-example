@@ -30,7 +30,7 @@ Put the content of the `./dist` folder on a web server, make sure to have a not-
 
 ### Widgets
 
-Widgets are located in the `src/js/widgets` folder. To create a new folder, copy the folder of an existing widget, make sure to give it a fitting name and update the `type` property in the `index.ts` file.
+Widgets are located in the `src/js/widgets` folder. To create a new widget, copy the folder of an existing widget, make sure to give it a fitting name and update the `type` property in the `index.ts` file.
 
 Please use translation where ever possible and update the translation file in `src/js/translations/app/en.json`.
 
