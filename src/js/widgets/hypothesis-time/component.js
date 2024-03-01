@@ -47,7 +47,9 @@ function get_exclude_hours(start, end) {
 }
 
 
-function get_trip_counts(series, start, end, exclude_hours = [], only_weekdays = false, only_weekends = false) {
+function get_trip_counts(series, start, end, exclude_hours = [], only_weekdays = false, only_weekends = false, geo_filter = null) {
+    // TODO: use turf to filter by geo_filter
+
     let trip_counts = get_start_till_end_dict(start, end, exclude_hours, only_weekdays, only_weekends);
     series.forEach(({ date, value }) => {
         const key = dayjs(date).startOf('hour').valueOf();
@@ -121,25 +123,53 @@ export default createWidgetComponent((_a) => {
                         item.valueTypes[dimension],
                     ];
                 })));
+                let zoneA = null;
+                if (draft.use_geo_filter || draft.type == 'geo') {
+                    switch(draft.geotype) {
+                        case 'json':
+                            zoneA = draft.districts;
+                        case 'zones':
+                            zoneA = draft.districtsFromZones;
+                        case 'dimension':
+                            // let zoneA = draft.districtFromDimension;
+                            throw new Error('Not implemented');
+                    }
+                }
+
                 const result_a = [
                     ...historyA.map(([item, dimension, values]) => {
                         if (draft.type === 'weekendgeo') {
-                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], true, false);
-                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], false, true);
+                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], true, false, zoneA);
+                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], false, true, zoneA);
                             return [result_a, result_b];
                         } else if (draft.type === 'timeintervalgeo') {
                             let exclude_hours = get_exclude_hours(draft.a_start_hour, draft.a_end_hour);
-                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, exclude_hours, false, false);
+                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, exclude_hours, false, false, zoneA);
                             exclude_hours = get_exclude_hours(draft.b_start_hour, draft.b_end_hour);
-                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, exclude_hours, false, false);
+                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, exclude_hours, false, false, zoneA);
+                            return [result_a, result_b];
+                        } else if (draft.type === 'geo') {
+                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], false, false, zoneA);
+
+                            let zoneB;
+                            switch(draft.geotype) {
+                                case 'json':
+                                    zoneB = draft.districtsB;
+                                case 'zones':
+                                    zoneB = draft.districtsFromZonesB;
+                                case 'dimension':
+                                    // let zoneB = draft.districtFromDimension;
+                                    throw new Error('Not implemented');
+                            }
+                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], false, false, zoneB);
                             return [result_a, result_b];
                         } else {
-                            return get_trip_counts(values, draft.a_selection.start, draft.a_selection.end);
+                            return get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, zoneA);
                         }
                     })];
                 const result_b = [
                     ...historyB.map(([item, dimension, values]) => {
-                        return get_trip_counts(values, draft.b_selection.start, draft.b_selection.end);
+                        return get_trip_counts(values, draft.b_selection.start, draft.b_selection.end, null);
                     }),
                 ];
                 const series = draft.type === 'timegeo' ? [result_a[0], result_b[0]] : [result_a[0][0], result_a[0][1]];

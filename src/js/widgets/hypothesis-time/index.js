@@ -8,7 +8,7 @@ export default createWidget({
         select: "dimension",
         min: 1,
         max: 1,
-        types: ["String"],
+        types: ["Geo"],
     },
     dataExplorer: {
         title: "app:widgets.hypothesis.title",
