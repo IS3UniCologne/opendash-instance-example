@@ -28,12 +28,10 @@
                 "details": "Detailinformationen:",
                 "nobs": "Anzahl Elemente",
                 "mean": "Durchschnitt",
-                "std": "Standardabweichung: ",
                 "pvalue": "P-Wert",
-                "confidence": "Konfidenzintervall Differenz der Mittelwerte",
                 "statistic": "T-Statistik",
                 "hours": "Uhr",
-                "weekdays": "Wochentage",
+                "weekdays": "Wochentag",
                 "weekends": "Wochenende"
             },
             "result_type": "Typ: ",
