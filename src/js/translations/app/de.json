@@ -8,11 +8,14 @@
                 "description": "Bitte wählen Sie den Vergleichstyp den Sie testen wollen.",
                 "titleA": "Wählen Sie den ersten Datensatz",
                 "descriptionA": "Bitte wählen Sie den ersten Datensatz den Sie testen wollen.",
-                "titleB": "Wählen Sie den zweiten Datensatz",
+                "titleB": "Wählen Sie den zweiten Datensatz (nur bei Zeitreihenvergleich)",
                 "descriptionB": "Bitte wählen Sie den zweiten Datensatz den Sie testen wollen.",
                 "hour_from": "Startzeitpunkt",
                 "hour_to": "Endzeitpunkt",
-                "set_name": "Titel der Zeitreihe"
+                "set_name": "Titel der Zeitreihe",
+                "titleGeoFilter": "Auswahl von Geozonen (optional, als Filter)",
+                "titleGeo": "Auswahl von Geozonen zum Vergleich",
+                "descriptionGeo": "Wählen Sie die zweite Geozone zum Vergleich aus."
             },
             "headers": {
                 "timeseries": "Verschiedene Zeitreihen {{name}}",
@@ -39,7 +42,8 @@
             "geozones": "Verschiedene Geozonen",
             "timegeo": "Verschiedene Zeitreihen mit Geozonen",
             "weekendgeo": "Wochenende - Wochentag mit Geozonen",
-            "timeintervalgeo": "Verschiedene Tageszeiten mit Geozonen"
+            "timeintervalgeo": "Verschiedene Tageszeiten mit Geozonen",
+            "geo": "Verschiedene Geozonen"
         }
     }
 }

@@ -28,7 +28,7 @@ export default createWidgetComponent((_a) => {
             React.createElement(Collapse.Panel, { header: t("app:widgets.hypothesis.settings.title"), key: "type" },
                 React.createElement(Description, { children: t("app:widgets.hypothesis.settings.description") }),
                 React.createElement(Select, {
-                    value: draft.type, size: 3, onChange: (nextValue) => {
+                    value: draft.type, size: 2, onChange: (nextValue) => {
                         updateDraft((draft) => {
                             draft.type = nextValue;
                         });
@@ -54,6 +54,12 @@ export default createWidgetComponent((_a) => {
                             value: "timeintervalgeo",
                             disabled: false,
                         },
+                        {
+                            label: t("app:widgets.hypothesis.geo"),
+                            tooltip: null,
+                            value: "geo",
+                            disabled: false,
+                        }
                     ]
                 }))),
         React.createElement(Collapse, { bordered: false },
@@ -141,7 +147,10 @@ export default createWidgetComponent((_a) => {
                 )
             )),
         React.createElement(Collapse, { bordered: false },
-            React.createElement(Collapse.Panel, { header: t("app:widgets.hypothesis.settings.titleGeo"), key: "type" },
+            React.createElement(Collapse.Panel, { 
+                header: draft.type == 'geo' ? t("app:widgets.hypothesis.settings.titleGeo") : t("app:widgets.hypothesis.settings.titleGeoFilter"), 
+                key: "type" 
+            },
                 React.createElement(GeographySelector, {
                     type: type, value: type === "json" ? json : type === "dimension" ? dimension : zones, update: (type, value) => {
                         setType(type);
@@ -175,7 +184,8 @@ export default createWidgetComponent((_a) => {
                     }
                 }),
                 React.createElement(Divider),
-                React.createElement(GeographySelector, {
+                React.createElement(Description, { children: draft.type == 'geo' ? t("app:widgets.hypothesis.settings.descriptionGeo") : null}),
+                draft.type == 'geo' ? React.createElement(GeographySelector, {
                     type: type, value: type === "json" ? json : type === "dimension" ? dimension : zones, update: (type, value) => {
                         setType(type);
                         if (type === "json") {
@@ -206,7 +216,7 @@ export default createWidgetComponent((_a) => {
                             }
                         });
                     }
-                }))
+                }) : null)
         )
     ));
 });
