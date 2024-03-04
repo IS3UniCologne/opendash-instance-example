@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -20,6 +29,8 @@ import { Card, Divider, Row, Col, Space } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import { getCurrentLanguageSync } from "@opendash/i18n";
 import { Button, Select } from "antd";
+import { getFeatureCollections } from "@opendash/plugin-miaas/dist/components/GeographySelector";
+import * as turf from "@turf/turf";
 
 
 function get_start_till_end_dict(start, end, exclude_hours = [], only_weekdays = false, only_weekends = false) {
@@ -47,14 +58,33 @@ function get_exclude_hours(start, end) {
 }
 
 
-function get_trip_counts(series, start, end, exclude_hours = [], only_weekdays = false, only_weekends = false, geo_filter = null) {
-    // TODO: use turf to filter by geo_filter
+function get_trip_counts(series, start, end, geo_filter = null, exclude_hours = [], only_weekdays = false, only_weekends = false) {
+    // TODO: we just take the first feature in the geo_filter
+    let bbox = null;
+    if (geo_filter) {
+        bbox = turf.bbox(geo_filter[0]); // bbox extent in minX, minY, maxX, maxY order
+    }
 
     let trip_counts = get_start_till_end_dict(start, end, exclude_hours, only_weekdays, only_weekends);
     series.forEach(({ date, value }) => {
         const key = dayjs(date).startOf('hour').valueOf();
         if (key in trip_counts) {
-            trip_counts[key] = trip_counts[key] + 1;
+            let within = true;
+            if (geo_filter) {
+                // do rough filtering based on bbox to save costly turf calls
+                let [lon, lat] = value.geometry.coordinates;
+                if (lat > bbox[3] ||
+                    lat < bbox[1] ||
+                    lon > bbox[2] ||
+                    lon < bbox[0]) {
+                    within = false;
+                } else {
+                    within = turf.booleanWithin(value, geo_filter[0]);
+                }
+            }
+            if (within) {
+                trip_counts[key] = trip_counts[key] + 1;
+            }
         }
     });
     return Object.values(trip_counts);
@@ -75,7 +105,54 @@ export default createWidgetComponent((_a) => {
     const { width, height } = context.useContainerSize();
     const [[item, dimension]] = context.useItemDimensionConfig();
     const [chartConfig, setChartConfig] = React.useState({ 'title': '', "extra_text": '' });
+    const [districtsA, setDistrictsA] = React.useState(null);
+    const [districtsB, setDistrictsB] = React.useState(null);
+    // const init_districts = () => __awaiter(void 0, void 0, void 0, function* () {
+    //     const x = yield getFeatureCollections(draft.geotype, draft.geotype === "json"
+    //         ? draft.districts
+    //         : draft.geotype === "dimension"
+    //             ? draft.districtFromDimension
+    //             : draft.districtsFromZones);
+    //     if (draft.geotypeAlt === 'a') {
+    //         setDistrictsA(x.flatMap((entry) => entry.features));
+    //     } else if (draft.geotypeAlt === 'b') {
+    //         setDistrictsB(x.flatMap((entry) => entry.features));
+    //     }
+
+    // });
+    async function init_districts() {
+        const x = await getFeatureCollections(draft.geotype, draft.geotype === "json"
+            ? draft.districts
+            : draft.geotype === "dimension"
+                ? draft.districtFromDimension
+                : draft.districtsFromZones);
+        context.updateDraft((current) => {
+            if (draft.geotypeAlt === 'a') {
+                // setDistrictsA(x.flatMap((entry) => entry.features));
+                current.districtsA = x.flatMap((entry) => entry.features);
+                // current.districtsA = x
+            } else if (draft.geotypeAlt === 'b') {
+                // setDistrictsB(x.flatMap((entry) => entry.features));
+                current.districtsB = x.flatMap((entry) => entry.features);
+                // current.districtsB = x
+            }
+        });
+    };
     React.useEffect(() => {
+        init_districts();
+    }, [draft.districts, draft.geotype, draft.geotypeAlt, draft.districtFromDimension, draft.districtsFromZones]);
+    React.useEffect(() => {
+        if (!draft.use_geo_filter) {
+            context.updateDraft((current) => {                    
+                current.districtsA = null;
+                current.districtsB = null;
+            });
+        } else {
+            init_districts();
+        }
+    }, [draft.use_geo_filter]);
+    React.useEffect(() => {
+        // TODO: this breaks if a hypothesis without two time series selections is chosen for the first time after adding the widget
         if (!draft.a_selection || !draft.b_selection) {
             context.updateDraft((current) => {
                 start_a = dayjs()
@@ -123,53 +200,55 @@ export default createWidgetComponent((_a) => {
                         item.valueTypes[dimension],
                     ];
                 })));
-                let zoneA = null;
-                if (draft.use_geo_filter || draft.type == 'geo') {
-                    switch(draft.geotype) {
-                        case 'json':
-                            zoneA = draft.districts;
-                        case 'zones':
-                            zoneA = draft.districtsFromZones;
-                        case 'dimension':
-                            // let zoneA = draft.districtFromDimension;
-                            throw new Error('Not implemented');
-                    }
-                }
+                // let zoneA = null;
+                // if (draft.use_geo_filter || draft.type == 'geo') {
+                //     switch(draft.geotype) {
+                //         case 'json':
+                //             zoneA = draft.districts;
+                //             break;
+                //         case 'zones':
+                //             zoneA = draft.districtsFromZones;
+                //             break;
+                //         case 'dimension':
+                //             zoneA = draft.districtFromDimension;
+                //             // throw new Error('Not implemented');
+                //     }
+                // }
 
                 const result_a = [
                     ...historyA.map(([item, dimension, values]) => {
                         if (draft.type === 'weekendgeo') {
-                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], true, false, zoneA);
-                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], false, true, zoneA);
+                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.districtsA, [], true, false);
+                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.districtsA, [], false, true);
                             return [result_a, result_b];
                         } else if (draft.type === 'timeintervalgeo') {
                             let exclude_hours = get_exclude_hours(draft.a_start_hour, draft.a_end_hour);
-                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, exclude_hours, false, false, zoneA);
+                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.districtsA, exclude_hours, false, false);
                             exclude_hours = get_exclude_hours(draft.b_start_hour, draft.b_end_hour);
-                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, exclude_hours, false, false, zoneA);
+                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.districtsA, exclude_hours, false, false);
                             return [result_a, result_b];
                         } else if (draft.type === 'geo') {
-                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], false, false, zoneA);
+                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.districtsA, [], false, false);
 
-                            let zoneB;
-                            switch(draft.geotype) {
-                                case 'json':
-                                    zoneB = draft.districtsB;
-                                case 'zones':
-                                    zoneB = draft.districtsFromZonesB;
-                                case 'dimension':
-                                    // let zoneB = draft.districtFromDimension;
-                                    throw new Error('Not implemented');
-                            }
-                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, [], false, false, zoneB);
+                            // let zoneB;
+                            // switch(draft.geotype) {
+                            //     case 'json':
+                            //         zoneB = draft.districtsB;
+                            //     case 'zones':
+                            //         zoneB = draft.districtsFromZonesB;
+                            //     case 'dimension':
+                            //         // let zoneB = draft.districtFromDimension;
+                            //         throw new Error('Not implemented');
+                            // }
+                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.districtsB, [], false, false);
                             return [result_a, result_b];
                         } else {
-                            return get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, zoneA);
+                            return get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.districtsA);
                         }
                     })];
                 const result_b = [
                     ...historyB.map(([item, dimension, values]) => {
-                        return get_trip_counts(values, draft.b_selection.start, draft.b_selection.end, null);
+                        return get_trip_counts(values, draft.b_selection.start, draft.b_selection.end, draft.districtsA);
                     }),
                 ];
                 const series = draft.type === 'timegeo' ? [result_a[0], result_b[0]] : [result_a[0][0], result_a[0][1]];

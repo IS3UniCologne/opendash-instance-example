@@ -18,10 +18,14 @@ import { Collapse, Divider, Row, Col, InputNumber, Input, Space, Switch, Flex, T
 import * as React from "react";
 export default createWidgetComponent((_a) => {
     var { draft, updateDraft } = _a, context = __rest(_a, ["draft", "updateDraft"]);
-    const [type, setType] = React.useState(draft.geotype || "zones");
-    const [json, setJSON] = React.useState(draft.districts);
-    const [zones, setZones] = React.useState(draft.districtsFromZones);
-    const [dimension, setDimension] = React.useState(draft.districtFromDimension || null);
+    const [typeA, setTypeA] = React.useState(draft.geotype || "zones");
+    const [jsonA, setJSONA] = React.useState(draft.districts);
+    const [zonesA, setZonesA] = React.useState(draft.districtsFromZones);
+    const [dimensionA, setDimensionA] = React.useState(draft.districtFromDimension || null);
+    const [typeB, setTypeB] = React.useState(draft.geotype || "zones");
+    const [jsonB, setJSONB] = React.useState(draft.districts);
+    const [zonesB, setZonesB] = React.useState(draft.districtsFromZones);
+    const [dimensionB, setDimensionB] = React.useState(draft.districtFromDimension || null);
     const t = useTranslation();
     return (React.createElement(React.Fragment, null,
         React.createElement(Collapse, { bordered: false, defaultActiveKey: ["type"] },
@@ -166,19 +170,21 @@ export default createWidgetComponent((_a) => {
                 key: "type" 
             },
                 React.createElement(GeographySelector, {
-                    type: type, value: type === "json" ? json : type === "dimension" ? dimension : zones, update: (type, value) => {
-                        setType(type);
+                    type: typeA, value: typeA === "json" ? jsonA : typeA === "dimension" ? dimensionA : zonesA, update: (type, value) => {
+                        setTypeA(type);
                         if (type === "json") {
-                            setJSON(value);
+                            setJSONA(value);
                         }
                         if (type === "dimension") {
-                            setDimension(value);
+                            setDimensionA(value);
                         }
                         if (type === "zones") {
-                            setZones(value);
+                            setZonesA(value);
                         }
                         updateDraft((draft) => {
                             draft.geotype = type;
+                            draft.geotypeAlt = 'a';
+                            draft.districtsA = null;
                             if (type === "json") {
                                 draft.districtFromDimension = null;
                                 draft.districts = value;
@@ -200,19 +206,21 @@ export default createWidgetComponent((_a) => {
                 React.createElement(Divider),
                 React.createElement(Description, { children: draft.type == 'geo' ? t("app:widgets.hypothesis.settings.descriptionGeo") : null}),
                 draft.type == 'geo' ? React.createElement(GeographySelector, {
-                    type: type, value: type === "json" ? json : type === "dimension" ? dimension : zones, update: (type, value) => {
-                        setType(type);
+                    type: typeB, value: typeB === "json" ? jsonB : typeB === "dimension" ? dimensionB : zonesB, update: (type, value) => {
+                        setTypeB(type);
                         if (type === "json") {
-                            setJSON(value);
+                            setJSONB(value);
                         }
                         if (type === "dimension") {
-                            setDimension(value);
+                            setDimensionB(value);
                         }
                         if (type === "zones") {
-                            setZones(value);
+                            setZonesB(value);
                         }
                         updateDraft((draft) => {
                             draft.geotype = type;
+                            draft.geotypeAlt = 'b';
+                            draft.districtsB = null;
                             if (type === "json") {
                                 draft.districtFromDimensionB = null;
                                 draft.districtsB = value;
