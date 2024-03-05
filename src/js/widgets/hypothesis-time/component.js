@@ -169,28 +169,8 @@ export default createWidgetComponent((_a) => {
     }, [draft.use_geo_filter]);
     React.useEffect(() => {
         // TODO: this breaks if a hypothesis without two time series selections is chosen for the first time after adding the widget
-        if (!draft.a_selection || !draft.b_selection) {
-            context.updateDraft((current) => {
-                start_a = dayjs()
-                    .locale(getCurrentLanguageSync())
-                    .startOf(selectedUnit)
-                    .valueOf();
-                end_a = dayjs(start_a)
-                    .locale(getCurrentLanguageSync())
-                    .endOf(selectedUnit)
-                    .valueOf();
-                start_b = dayjs(start_a)
-                    .locale(getCurrentLanguageSync())
-                    .subtract(1, selectedUnit)
-                    .startOf(selectedUnit)
-                    .valueOf();
-                end_b = dayjs(start_b)
-                    .locale(getCurrentLanguageSync())
-                    .endOf(selectedUnit)
-                    .valueOf();
-                current.a_selection = { start: start_a, end: end_a };
-                current.b_selection = { start: start_b, end: end_b };
-            });
+        if (!draft.a_selection) {
+            context.set_loadingg(true);
         }
         else {
             context.saveDraft();
