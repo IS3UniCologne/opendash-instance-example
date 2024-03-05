@@ -25,10 +25,9 @@ import ttest2 from '@stdlib/stats/ttest2';
 import * as React from "react";
 import { Icon } from "@opendash/icons";
 import { stringToColor, useTranslation } from "@opendash/core";
-import { Card, Divider, Row, Col, Space } from "antd";
+import { Card, Divider, Row, Col, Space, Button, Select } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import { getCurrentLanguageSync } from "@opendash/i18n";
-import { Button, Select } from "antd";
 import { getFeatureCollections } from "@opendash/plugin-miaas/dist/components/GeographySelector";
 import * as turf from "@turf/turf";
 
