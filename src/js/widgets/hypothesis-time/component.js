@@ -170,7 +170,7 @@ export default createWidgetComponent((_a) => {
     React.useEffect(() => {
         // TODO: this breaks if a hypothesis without two time series selections is chosen for the first time after adding the widget
         if (!draft.a_selection) {
-            context.set_loadingg(true);
+            context.set_loading(true);
         }
         else {
             context.saveDraft();
