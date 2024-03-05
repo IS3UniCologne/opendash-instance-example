@@ -22,10 +22,10 @@ export default createWidgetComponent((_a) => {
     const [jsonA, setJSONA] = React.useState(draft.districts);
     const [zonesA, setZonesA] = React.useState(draft.districtsFromZones);
     const [dimensionA, setDimensionA] = React.useState(draft.districtFromDimension || null);
-    const [typeB, setTypeB] = React.useState(draft.geotype || "zones");
-    const [jsonB, setJSONB] = React.useState(draft.districts);
-    const [zonesB, setZonesB] = React.useState(draft.districtsFromZones);
-    const [dimensionB, setDimensionB] = React.useState(draft.districtFromDimension || null);
+    const [typeB, setTypeB] = React.useState(draft.geotypeB || "zones");
+    const [jsonB, setJSONB] = React.useState(draft.districtsB);
+    const [zonesB, setZonesB] = React.useState(draft.districtsFromZonesB);
+    const [dimensionB, setDimensionB] = React.useState(draft.districtFromDimensionB || null);
     const t = useTranslation();
     return (React.createElement(React.Fragment, null,
         React.createElement(Collapse, { bordered: false, defaultActiveKey: ["type"] },
@@ -66,7 +66,7 @@ export default createWidgetComponent((_a) => {
                         }
                     ]
                 }),
-                React.createElement(Flex, { align: "center", justify: "flex-end", "gap": "middle"},
+                React.createElement(Flex, { align: "center", justify: "flex-end", "gap": "middle" },
                     React.createElement(Typography, { disabled: draft.type == "geo" }, t("app:widgets.hypothesis.settings.useGeoFilter")),
                     React.createElement(Switch, {
                         disabled: draft.type == "geo",
@@ -164,10 +164,10 @@ export default createWidgetComponent((_a) => {
                     }
                 })
             )) : null,
-            (draft.use_geo_filter || draft.type == 'geo') ? React.createElement(Collapse, { bordered: false },
-            React.createElement(Collapse.Panel, { 
-                header: draft.type == 'geo' ? t("app:widgets.hypothesis.settings.titleGeo") : t("app:widgets.hypothesis.settings.titleGeoFilter"), 
-                key: "type" 
+        (draft.use_geo_filter || draft.type == 'geo') ? React.createElement(Collapse, { bordered: false },
+            React.createElement(Collapse.Panel, {
+                header: draft.type == 'geo' ? t("app:widgets.hypothesis.settings.titleGeo") : t("app:widgets.hypothesis.settings.titleGeoFilter"),
+                key: "type"
             },
                 React.createElement(GeographySelector, {
                     type: typeA, value: typeA === "json" ? jsonA : typeA === "dimension" ? dimensionA : zonesA, update: (type, value) => {
@@ -203,7 +203,7 @@ export default createWidgetComponent((_a) => {
                     }
                 }),
                 React.createElement(Divider),
-                React.createElement(Description, { children: draft.type == 'geo' ? t("app:widgets.hypothesis.settings.descriptionGeo") : null}),
+                React.createElement(Description, { children: draft.type == 'geo' ? t("app:widgets.hypothesis.settings.descriptionGeo") : null }),
                 draft.type == 'geo' ? React.createElement(GeographySelector, {
                     type: typeB, value: typeB === "json" ? jsonB : typeB === "dimension" ? dimensionB : zonesB, update: (type, value) => {
                         setTypeB(type);

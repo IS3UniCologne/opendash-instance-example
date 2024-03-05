@@ -23,11 +23,9 @@ import { useDataService } from "@opendash/plugin-timeseries";
 import dayjs from "dayjs";
 import ttest2 from '@stdlib/stats/ttest2';
 import * as React from "react";
-import { Icon } from "@opendash/icons";
-import { stringToColor, useTranslation } from "@opendash/core";
+import { useTranslation } from "@opendash/core";
 import { Card, Divider, Row, Col, Space, Button, Select } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
-import { getCurrentLanguageSync } from "@opendash/i18n";
 import { getFeatureCollections } from "@opendash/plugin-miaas/dist/components/GeographySelector";
 import * as turf from "@turf/turf";
 
@@ -99,8 +97,6 @@ export default createWidgetComponent((_a) => {
             .map(([item, dimension]) => DataService.getItemName(item, dimension))
             .join(", "),
     }));
-    const selectedUnit = draft.unit || "day";
-    const selectedAggregationInterval = draft.aggregationInterval || "hour";
     const { width, height } = context.useContainerSize();
     const [[item, dimension]] = context.useItemDimensionConfig();
     const [chartConfig, setChartConfig] = React.useState({ 'title': '', "extra_text": '' });
@@ -119,55 +115,74 @@ export default createWidgetComponent((_a) => {
     //     }
 
     // });
-    async function init_districts(alt='a') {
-        let x = null;
-        if (alt === 'a') {
-            x = await getFeatureCollections(draft.geotype, draft.geotype === "json"
-            ? draft.districts
-            : draft.geotype === "dimension"
-                ? draft.districtFromDimension
-                : draft.districtsFromZones);
-        } else if (alt === 'b') {
-            x = await getFeatureCollections(draft.geotypeB, draft.geotypeB === "json"
-            ? draft.districtsB
-            : draft.geotypeB === "dimension"
-                ? draft.districtFromDimensionB
-                : draft.districtsFromZonesB);
-        }
-        
-        context.updateDraft((current) => {
-            if (alt === 'a') {
-                // setDistrictsA(x.flatMap((entry) => entry.features));
-                current.featuresA = x.flatMap((entry) => entry.features);
-                // current.districtsA = x
-            } else if (alt === 'b') {
-                // setDistrictsB(x.flatMap((entry) => entry.features));
-                current.featuresB = x.flatMap((entry) => entry.features);
-                // current.districtsB = x
-            }
-        });
+    async function init_districts(geotype, districts, districtFromDimension, districtsFromZones) {
+        let x = await getFeatureCollections(geotype, geotype === "json"
+            ? districts
+            : geotype === "dimension"
+                ? districtFromDimension
+                : districtsFromZones);
+        return x.flatMap((entry) => entry.features);
     };
     React.useEffect(() => {
-        init_districts('a');
+        let ignore = false;
+        context.updateDraft((current) => {
+            current.featuresA = null;
+        })
+        init_districts(draft.geotype, draft.districts, draft.districtFromDimension, draft.districtsFromZones).then(result => {
+            if (!ignore) {
+                context.updateDraft((current) => {
+                    current.featuresA = result;
+                })
+            }
+        });
+        return () => {
+            ignore = true;
+        };
     }, [draft.geotype, draft.districts, draft.districtFromDimension, draft.districtsFromZones]);
-    React.useEffect(() => {
-        console.log(draft.featuresB);
-        init_districts('b');
-        console.log(draft.featuresB);
+    React.useEffect(async () => {
+        let ignore = false;
+        context.updateDraft((current) => {
+            current.featuresB = null;
+        })
+        init_districts(draft.geotypeB, draft.districtsB, draft.districtFromDimensionB, draft.districtsFromZonesB).then(result => {
+            if (!ignore) {
+                context.updateDraft((current) => {
+                    current.featuresB = result;
+                })
+            }
+        });
+        return () => {
+            ignore = true;
+        };
     }, [draft.geotypeB, draft.districtsB, draft.districtFromDimensionB, draft.districtsFromZonesB]);
     React.useEffect(() => {
-        if (!draft.use_geo_filter) {
-            context.updateDraft((current) => {                    
-                current.featuresA = null;
-                current.featuresB = null;
-            });
+        let ignore = false;
+        context.updateDraft((current) => {
+            current.featuresA = null;
+            current.featuresB = null;
+        });
+        if (draft.use_geo_filter) {
         } else {
-            init_districts('a');
-            init_districts('b');
+            init_districts(draft.geotype, draft.districts, draft.districtFromDimension, draft.districtsFromZones).then(result => {
+                if (!ignore) {
+                    context.updateDraft((current) => {
+                        current.featuresA = result;
+                    })
+                }
+            });
+            init_districts(draft.geotypeB, draft.districtsB, draft.districtFromDimensionB, draft.districtsFromZonesB).then(result => {
+                if (!ignore) {
+                    context.updateDraft((current) => {
+                        current.featuresB = result;
+                    })
+                }
+            });
+        }
+        return () => {
+            ignore = true;
         }
     }, [draft.use_geo_filter]);
     React.useEffect(() => {
-        // TODO: this breaks if a hypothesis without two time series selections is chosen for the first time after adding the widget
         if (!draft.a_selection) {
             context.set_loading(true);
         }
@@ -332,7 +347,7 @@ export default createWidgetComponent((_a) => {
                     React.createElement(Col, { span: 8 }, React.createElement(Row, { gutter: 8 },
                         React.createElement(Col, { span: 24, style: { fontWeight: "bold" } }, draft.a_title ? draft.a_title : t("highcharts:compare.a")),
                         React.createElement(Col, { span: 24 }, formatDateSelection('day', draft.a_selection.start) + " - " + formatDateSelection('day', draft.a_selection.end)),
-                        React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? '' : draft.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekdays") : draft.a_start_hour + ' - ' + draft.a_end_hour + " " + t('app:widgets.hypothesis.results.hours')),
+                        React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? '' : draft.type === 'geo' ? '' : draft.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekdays") : draft.a_start_hour + ' - ' + draft.a_end_hour + " " + t('app:widgets.hypothesis.results.hours')),
                         React.createElement(Col, { span: 24 }, draft.geotype),
                         React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_a),
                         React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.mean"), ": ", chartConfig.mean_a)
@@ -340,7 +355,7 @@ export default createWidgetComponent((_a) => {
                     React.createElement(Col, { span: 8 }, React.createElement(Row, { gutter: 8 },
                         React.createElement(Col, { span: 24, style: { fontWeight: "bold" } }, draft.type === 'timegeo' ? draft.b_title ? draft.b_title : t("highcharts:compare.b") : '-'),
                         React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? formatDateSelection('day', draft.b_selection.start) + " - " + formatDateSelection('day', draft.b_selection.end) : '-'),
-                        React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? '' : draft.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekends") : draft.b_start_hour + ' - ' + draft.b_end_hour + " " + t('app:widgets.hypothesis.results.hours')),
+                        React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? '' : draft.type === 'geo' ? '' : draft.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekends") : draft.b_start_hour + ' - ' + draft.b_end_hour + " " + t('app:widgets.hypothesis.results.hours')),
                         React.createElement(Col, { span: 24 }, draft.geotypeB),
                         React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_b),
                         React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.mean"), ": ", chartConfig.mean_b)
