@@ -6,13 +6,16 @@
       "settings": {
         "title": "Choose the Comparison Type",
         "description": "Please choose the comparison type you want to test.",
-        "titleA": "Choose the First Sample",
+        "titleA": "Choose the Timeframe",
+        "titleA_first": "Choose the First Sample",
         "descriptionA": "Please choose the first sample you want to test.",
         "titleB": "Choose the Second Sample",
         "descriptionB": "Please choose the second sample you want to test.",
         "hour_from": "Start Time",
         "hour_to": "End Time",
-        "set_name": "Title of Time Series"
+        "set_name": "Title of Time Series",
+        "titleGeoFilter": "Choose a Geozone (optional, as Filter)",
+        "useGeoFilter": "Use Geozone as Filter?"
       },
       "headers": {
         "timeseries": "Different Timeseries {{name}}",

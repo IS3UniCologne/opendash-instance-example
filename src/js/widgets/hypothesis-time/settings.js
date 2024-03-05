@@ -183,8 +183,7 @@ export default createWidgetComponent((_a) => {
                         }
                         updateDraft((draft) => {
                             draft.geotype = type;
-                            draft.geotypeAlt = 'a';
-                            draft.districtsA = null;
+                            // draft.featuresA = null;
                             if (type === "json") {
                                 draft.districtFromDimension = null;
                                 draft.districts = value;
@@ -218,9 +217,8 @@ export default createWidgetComponent((_a) => {
                             setZonesB(value);
                         }
                         updateDraft((draft) => {
-                            draft.geotype = type;
-                            draft.geotypeAlt = 'b';
-                            draft.districtsB = null;
+                            draft.geotypeB = type;
+                            // draft.featuresB = null;
                             if (type === "json") {
                                 draft.districtFromDimensionB = null;
                                 draft.districtsB = value;
