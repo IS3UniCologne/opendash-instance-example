@@ -139,7 +139,7 @@ export default createWidgetComponent((_a) => {
             ignore = true;
         };
     }, [draft.geotype, draft.districts, draft.districtFromDimension, draft.districtsFromZones]);
-    React.useEffect(async () => {
+    React.useEffect(() => {
         let ignore = false;
         context.updateDraft((current) => {
             current.featuresB = null;
