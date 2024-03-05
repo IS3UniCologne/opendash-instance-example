@@ -264,7 +264,7 @@ export default createWidgetComponent((_a) => {
                 context.setLoading(false);
             });
         }
-    }, [draft.unit, draft.a_selection, draft.b_selection]);
+    }, [draft.unit, draft.a_selection, draft.b_selection, draft.featuresA, draft.featuresB]);
     return (React.createElement(React.Fragment, null,
         React.createElement("div", {
             style: {
