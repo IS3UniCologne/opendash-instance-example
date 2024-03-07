@@ -14,7 +14,7 @@ import { createWidgetComponent } from "@opendash/plugin-monitoring";
 import { DataItemHistoryOptionsPicker } from "@opendash/plugin-timeseries";
 import GeographySelector from "@opendash/plugin-miaas/dist/components/GeographySelector";
 import { Description, IconSelect as Select } from "@opendash/ui";
-import { Collapse, Divider, Row, Col, InputNumber, Input, Space, Switch, Flex, Typography } from "antd";
+import { Collapse, Divider, Row, Col, InputNumber, Input, Space, Switch, Flex, Typography, TimePicker } from "antd";
 import * as React from "react";
 export default createWidgetComponent((_a) => {
     var { draft, updateDraft } = _a, context = __rest(_a, ["draft", "updateDraft"]);
@@ -100,7 +100,8 @@ export default createWidgetComponent((_a) => {
                 }),
                 React.createElement(Divider),
                 draft.type === 'timeintervalgeo' ? React.createElement(Row, { gutter: [8, 16], justify: 'end', align: 'middle' },
-                    React.createElement(Col, { span: 6 },),
+                    React.createElement(Col, { span: 6 },
+                        React.createElement("span", {}, t("app:widgets.hypothesis.settings.timeframe_a"))),
                     React.createElement(Col, { span: 4 },
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_from"))),
                     React.createElement(Col, { span: 4 },
@@ -121,7 +122,8 @@ export default createWidgetComponent((_a) => {
                                 });
                             }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
                         })),
-                    React.createElement(Col, { span: 6 },),
+                    React.createElement(Col, { span: 6 },
+                        React.createElement("span", {}, t("app:widgets.hypothesis.settings.timeframe_b"))),
                     React.createElement(Col, { span: 4 },
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_from"))),
                     React.createElement(Col, { span: 4 },
@@ -183,6 +185,7 @@ export default createWidgetComponent((_a) => {
                         }
                         updateDraft((draft) => {
                             draft.geotype = type;
+                            draft.geotypeName = '-';
                             // draft.featuresA = null;
                             if (type === "json") {
                                 draft.districtFromDimension = null;
@@ -218,6 +221,7 @@ export default createWidgetComponent((_a) => {
                         }
                         updateDraft((draft) => {
                             draft.geotypeB = type;
+                            draft.geotypeNameB = '-';
                             // draft.featuresB = null;
                             if (type === "json") {
                                 draft.districtFromDimensionB = null;

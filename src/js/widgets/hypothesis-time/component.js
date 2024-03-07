@@ -87,6 +87,22 @@ function get_trip_counts(series, start, end, geo_filter = null, exclude_hours = 
     return Object.values(trip_counts);
 }
 
+function get_feature_name(result, t) {
+    // TODO: if we change the TODO in get_trip_counts above, we need to change this as well
+    let ret = '-';
+    try {
+        ret = result[0]['properties']['name'];
+    } catch (error) {
+        ret = t("app:widgets.hypothesis.settings.customJson");
+    }
+    if (ret === undefined || ret === 'District-0') {
+        ret = t("app:widgets.hypothesis.settings.customJson");
+    }
+
+    return ret;
+}
+
+
 export default createWidgetComponent((_a) => {
     var { config, draft } = _a, context = __rest(_a, ["config", "draft"]);
     const t = useTranslation();
@@ -100,21 +116,7 @@ export default createWidgetComponent((_a) => {
     const { width, height } = context.useContainerSize();
     const [[item, dimension]] = context.useItemDimensionConfig();
     const [chartConfig, setChartConfig] = React.useState({ 'title': '', "extra_text": '' });
-    const [districtsA, setDistrictsA] = React.useState(null);
-    const [districtsB, setDistrictsB] = React.useState(null);
-    // const init_districts = () => __awaiter(void 0, void 0, void 0, function* () {
-    //     const x = yield getFeatureCollections(draft.geotype, draft.geotype === "json"
-    //         ? draft.districts
-    //         : draft.geotype === "dimension"
-    //             ? draft.districtFromDimension
-    //             : draft.districtsFromZones);
-    //     if (draft.geotypeAlt === 'a') {
-    //         setDistrictsA(x.flatMap((entry) => entry.features));
-    //     } else if (draft.geotypeAlt === 'b') {
-    //         setDistrictsB(x.flatMap((entry) => entry.features));
-    //     }
 
-    // });
     async function init_districts(geotype, districts, districtFromDimension, districtsFromZones) {
         let x = await getFeatureCollections(geotype, geotype === "json"
             ? districts
@@ -127,11 +129,13 @@ export default createWidgetComponent((_a) => {
         let ignore = false;
         context.updateDraft((current) => {
             current.featuresA = null;
+            current.geotypeName  = '-';
         })
         init_districts(draft.geotype, draft.districts, draft.districtFromDimension, draft.districtsFromZones).then(result => {
             if (!ignore) {
                 context.updateDraft((current) => {
                     current.featuresA = result;
+                    current.geotypeName  = get_feature_name(result, t);
                 })
             }
         });
@@ -143,11 +147,13 @@ export default createWidgetComponent((_a) => {
         let ignore = false;
         context.updateDraft((current) => {
             current.featuresB = null;
+            current.geotypeNameB = '-';
         })
         init_districts(draft.geotypeB, draft.districtsB, draft.districtFromDimensionB, draft.districtsFromZonesB).then(result => {
             if (!ignore) {
                 context.updateDraft((current) => {
                     current.featuresB = result;
+                    current.geotypeNameB  = get_feature_name(result, t);
                 })
             }
         });
@@ -159,7 +165,9 @@ export default createWidgetComponent((_a) => {
         let ignore = false;
         context.updateDraft((current) => {
             current.featuresA = null;
+            current.geotypeName = '-';
             current.featuresB = null;
+            current.geotypeNameB = '-';
         });
         if (draft.use_geo_filter) {
         } else {
@@ -167,6 +175,7 @@ export default createWidgetComponent((_a) => {
                 if (!ignore) {
                     context.updateDraft((current) => {
                         current.featuresA = result;
+                        current.geotypeName  = get_feature_name(result, t);
                     })
                 }
             });
@@ -174,6 +183,7 @@ export default createWidgetComponent((_a) => {
                 if (!ignore) {
                     context.updateDraft((current) => {
                         current.featuresB = result;
+                        current.geotypeNameB  = get_feature_name(result, t);
                     })
                 }
             });
@@ -210,20 +220,6 @@ export default createWidgetComponent((_a) => {
                         item.valueTypes[dimension],
                     ];
                 })));
-                // let zoneA = null;
-                // if (draft.use_geo_filter || draft.type == 'geo') {
-                //     switch(draft.geotype) {
-                //         case 'json':
-                //             zoneA = draft.districts;
-                //             break;
-                //         case 'zones':
-                //             zoneA = draft.districtsFromZones;
-                //             break;
-                //         case 'dimension':
-                //             zoneA = draft.districtFromDimension;
-                //             // throw new Error('Not implemented');
-                //     }
-                // }
 
                 const result_a = [
                     ...historyA.map(([item, dimension, values]) => {
@@ -239,17 +235,6 @@ export default createWidgetComponent((_a) => {
                             return [result_a, result_b];
                         } else if (draft.type === 'geo') {
                             const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.featuresA, [], false, false);
-
-                            // let zoneB;
-                            // switch(draft.geotype) {
-                            //     case 'json':
-                            //         zoneB = draft.districtsB;
-                            //     case 'zones':
-                            //         zoneB = draft.districtsFromZonesB;
-                            //     case 'dimension':
-                            //         // let zoneB = draft.districtFromDimension;
-                            //         throw new Error('Not implemented');
-                            // }
                             const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.featuresB, [], false, false);
                             return [result_a, result_b];
                         } else {
@@ -348,7 +333,7 @@ export default createWidgetComponent((_a) => {
                         React.createElement(Col, { span: 24, style: { fontWeight: "bold" } }, draft.a_title ? draft.a_title : t("highcharts:compare.a")),
                         React.createElement(Col, { span: 24 }, formatDateSelection('day', draft.a_selection.start) + " - " + formatDateSelection('day', draft.a_selection.end)),
                         React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? '' : draft.type === 'geo' ? '' : draft.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekdays") : draft.a_start_hour + ' - ' + draft.a_end_hour + " " + t('app:widgets.hypothesis.results.hours')),
-                        React.createElement(Col, { span: 24 }, draft.geotype),
+                        React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.geo_filter"), ": ", draft.geotypeName),
                         React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_a),
                         React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.mean"), ": ", chartConfig.mean_a)
                     )),
@@ -356,7 +341,7 @@ export default createWidgetComponent((_a) => {
                         React.createElement(Col, { span: 24, style: { fontWeight: "bold" } }, draft.type === 'timegeo' ? draft.b_title ? draft.b_title : t("highcharts:compare.b") : '-'),
                         React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? formatDateSelection('day', draft.b_selection.start) + " - " + formatDateSelection('day', draft.b_selection.end) : '-'),
                         React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? '' : draft.type === 'geo' ? '' : draft.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekends") : draft.b_start_hour + ' - ' + draft.b_end_hour + " " + t('app:widgets.hypothesis.results.hours')),
-                        React.createElement(Col, { span: 24 }, draft.geotypeB),
+                        React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.geo_filter"), ": ", draft.type === 'geo' ? draft.geotypeNameB : draft.geotypeName),
                         React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_b),
                         React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.mean"), ": ", chartConfig.mean_b)
                     )),
@@ -364,6 +349,7 @@ export default createWidgetComponent((_a) => {
             ))
     ));
 });
+
 function formatDateSelection(unit, time) {
     switch (unit) {
         case "minute":

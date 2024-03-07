@@ -15,7 +15,8 @@
         "hour_to": "End Time",
         "set_name": "Title of Time Series",
         "titleGeoFilter": "Choose a Geozone (optional, as Filter)",
-        "useGeoFilter": "Use Geozone as Filter?"
+        "useGeoFilter": "Use Geozone as Filter?",
+        "customJson": "Custom GeoJSON"
       },
       "headers": {
         "timeseries": "Different Timeseries {{name}}",
@@ -34,7 +35,8 @@
         "statistic": "T-Statistic",
         "hours": "",
         "weekdays": "Weekdays",
-        "weekends": "Weekends"
+        "weekends": "Weekends",
+        "geo_filter": "Filtering on"
       },
       "result_type": "Type: ",
       "result_descriptor": "Result: ",

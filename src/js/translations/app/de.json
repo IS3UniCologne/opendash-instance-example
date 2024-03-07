@@ -11,13 +11,16 @@
                 "descriptionA": "Bitte wählen Sie den ersten Datensatz den Sie testen wollen.",
                 "titleB": "Wählen Sie den zweiten Datensatz (nur bei Zeitreihenvergleich)",
                 "descriptionB": "Bitte wählen Sie den zweiten Datensatz den Sie testen wollen.",
+                "timeframe_a": "Zeitraum A",
+                "timeframe_b": "Zeitraum B",
                 "hour_from": "Startzeitpunkt",
                 "hour_to": "Endzeitpunkt",
                 "set_name": "Titel der Zeitreihe",
                 "titleGeoFilter": "Auswahl von Geozonen (optional, als Filter)",
                 "titleGeo": "Auswahl von Geozonen zum Vergleich",
                 "descriptionGeo": "Wählen Sie die zweite Geozone zum Vergleich aus.",
-                "useGeoFilter": "Geozone als Filter anwenden?"
+                "useGeoFilter": "Geozone als Filter anwenden?",
+                "customJson": "Benutzerdefinierte GeoJSON"
             },
             "headers": {
                 "timeseries": "Verschiedene Zeitreihen {{name}}",
@@ -37,7 +40,8 @@
                 "statistic": "T-Statistik",
                 "hours": "Uhr",
                 "weekdays": "Wochentag",
-                "weekends": "Wochenende"
+                "weekends": "Wochenende",
+                "geo_filter": "Gefiltert auf"
             },
             "result_type": "Typ: ",
             "result_descriptor": "Ergebnis: ",
