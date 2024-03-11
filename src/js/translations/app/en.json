@@ -11,10 +11,13 @@
         "descriptionA": "Please choose the first sample you want to test.",
         "titleB": "Choose the Second Sample",
         "descriptionB": "Please choose the second sample you want to test.",
+        "timeframe_a": "Timeframe A",
+        "timeframe_b": "Timeframe B",
         "hour_from": "Start Time",
         "hour_to": "End Time",
         "set_name": "Title of Time Series",
         "titleGeoFilter": "Choose a Geozone (optional, as Filter)",
+        "titleGeo": "Choose of Geozones for comparison",
         "useGeoFilter": "Use Geozone as Filter?",
         "customJson": "Custom GeoJSON"
       },
