@@ -3,6 +3,7 @@ import "antd/dist/reset.css";
 import "./parse.config";
 import "./highcharts.config";
 
+import "./leaflet.config";
 import { init, StorageAdapterLS } from "@opendash/core";
 import { registerIconPack } from "@opendash/icons";
 import { HighchartsPlugin } from "@opendash/plugin-highcharts";
