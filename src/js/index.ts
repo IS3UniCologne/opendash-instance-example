@@ -3,7 +3,6 @@ import "antd/dist/reset.css";
 import "./parse.config";
 import "./highcharts.config";
 
-import "./leaflet.config";
 import { init, StorageAdapterLS } from "@opendash/core";
 import { registerIconPack } from "@opendash/icons";
 import { HighchartsPlugin } from "@opendash/plugin-highcharts";
@@ -16,7 +15,7 @@ import { ParsePlugin } from "@opendash/plugin-parse";
 import { ParseMonitoringPlugin } from "@opendash/plugin-parse-monitoring";
 import { TimeseriesPlugin } from "@opendash/plugin-timeseries";
 import ExampleWidget from "./widgets/example";
-
+import "./leaflet.config";
 init("opendash", async (factory) => {
   // Icons
   // @ts-ignore
@@ -86,7 +85,7 @@ init("opendash", async (factory) => {
     activeCondition: "/",
   });
   // Widgets
- addcss(`
+  addcss(`
   .ant-modal-close-x {margin-top:16}
   .ant-steps-item-icon span {line-height:32px!important}
   .ant-steps-item-icon svg {margin-top:7}
@@ -99,7 +98,7 @@ init("opendash", async (factory) => {
 }).then((app) => {
   console.log("init open.DASH");
 });
-
+//@ts-expect-error
 function addcss(css) {
   const head = document.getElementsByTagName("head")[0];
   const s = document.createElement("style");

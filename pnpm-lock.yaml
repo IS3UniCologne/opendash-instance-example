@@ -8,6 +8,9 @@ dependencies:
   '@ant-design/pro-layout':
     specifier: ^7.17.19
     version: 7.17.19(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)
+  '@geoman-io/leaflet-geoman-free':
+    specifier: ^2.16.0
+    version: 2.16.0(leaflet@1.9.4)
   '@opendash/core':
     specifier: nightly
     version: 3.0.0-nightly.1710247474(@types/react@18.2.65)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
@@ -86,6 +89,9 @@ dependencies:
   leaflet:
     specifier: ^1.9.4
     version: 1.9.4
+  leaflet-gesture-handling:
+    specifier: ^1.2.2
+    version: 1.2.2
   leaflet.heat:
     specifier: ^0.2.0
     version: 0.2.0
@@ -625,7 +631,6 @@ packages:
   /@babel/plugin-proposal-private-property-in-object@7.21.0-placeholder-for-preset-env.2(@babel/core@7.24.0):
     resolution: {integrity: sha512-SOSkfJDddaM7mak6cPEpswyTRnuRltl429hMraQEglW+OkovnCzsiszTmsrlY//qLFjCpQDFRvjdm2wA5pPm9w==}
     engines: {node: '>=6.9.0'}
-    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-property-in-object instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -13429,7 +13434,7 @@ packages:
   /wide-align@1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 1.0.2
+      string-width: 4.2.3
     dev: true
 
   /workbox-background-sync@6.6.1:

@@ -27,6 +27,8 @@
     "@opendash/router": "nightly",
     "@opendash/state": "nightly",
     "@opendash/ui": "nightly",
+    "@geoman-io/leaflet-geoman-free": "^2.16.0",
+    "leaflet-gesture-handling": "^1.2.2",
     "@turf/turf": "^6.5.0",
     "antd": "^5.15.2",
     "dayjs": "^1.11.10",
