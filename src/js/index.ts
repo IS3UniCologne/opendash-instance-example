@@ -8,6 +8,7 @@ import { registerIconPack } from "@opendash/icons";
 import { HighchartsPlugin } from "@opendash/plugin-highcharts";
 import { GeoPlugin } from "@opendash/plugin-geo";
 import { GeoPluginMapLibre } from "@opendash/plugin-geo-maplibre";
+import { GTFSPlugin } from "@opendash/plugin-gtfs";
 import { MIAASPlugin } from "@opendash/plugin-miaas";
 import { $monitoring, MonitoringPlugin } from "@opendash/plugin-monitoring";
 import { OpenwarePlugin } from "@opendash/plugin-openware";
@@ -58,6 +59,7 @@ init("opendash", async (factory) => {
   await factory.use(new MonitoringPlugin());
   await factory.use(new GeoPlugin());
   await factory.use(new GeoPluginMapLibre());
+  await factory.use(new GTFSPlugin());
   await factory.use(new MIAASPlugin());
   await factory.use(
     new OpenwarePlugin({

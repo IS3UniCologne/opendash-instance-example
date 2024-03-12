@@ -14,6 +14,7 @@
     "@opendash/plugin-bde": "nightly",
     "@opendash/plugin-feedback": "nightly",
     "@opendash/plugin-geo": "nightly",
+    "@opendash/plugin-gtfs": "nightly",
     "@opendash/plugin-geo-maplibre": "nightly",
     "@opendash/plugin-highcharts": "nightly",
     "@opendash/plugin-knowledge": "nightly",
