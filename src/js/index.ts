@@ -19,6 +19,7 @@ import ExampleWidget from "./widgets/example";
 import GroupedWidget from "./widgets/grouped-data";
 import LeafletWidget from "./widgets/leaflet";
 import HypothesisTimeWidget from "./widgets/hypothesis-time";
+import "./leaflet.config";
 
 init("opendash", async (factory) => {
   // Icons
