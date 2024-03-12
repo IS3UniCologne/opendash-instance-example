@@ -16,24 +16,24 @@ import GeographySelector from "@opendash/plugin-miaas/dist/components/GeographyS
 import { Description, IconSelect as Select } from "@opendash/ui";
 import { Collapse, Divider, Row, Col, InputNumber, Input, Space, Switch, Flex, Typography, TimePicker } from "antd";
 import * as React from "react";
-export default createWidgetComponent((_a) => {
-    var { draft, updateDraft } = _a, context = __rest(_a, ["draft", "updateDraft"]);
-    const [typeA, setTypeA] = React.useState(draft.geotype || "zones");
-    const [jsonA, setJSONA] = React.useState(draft.districts);
-    const [zonesA, setZonesA] = React.useState(draft.districtsFromZones);
-    const [dimensionA, setDimensionA] = React.useState(draft.districtFromDimension || null);
-    const [typeB, setTypeB] = React.useState(draft.geotypeB || "zones");
-    const [jsonB, setJSONB] = React.useState(draft.districtsB);
-    const [zonesB, setZonesB] = React.useState(draft.districtsFromZonesB);
-    const [dimensionB, setDimensionB] = React.useState(draft.districtFromDimensionB || null);
+import { ConfigInterface } from "./types";
+export default createWidgetComponent < ConfigInterface > (({ config, ...context }) => {
+    const [typeA, setTypeA] = React.useState(config.geotype || "zones");
+    const [jsonA, setJSONA] = React.useState(config.districts);
+    const [zonesA, setZonesA] = React.useState(config.districtsFromZones);
+    const [dimensionA, setDimensionA] = React.useState(config.districtFromDimension || null);
+    const [typeB, setTypeB] = React.useState(config.geotypeB || "zones");
+    const [jsonB, setJSONB] = React.useState(config.districtsB);
+    const [zonesB, setZonesB] = React.useState(config.districtsFromZonesB);
+    const [dimensionB, setDimensionB] = React.useState(config.districtFromDimensionB || null);
     const t = useTranslation();
     return (React.createElement(React.Fragment, null,
         React.createElement(Collapse, { bordered: false, defaultActiveKey: ["type"] },
             React.createElement(Collapse.Panel, { header: t("app:widgets.hypothesis.settings.title"), key: "type" },
                 React.createElement(Description, { children: t("app:widgets.hypothesis.settings.description") }),
                 React.createElement(Select, {
-                    value: draft.type, size: 2, onChange: (nextValue) => {
-                        updateDraft((draft) => {
+                    value: config.type, size: 2, onChange: (nextValue) => {
+                        context.updateDraft((draft) => {
                             draft.type = nextValue;
                         });
                     }, options: [
@@ -67,12 +67,12 @@ export default createWidgetComponent((_a) => {
                     ]
                 }),
                 React.createElement(Flex, { align: "center", justify: "flex-end", "gap": "middle" },
-                    React.createElement(Typography, { disabled: draft.type == "geo" }, t("app:widgets.hypothesis.settings.useGeoFilter")),
+                    React.createElement(Typography, { disabled: config.type == "geo" }, t("app:widgets.hypothesis.settings.useGeoFilter")),
                     React.createElement(Switch, {
-                        disabled: draft.type == "geo",
-                        checked: draft.use_geo_filter || false,
+                        disabled: config.type == "geo",
+                        checked: config.use_geo_filter || false,
                         onChange: (checked) => {
-                            updateDraft((draft) => {
+                            context.updateDraft((draft) => {
                                 draft.use_geo_filter = checked;
                             });
                         }
@@ -81,46 +81,46 @@ export default createWidgetComponent((_a) => {
             )
         ),
         React.createElement(Collapse, { bordered: false },
-            React.createElement(Collapse.Panel, { header: draft.type == 'timegeo' ? t("app:widgets.hypothesis.settings.titleA_first") : t("app:widgets.hypothesis.settings.titleA"), key: "type" },
+            React.createElement(Collapse.Panel, { header: config.type == 'timegeo' ? t("app:widgets.hypothesis.settings.titleA_first") : t("app:widgets.hypothesis.settings.titleA"), key: "type" },
                 React.createElement(Description, {
                     children: (React.createElement(Space.Compact, { size: 'middle' }, React.createElement(Input, {
-                        value: draft.a_title, placeholder: t("app:widgets.hypothesis.settings.set_name"), onChange: (nextValue) => {
-                            updateDraft((draft) => {
+                        value: config.a_title, placeholder: t("app:widgets.hypothesis.settings.set_name"), onChange: (nextValue) => {
+                            context.updateDraft((draft) => {
                                 draft.a_title = nextValue.target.value;
                             });
                         }
                     })))
                 }),
                 React.createElement(DataItemHistoryOptionsPicker, {
-                    options: { live: false, history: true, aggregation: false }, value: draft.a_selection, onChange: (nextValue) => {
-                        updateDraft((draft) => {
+                    options: { live: false, history: true, aggregation: false }, value: config.a_selection, onChange: (nextValue) => {
+                        context.updateDraft((draft) => {
                             draft.a_selection = nextValue;
                         });
                     }
                 }),
                 React.createElement(Divider),
-                draft.type === 'timeintervalgeo' ? React.createElement(Row, { gutter: [8, 16], justify: 'end', align: 'middle' },
+                config.type === 'timeintervalgeo' ? React.createElement(Row, { gutter: [8, 16], justify: 'end', align: 'middle' },
                     React.createElement(Col, { span: 6 },
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.timeframe_a"))),
                     React.createElement(Col, { span: 4 },
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_from"))),
                     React.createElement(Col, { span: 4 },
                         React.createElement(InputNumber, {
-                            value: draft.a_start_hour, onChange: (nextValue) => {
-                                updateDraft((draft) => {
+                            value: config.a_start_hour, onChange: (nextValue) => {
+                                context.updateDraft((draft) => {
                                     draft.a_start_hour = nextValue;
                                 });
-                            }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
+                            }, disabled: config.type != 'timeintervalgeo', min: 0, max: 24
                         })),
                     React.createElement(Col, { span: 4 },
                         React.createElement("span", { style: { textAlign: 'right' } }, t("app:widgets.hypothesis.settings.hour_to"))),
                     React.createElement(Col, { span: 4 },
                         React.createElement(InputNumber, {
-                            value: draft.a_end_hour, onChange: (nextValue) => {
-                                updateDraft((draft) => {
+                            value: config.a_end_hour, onChange: (nextValue) => {
+                                context.updateDraft((draft) => {
                                     draft.a_end_hour = nextValue;
                                 });
-                            }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
+                            }, disabled: config.type != 'timeintervalgeo', min: 0, max: 24
                         })),
                     React.createElement(Col, { span: 6 },
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.timeframe_b"))),
@@ -128,47 +128,47 @@ export default createWidgetComponent((_a) => {
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_from"))),
                     React.createElement(Col, { span: 4 },
                         React.createElement(InputNumber, {
-                            value: draft.b_start_hour, onChange: (nextValue) => {
-                                updateDraft((draft) => {
+                            value: config.b_start_hour, onChange: (nextValue) => {
+                                context.updateDraft((draft) => {
                                     draft.b_start_hour = nextValue;
                                 });
-                            }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
+                            }, disabled: config.type != 'timeintervalgeo', min: 0, max: 24
                         })),
                     React.createElement(Col, { span: 4 },
                         React.createElement("span", {}, t("app:widgets.hypothesis.settings.hour_to"))),
                     React.createElement(Col, { span: 4 },
                         React.createElement(InputNumber, {
-                            value: draft.b_end_hour, onChange: (nextValue) => {
-                                updateDraft((draft) => {
+                            value: config.b_end_hour, onChange: (nextValue) => {
+                                context.updateDraft((draft) => {
                                     draft.b_end_hour = nextValue;
                                 });
-                            }, disabled: draft.type != 'timeintervalgeo', min: 0, max: 24
+                            }, disabled: config.type != 'timeintervalgeo', min: 0, max: 24
                         }))
                 ) : null,
             )
         ),
-        draft.type === 'timegeo' ? React.createElement(Collapse, { bordered: false },
+        config.type === 'timegeo' ? React.createElement(Collapse, { bordered: false },
             React.createElement(Collapse.Panel, { header: t("app:widgets.hypothesis.settings.titleB"), key: "type" },
                 React.createElement(Description, {
                     children: (React.createElement(Space.Compact, { size: 'middle' }, React.createElement(Input, {
-                        value: draft.b_title, placeholder: t("app:widgets.hypothesis.settings.set_name"), onChange: (nextValue) => {
-                            updateDraft((draft) => {
+                        value: config.b_title, placeholder: t("app:widgets.hypothesis.settings.set_name"), onChange: (nextValue) => {
+                            context.updateDraft((draft) => {
                                 draft.b_title = nextValue.target.value;
                             });
                         }
                     })))
                 }),
                 React.createElement(DataItemHistoryOptionsPicker, {
-                    options: { live: false, history: true, aggregation: false }, value: draft.b_selection, onChange: (nextValue) => {
-                        updateDraft((draft) => {
+                    options: { live: false, history: true, aggregation: false }, value: config.b_selection, onChange: (nextValue) => {
+                        context.updateDraft((draft) => {
                             draft.b_selection = nextValue;
                         });
                     }
                 })
             )) : null,
-        (draft.use_geo_filter || draft.type == 'geo') ? React.createElement(Collapse, { bordered: false },
+        (config.use_geo_filter || config.type == 'geo') ? React.createElement(Collapse, { bordered: false },
             React.createElement(Collapse.Panel, {
-                header: draft.type == 'geo' ? t("app:widgets.hypothesis.settings.titleGeo") : t("app:widgets.hypothesis.settings.titleGeoFilter"),
+                header: config.type == 'geo' ? t("app:widgets.hypothesis.settings.titleGeo") : t("app:widgets.hypothesis.settings.titleGeoFilter"),
                 key: "type"
             },
                 React.createElement(GeographySelector, {
@@ -183,10 +183,10 @@ export default createWidgetComponent((_a) => {
                         if (type === "zones") {
                             setZonesA(value);
                         }
-                        updateDraft((draft) => {
+                        context.updateDraft((draft) => {
                             draft.geotype = type;
                             draft.geotypeName = '-';
-                            // draft.featuresA = null;
+                            // config.featuresA = null;
                             if (type === "json") {
                                 draft.districtFromDimension = null;
                                 draft.districts = value;
@@ -206,8 +206,8 @@ export default createWidgetComponent((_a) => {
                     }
                 }),
                 React.createElement(Divider),
-                React.createElement(Description, { children: draft.type == 'geo' ? t("app:widgets.hypothesis.settings.descriptionGeo") : null }),
-                draft.type == 'geo' ? React.createElement(GeographySelector, {
+                React.createElement(Description, { children: config.type == 'geo' ? t("app:widgets.hypothesis.settings.descriptionGeo") : null }),
+                config.type == 'geo' ? React.createElement(GeographySelector, {
                     type: typeB, value: typeB === "json" ? jsonB : typeB === "dimension" ? dimensionB : zonesB, update: (type, value) => {
                         setTypeB(type);
                         if (type === "json") {
@@ -219,10 +219,10 @@ export default createWidgetComponent((_a) => {
                         if (type === "zones") {
                             setZonesB(value);
                         }
-                        updateDraft((draft) => {
+                        context.updateDraft((draft) => {
                             draft.geotypeB = type;
                             draft.geotypeNameB = '-';
-                            // draft.featuresB = null;
+                            // config.featuresB = null;
                             if (type === "json") {
                                 draft.districtFromDimensionB = null;
                                 draft.districtsB = value;

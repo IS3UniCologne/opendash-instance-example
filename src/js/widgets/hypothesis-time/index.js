@@ -1,9 +1,10 @@
 import { createWidget } from "@opendash/plugin-monitoring";
+import React from "react";
 export default createWidget({
     type: "opendash-widget-hypothesis-time",
     meta: {},
-    displayComponent: () => import("./component"),
-    settingsComponent: () => import("./settings"),
+    displayComponent: React.lazy(() => import("./component")),
+    settingsComponent: React.lazy(() => import("./settings")),
     dataItems: {
         select: "dimension",
         min: 1,
