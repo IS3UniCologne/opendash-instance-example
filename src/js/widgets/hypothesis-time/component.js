@@ -1,12 +1,3 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -28,6 +19,7 @@ import { Card, Divider, Row, Col, Space, Button, Select } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import { getFeatureCollections } from "@opendash/plugin-miaas/dist/components/GeographySelector";
 import * as turf from "@turf/turf";
+import { ConfigInterface } from "./types";
 
 
 function get_start_till_end_dict(start, end, exclude_hours = [], only_weekdays = false, only_weekends = false) {
@@ -103,11 +95,10 @@ function get_feature_name(result, t) {
 }
 
 
-export default createWidgetComponent((_a) => {
-    var { config, draft } = _a, context = __rest(_a, ["config", "draft"]);
+export default createWidgetComponent < ConfigInterface > (({ config, ...context }) => {
     const t = useTranslation();
     const DataService = useDataService();
-    context.setName(t(`app:widgets.hypothesis.headers.${draft.type}`, {
+    context.setName(t(`app:widgets.hypothesis.headers.${config.type}`, {
         name: context
             .useItemDimensionConfig()
             .map(([item, dimension]) => DataService.getItemName(item, dimension))
@@ -129,38 +120,38 @@ export default createWidgetComponent((_a) => {
         let ignore = false;
         context.updateDraft((current) => {
             current.featuresA = null;
-            current.geotypeName  = '-';
+            current.geotypeName = '-';
         })
-        init_districts(draft.geotype, draft.districts, draft.districtFromDimension, draft.districtsFromZones).then(result => {
+        init_districts(config.geotype, config.districts, config.districtFromDimension, config.districtsFromZones).then(result => {
             if (!ignore) {
                 context.updateDraft((current) => {
                     current.featuresA = result;
-                    current.geotypeName  = get_feature_name(result, t);
+                    current.geotypeName = get_feature_name(result, t);
                 })
             }
         });
         return () => {
             ignore = true;
         };
-    }, [draft.geotype, draft.districts, draft.districtFromDimension, draft.districtsFromZones]);
+    }, [config.geotype, config.districts, config.districtFromDimension, config.districtsFromZones]);
     React.useEffect(() => {
         let ignore = false;
         context.updateDraft((current) => {
             current.featuresB = null;
             current.geotypeNameB = '-';
         })
-        init_districts(draft.geotypeB, draft.districtsB, draft.districtFromDimensionB, draft.districtsFromZonesB).then(result => {
+        init_districts(config.geotypeB, config.districtsB, config.districtFromDimensionB, config.districtsFromZonesB).then(result => {
             if (!ignore) {
                 context.updateDraft((current) => {
                     current.featuresB = result;
-                    current.geotypeNameB  = get_feature_name(result, t);
+                    current.geotypeNameB = get_feature_name(result, t);
                 })
             }
         });
         return () => {
             ignore = true;
         };
-    }, [draft.geotypeB, draft.districtsB, draft.districtFromDimensionB, draft.districtsFromZonesB]);
+    }, [config.geotypeB, config.districtsB, config.districtFromDimensionB, config.districtsFromZonesB]);
     React.useEffect(() => {
         let ignore = false;
         context.updateDraft((current) => {
@@ -169,21 +160,21 @@ export default createWidgetComponent((_a) => {
             current.featuresB = null;
             current.geotypeNameB = '-';
         });
-        if (draft.use_geo_filter) {
+        if (config.use_geo_filter) {
         } else {
-            init_districts(draft.geotype, draft.districts, draft.districtFromDimension, draft.districtsFromZones).then(result => {
+            init_districts(config.geotype, config.districts, config.districtFromDimension, config.districtsFromZones).then(result => {
                 if (!ignore) {
                     context.updateDraft((current) => {
                         current.featuresA = result;
-                        current.geotypeName  = get_feature_name(result, t);
+                        current.geotypeName = get_feature_name(result, t);
                     })
                 }
             });
-            init_districts(draft.geotypeB, draft.districtsB, draft.districtFromDimensionB, draft.districtsFromZonesB).then(result => {
+            init_districts(config.geotypeB, config.districtsB, config.districtFromDimensionB, config.districtsFromZonesB).then(result => {
                 if (!ignore) {
                     context.updateDraft((current) => {
                         current.featuresB = result;
-                        current.geotypeNameB  = get_feature_name(result, t);
+                        current.geotypeNameB = get_feature_name(result, t);
                     })
                 }
             });
@@ -191,26 +182,26 @@ export default createWidgetComponent((_a) => {
         return () => {
             ignore = true;
         }
-    }, [draft.use_geo_filter]);
+    }, [config.use_geo_filter]);
     React.useEffect(() => {
-        if (!draft.a_selection) {
+        if (!config.a_selection) {
             context.set_loading(true);
         }
         else {
             context.saveDraft();
             const promises = [DataService.fetchDimensionValuesMultiItem([[item, dimension]], {
                 historyType: "absolute",
-                start: draft.a_selection.start,
-                end: draft.a_selection.end,
+                start: config.a_selection.start,
+                end: config.a_selection.end,
                 // aggregationOperation: "count",
-                // aggregationDateUnit: draft.unit,
+                // aggregationDateUnit: config.unit,
             }),
-            draft.type === 'timegeo' ? DataService.fetchDimensionValuesMultiItem([[item, dimension]], {
+            config.type === 'timegeo' ? DataService.fetchDimensionValuesMultiItem([[item, dimension]], {
                 historyType: "absolute",
-                start: draft.b_selection.start,
-                end: draft.b_selection.end,
+                start: config.b_selection.start,
+                end: config.b_selection.end,
                 // aggregationOperation: "count",
-                // aggregationDateUnit: draft.unit,
+                // aggregationDateUnit: config.unit,
             }) : Promise.resolve([]),]
             Promise.all(promises).then(([historyA, historyB]) => {
                 const units = Object.fromEntries([historyA, historyB].flatMap((history) => history.map(([item, dimension]) => {
@@ -223,30 +214,30 @@ export default createWidgetComponent((_a) => {
 
                 const result_a = [
                     ...historyA.map(([item, dimension, values]) => {
-                        if (draft.type === 'weekendgeo') {
-                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.featuresA, [], true, false);
-                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.featuresA, [], false, true);
+                        if (config.type === 'weekendgeo') {
+                            const result_a = get_trip_counts(values, config.a_selection.start, config.a_selection.end, config.featuresA, [], true, false);
+                            const result_b = get_trip_counts(values, config.a_selection.start, config.a_selection.end, config.featuresA, [], false, true);
                             return [result_a, result_b];
-                        } else if (draft.type === 'timeintervalgeo') {
-                            let exclude_hours = get_exclude_hours(draft.a_start_hour, draft.a_end_hour);
-                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.featuresA, exclude_hours, false, false);
-                            exclude_hours = get_exclude_hours(draft.b_start_hour, draft.b_end_hour);
-                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.featuresA, exclude_hours, false, false);
+                        } else if (config.type === 'timeintervalgeo') {
+                            let exclude_hours = get_exclude_hours(config.a_start_hour, config.a_end_hour);
+                            const result_a = get_trip_counts(values, config.a_selection.start, config.a_selection.end, config.featuresA, exclude_hours, false, false);
+                            exclude_hours = get_exclude_hours(config.b_start_hour, config.b_end_hour);
+                            const result_b = get_trip_counts(values, config.a_selection.start, config.a_selection.end, config.featuresA, exclude_hours, false, false);
                             return [result_a, result_b];
-                        } else if (draft.type === 'geo') {
-                            const result_a = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.featuresA, [], false, false);
-                            const result_b = get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.featuresB, [], false, false);
+                        } else if (config.type === 'geo') {
+                            const result_a = get_trip_counts(values, config.a_selection.start, config.a_selection.end, config.featuresA, [], false, false);
+                            const result_b = get_trip_counts(values, config.a_selection.start, config.a_selection.end, config.featuresB, [], false, false);
                             return [result_a, result_b];
                         } else {
-                            return get_trip_counts(values, draft.a_selection.start, draft.a_selection.end, draft.featuresA);
+                            return get_trip_counts(values, config.a_selection.start, config.a_selection.end, config.featuresA);
                         }
                     })];
                 const result_b = [
                     ...historyB.map(([item, dimension, values]) => {
-                        return get_trip_counts(values, draft.b_selection.start, draft.b_selection.end, draft.featuresA);
+                        return get_trip_counts(values, config.b_selection.start, config.b_selection.end, config.featuresA);
                     }),
                 ];
-                const series = draft.type === 'timegeo' ? [result_a[0], result_b[0]] : [result_a[0][0], result_a[0][1]];
+                const series = config.type === 'timegeo' ? [result_a[0], result_b[0]] : [result_a[0][0], result_a[0][1]];
                 const test_result = ttest2(series[0], series[1]);
                 const level = test_result.pValue < 0.01 ? 'high_confidence' : test_result.pValue < 0.05 ? 'low_confidence' : 'not_rejected';
                 const extracted_result = {
@@ -263,91 +254,97 @@ export default createWidgetComponent((_a) => {
                 context.setLoading(false);
             });
         }
-    }, [draft.unit, draft.a_selection, draft.b_selection, draft.featuresA, draft.featuresB]);
+    }, [config.unit, config.a_selection, config.b_selection, config.featuresA, config.featuresB]);
     return (React.createElement(React.Fragment, null,
-        React.createElement("div", {
-            style: {
-                height: 40,
-                lineHeight: "40px",
-                borderBottom: "1px solid #d9d9d9",
-            }
-        },
+        [
             React.createElement("div", {
                 style: {
-                    float: "left",
-                    width: "33%",
-                    padding: "0 20px",
-                    textAlign: "center",
+                    height: 40,
+                    lineHeight: "40px",
+                    borderBottom: "1px solid #d9d9d9",
                 }
-            },
-                React.createElement("span", null, t("app:widgets.hypothesis.comparison_description"))),
-            React.createElement("div", {
-                style: {
-                    float: "left",
-                    width: "33%",
-                    padding: "0 20px",
-                    textAlign: "center",
-                }
-            },
-                React.createElement("span", null,
-                    draft.a_title ? draft.a_title : t("highcharts:compare.a"),
-                    ": ",
-                    formatDateSelection('day', draft.a_selection.start),
-                    " - ",
-                    formatDateSelection('day', draft.a_selection.end))),
-            React.createElement("div", {
-                style: {
-                    float: "left",
-                    width: "33%",
-                    padding: "0 20px",
-                    textAlign: "center",
-                }
-            },
-                draft.type === 'timegeo' ? React.createElement("span", null,
-                    draft.b_title ? draft.b_title : t("highcharts:compare.b"),
-                    ": ",
-                    formatDateSelection('day', draft.b_selection.start),
-                    " - ",
-                    formatDateSelection('day', draft.b_selection.end)) : null,
-            )),
-        React.createElement("div", { style: { height: "100%" } },
-            React.createElement(Card, null,
-                React.createElement(Row, { gutter: 16 },
-                    React.createElement(Col, { span: 4 }, React.createElement(Avatar, {
-                        size: 64, style: {
-                            backgroundColor: chartConfig.color,
-                            verticalAlign: "middle",
-                        }
-                    }, '')
-                    ),
-                    React.createElement(Col, { span: 20 },
-                        React.createElement(Space, { direction: "vertical" },
-                            React.createElement("span", { style: { fontSize: "16px" } }, t("app:widgets.hypothesis.result_type"), React.createElement("span", { style: { fontWeight: "bold", fontSize: "16px" } }, t(`app:widgets.hypothesis.${draft.type}`))),
-                            React.createElement("span", { style: { fontSize: "16px" } }, t("app:widgets.hypothesis.result_descriptor"), React.createElement("span", { style: { fontWeight: "bold", fontSize: "16px" } }, chartConfig.title))
-                        ),
-                    )),
-                React.createElement(Divider, null),
-                React.createElement(Row, { gutter: 16, justify: "space-around", style: { color: "grey" } },
-                    React.createElement(Col, { span: 24, style: { textAlign: "center", fontWeight: "bold" } }, t("app:widgets.hypothesis.results.details")),
-                    React.createElement(Col, { span: 8 }, React.createElement(Row, { gutter: 8 },
-                        React.createElement(Col, { span: 24, style: { fontWeight: "bold" } }, draft.a_title ? draft.a_title : t("highcharts:compare.a")),
-                        React.createElement(Col, { span: 24 }, formatDateSelection('day', draft.a_selection.start) + " - " + formatDateSelection('day', draft.a_selection.end)),
-                        React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? '' : draft.type === 'geo' ? '' : draft.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekdays") : draft.a_start_hour + ' - ' + draft.a_end_hour + " " + t('app:widgets.hypothesis.results.hours')),
-                        React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.geo_filter"), ": ", draft.geotypeName),
-                        React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_a),
-                        React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.mean"), ": ", chartConfig.mean_a)
-                    )),
-                    React.createElement(Col, { span: 8 }, React.createElement(Row, { gutter: 8 },
-                        React.createElement(Col, { span: 24, style: { fontWeight: "bold" } }, draft.type === 'timegeo' ? draft.b_title ? draft.b_title : t("highcharts:compare.b") : '-'),
-                        React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? formatDateSelection('day', draft.b_selection.start) + " - " + formatDateSelection('day', draft.b_selection.end) : '-'),
-                        React.createElement(Col, { span: 24 }, draft.type === 'timegeo' ? '' : draft.type === 'geo' ? '' : draft.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekends") : draft.b_start_hour + ' - ' + draft.b_end_hour + " " + t('app:widgets.hypothesis.results.hours')),
-                        React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.geo_filter"), ": ", draft.type === 'geo' ? draft.geotypeNameB : draft.geotypeName),
-                        React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_b),
-                        React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.mean"), ": ", chartConfig.mean_b)
-                    )),
-                    React.createElement(Col, { span: 24, style: { textAlign: "center" } }, t("app:widgets.hypothesis.results.pvalue"), ": ", chartConfig.pvalue, ", ", t("app:widgets.hypothesis.results.statistic"), ": ", chartConfig.statistic)),
-            ))
-    ));
+            }, [
+                React.createElement("div", {
+                    style: {
+                        float: "left",
+                        width: "33%",
+                        padding: "0 20px",
+                        textAlign: "center",
+                    }
+                },
+                    [React.createElement("span", null, t("app:widgets.hypothesis.comparison_description"))]),
+                React.createElement("div", {
+                    style: {
+                        float: "left",
+                        width: "33%",
+                        padding: "0 20px",
+                        textAlign: "center",
+                    }
+                },
+                    [React.createElement("span", null,
+                        config.a_title ? config.a_title : t("highcharts:compare.a"),
+                        ": ",
+                        formatDateSelection('day', config.a_selection.start),
+                        " - ",
+                        formatDateSelection('day', config.a_selection.end))]),
+                React.createElement("div", {
+                    style: {
+                        float: "left",
+                        width: "33%",
+                        padding: "0 20px",
+                        textAlign: "center",
+                    }
+                },
+                    [config.type === 'timegeo' ? React.createElement("span", null,
+                        config.b_title ? config.b_title : t("highcharts:compare.b"),
+                        ": ",
+                        formatDateSelection('day', config.b_selection.start),
+                        " - ",
+                        formatDateSelection('day', config.b_selection.end)) : null],
+                )]),
+            React.createElement("div", { style: { height: "100%" } },
+                [React.createElement(Card, null,
+                    [React.createElement(Row, { gutter: 16 },
+                        [React.createElement(Col, { span: 4 }, [React.createElement(Avatar, {
+                            size: 64, style: {
+                                backgroundColor: chartConfig.color,
+                                verticalAlign: "middle",
+                            }
+                        }, [''])
+                        ]),
+                        React.createElement(Col, { span: 20 }, [
+                            React.createElement(Space, { direction: "vertical" }, [
+                                React.createElement("span", { style: { fontSize: "16px" } }, [t("app:widgets.hypothesis.result_type"), React.createElement("span", { style: { fontWeight: "bold", fontSize: "16px" } }, [t(`app:widgets.hypothesis.${config.type}`)])]),
+                                React.createElement("span", { style: { fontSize: "16px" } }, [t("app:widgets.hypothesis.result_descriptor"), React.createElement("span", { style: { fontWeight: "bold", fontSize: "16px" } }, [chartConfig.title])])]
+                            ),
+                        ])]),
+                    React.createElement(Divider, null),
+                    React.createElement(Row, { gutter: 16, justify: "space-around", style: { color: "grey" } },
+                        [
+                            React.createElement(Col, { span: 24, style: { textAlign: "center", fontWeight: "bold" } }, [t("app:widgets.hypothesis.results.details")]),
+                            React.createElement(Col, { span: 8 }, React.createElement(Row, { gutter: 8 },
+                                [
+                                    React.createElement(Col, { span: 24, style: { fontWeight: "bold" } }, [config.a_title ? config.a_title : t("highcharts:compare.a")]),
+                                    React.createElement(Col, { span: 24 }, [formatDateSelection('day', config.a_selection.start) + " - " + formatDateSelection('day', config.a_selection.end)]),
+                                    React.createElement(Col, { span: 24 }, [config.type === 'timegeo' ? '' : config.type === 'geo' ? '' : config.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekdays") : config.a_start_hour + ' - ' + config.a_end_hour + " " + t('app:widgets.hypothesis.results.hours')]),
+                                    React.createElement(Col, { span: 24 }, [t("app:widgets.hypothesis.results.geo_filter"), ": ", config.geotypeName]),
+                                    React.createElement(Col, { span: 24 }, [t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_a]),
+                                    React.createElement(Col, { span: 24 }, [t("app:widgets.hypothesis.results.mean"), ": ", chartConfig.mean_a])
+                                ]
+                            )),
+                            React.createElement(Col, { span: 8 }, [React.createElement(Row, { gutter: 8 },
+                                [
+                                    React.createElement(Col, { span: 24, style: { fontWeight: "bold" } }, [config.type === 'timegeo' ? config.b_title ? config.b_title : t("highcharts:compare.b") : '-']),
+                                    React.createElement(Col, { span: 24 }, [config.type === 'timegeo' ? formatDateSelection('day', config.b_selection.start) + " - " + formatDateSelection('day', config.b_selection.end) : '-']),
+                                    React.createElement(Col, { span: 24 }, [config.type === 'timegeo' ? '' : config.type === 'geo' ? '' : config.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekends") : config.b_start_hour + ' - ' + config.b_end_hour + " " + t('app:widgets.hypothesis.results.hours')]),
+                                    React.createElement(Col, { span: 24 }, [t("app:widgets.hypothesis.results.geo_filter"), ": ", config.type === 'geo' ? config.geotypeNameB : config.geotypeName]),
+                                    React.createElement(Col, { span: 24 }, [t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_b]),
+                                    React.createElement(Col, { span: 24 }, [t("app:widgets.hypothesis.results.mean"), ": ", chartConfig.mean_b])
+                                ]
+                            )]),
+                            React.createElement(Col, { span: 24, style: { textAlign: "center" } }, [t("app:widgets.hypothesis.results.pvalue"), ": ", chartConfig.pvalue, ", ", t("app:widgets.hypothesis.results.statistic"), ": ", chartConfig.statistic])]),
+                    ])])
+        ]));
 });
 
 function formatDateSelection(unit, time) {

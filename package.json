@@ -30,7 +30,7 @@
     "@opendash/ui": "nightly",
     "@stdlib/stats": "^0.2.1",
     "@turf/turf": "^6.5.0",
-    "antd": "^5.14.0",
+    "antd": "^5.15.2",
     "dayjs": "^1.11.10",
     "highcharts": "^9.3.3",
     "highcharts-regression": "^2.2.0",
@@ -50,13 +50,12 @@
     "react-resizable": "^3.0.5",
     "react-window": "^1.8.10",
     "styled-components": "^5.3.11",
-    "tslib": "^2.6.2",
-    "ttest2": "link:@stdlib/stats/ttest2"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@opendash/cli": "nightly",
     "@types/parse": "^2.18.18",
-    "@types/react": "^18.2.55",
+    "@types/react": "^18.2.65",
     "@types/styled-components": "^5.1.34",
     "typescript": "^4.9.5"
   },
