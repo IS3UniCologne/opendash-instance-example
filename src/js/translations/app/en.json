@@ -2,6 +2,7 @@
   "widgets": {
     "hypothesis": {
       "title": "Hypothesis Test",
+      "description": "Aggregates Number of Trips per Hour and compares two datasets.",
       "comparison_description": "Comparison - Number of Trips per Hour",
       "settings": {
         "title": "Choose the Comparison Type",
@@ -23,10 +24,10 @@
       },
       "headers": {
         "timeseries": "Different Timeseries {{name}}",
-        "geozones": "Different Geozones {{name}}",
         "timegeo": "Different Timeseries {{name}}",
         "weekendgeo": "Weekend - Weekday {{name}}",
-        "timeintervalgeo": "Different Times of the Day {{name}}"
+        "timeintervalgeo": "Different Times of the Day {{name}}",
+        "geo": "Different Geozones {{name}}"
       },
       "results": {
         "high_confidence": "Highly confidently different",

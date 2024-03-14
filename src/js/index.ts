@@ -5,15 +5,20 @@ import "./highcharts.config";
 
 import { init, StorageAdapterLS } from "@opendash/core";
 import { registerIconPack } from "@opendash/icons";
-import { HighchartsPlugin } from "@opendash/plugin-highcharts";
+import { BDEPlugin } from "@opendash/plugin-bde";
+import { FeedbackPlugin } from "@opendash/plugin-feedback";
 import { GeoPlugin } from "@opendash/plugin-geo";
 import { GeoPluginMapLibre } from "@opendash/plugin-geo-maplibre";
 import { GTFSPlugin } from "@opendash/plugin-gtfs";
+import { HighchartsPlugin } from "@opendash/plugin-highcharts";
+import { KnowledgePlugin } from "@opendash/plugin-knowledge";
 import { MIAASPlugin } from "@opendash/plugin-miaas";
 import { $monitoring, MonitoringPlugin } from "@opendash/plugin-monitoring";
+import { OpenServicePlugin } from "@opendash/plugin-openservice";
 import { OpenwarePlugin } from "@opendash/plugin-openware";
 import { $parse, ParsePlugin } from "@opendash/plugin-parse";
 import { ParseMonitoringPlugin } from "@opendash/plugin-parse-monitoring";
+import { PlotlyPlugin } from "@opendash/plugin-plotly";
 import { TimeseriesPlugin } from "@opendash/plugin-timeseries";
 import HypothesisTimeWidget from "./widgets/hypothesis-time";
 import "./leaflet.config";
@@ -33,6 +38,10 @@ init("opendash", async (factory) => {
   factory.registerAntDesignTranslation(
     "en",
     () => import("antd/lib/locale/en_US")
+  );
+  factory.registerAntDesignTranslation(
+    "de",
+    () => import("antd/lib/locale/de_DE")
   );
 
   // widget translations
@@ -67,6 +76,20 @@ init("opendash", async (factory) => {
     new OpenwarePlugin({
       host: "openware.apps.openinc.dev",
       secure: true,
+      disableFeature: {
+        menu: {
+          SensorsGroup: false,
+          DataPoints: false,
+          DataSources: false,
+        },
+        slideshow: false,
+        dataCollection: false,
+        VKPI: false,
+        forms: {
+          dateBySensor: false,
+        },
+        reporting: false,
+      },
     })
   );
   await factory.use(
@@ -87,6 +110,20 @@ init("opendash", async (factory) => {
     link: "/monitoring/dashboards",
     routeCondition: "**",
     activeCondition: "/",
+  });
+
+  factory.registerStaticNavigationItem({
+    id: "admin/parse/item",
+    group: "admin/parse",
+    place: "frontpage",
+    order: 100,
+    label: "opendash:admin.label",
+    icon: "fa:cogs",
+    color: "#676767",
+    link: "/admin/parse/_Role",
+    routeCondition: "**",
+    activeCondition: "/",
+    permission: "parse-admin",
   });
   // Widgets
   $monitoring.registerWidget(HypothesisTimeWidget);

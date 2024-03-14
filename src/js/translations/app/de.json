@@ -2,6 +2,7 @@
     "widgets": {
         "hypothesis": {
             "title": "Hypothesentest",
+            "description": "Aggregiert Anzahl Fahrten pro Stunde und vergleicht zwei Datensätze.",
             "comparison_description": "Vergleich - Anzahl Fahrten pro Stunde",
             "settings": {
                 "title": "Auswahl des Vergleichs",
@@ -24,10 +25,10 @@
             },
             "headers": {
                 "timeseries": "Verschiedene Zeitreihen {{name}}",
-                "geozones": "Verschiedene Geozonen {{name}}",
                 "timegeo": "Verschiedene Zeitreihen {{name}}",
                 "weekendgeo": "Wochentag - Wochenende {{name}}",
-                "timeintervalgeo": "Verschiedene Tageszeiten {{name}}"
+                "timeintervalgeo": "Verschiedene Tageszeiten {{name}}",
+                "geo": "Verschiedene Geozonen {{name}}"
             },
             "results": {
                 "high_confidence": "Sehr sicher unterschiedlich",
