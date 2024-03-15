@@ -318,7 +318,7 @@ export default createWidgetComponent < ConfigInterface > (({ config, ...context 
                     )),
                     React.createElement(Col, { span: 8 }, React.createElement(Row, { gutter: 8 },
                         React.createElement(Col, { span: 24, style: { fontWeight: "bold" } }, config.type === 'timegeo' ? config.b_title ? config.b_title : t("highcharts:compare.b") : '-'),
-                        React.createElement(Col, { span: 24 }, config.type === 'timegeo' ? formatDateSelection('day', config.b_selection.start) + " - " + formatDateSelection('day', config.b_selection.end) : '-'),
+                        React.createElement(Col, { span: 24 }, config.type === 'timegeo' ? formatDateSelection('day', config.b_selection.start) + " - " + formatDateSelection('day', config.b_selection.end) : formatDateSelection('day', config.a_selection.start) + " - " + formatDateSelection('day', config.a_selection.end)),
                         React.createElement(Col, { span: 24 }, config.type === 'timegeo' ? '' : config.type === 'geo' ? '' : config.type === 'weekendgeo' ? t("app:widgets.hypothesis.results.weekends") : config.b_start_hour + ' - ' + config.b_end_hour + " " + t('app:widgets.hypothesis.results.hours')),
                         React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.geo_filter"), ": ", config.type === 'geo' ? config.geotypeNameB : config.geotypeName),
                         React.createElement(Col, { span: 24 }, t("app:widgets.hypothesis.results.nobs"), ": ", chartConfig.nObs_b),
