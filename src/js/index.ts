@@ -65,6 +65,11 @@ init("opendash", async (factory) => {
     new OpenwarePlugin({
       host: "openware.apps.openinc.dev",
       secure: true,
+      disableFeature: {
+        menu: {},
+        dataCollection: true,
+        reporting: false,
+      },
     })
   );
   await factory.use(
@@ -85,6 +90,19 @@ init("opendash", async (factory) => {
     link: "/monitoring/dashboards",
     routeCondition: "**",
     activeCondition: "/",
+  });
+  factory.registerStaticNavigationItem({
+    id: "admin/parse/item",
+    group: "admin/parse",
+    place: "frontpage",
+    order: 100,
+    label: "opendash:admin.label",
+    icon: "fa:cogs",
+    color: "#676767",
+    link: "/admin/parse/_Role",
+    routeCondition: "**",
+    activeCondition: "/",
+    permission: "parse-admin",
   });
   // Widgets
   addcss(`
