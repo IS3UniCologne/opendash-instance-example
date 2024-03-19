@@ -21,6 +21,7 @@ import { ParseMonitoringPlugin } from "@opendash/plugin-parse-monitoring";
 import { PlotlyPlugin } from "@opendash/plugin-plotly";
 import { TimeseriesPlugin } from "@opendash/plugin-timeseries";
 import HypothesisTimeWidget from "./widgets/hypothesis-time";
+import TripItineraryWidget from "./widgets/trip-itinerary";
 import "./leaflet.config";
 
 init("opendash", async (factory) => {
@@ -127,6 +128,7 @@ init("opendash", async (factory) => {
   });
   // Widgets
   $monitoring.registerWidget(HypothesisTimeWidget);
+  $monitoring.registerWidget(TripItineraryWidget);
 }).then((app) => {
   console.log("init open.DASH");
 });
