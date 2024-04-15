@@ -15,6 +15,7 @@ import { OpenwarePlugin } from "@opendash/plugin-openware";
 import { ParsePlugin } from "@opendash/plugin-parse";
 import { ParseMonitoringPlugin } from "@opendash/plugin-parse-monitoring";
 import { TimeseriesPlugin } from "@opendash/plugin-timeseries";
+import { TestPlugin } from "./components/testplugin/src";
 import ExampleWidget from "./widgets/example";
 import "./leaflet.config";
 init("opendash", async (factory) => {
@@ -78,6 +79,8 @@ init("opendash", async (factory) => {
     })
   );
   await factory.use(new HighchartsPlugin());
+  await factory.use(new TestPlugin());
+
 
   factory.registerStaticNavigationItem({
     id: "monitoring/dashboard",
