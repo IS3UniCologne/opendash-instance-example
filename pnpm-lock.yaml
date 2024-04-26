@@ -13,67 +13,67 @@ dependencies:
     version: 2.16.0(leaflet@1.9.4)
   '@opendash/core':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    version: 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@opendash/i18n':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
+    version: 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
   '@opendash/icons':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
+    version: 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
   '@opendash/plugin-bde':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+    version: 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
   '@opendash/plugin-feedback':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse-hooks@0.4.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    version: 3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse-hooks@0.4.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@opendash/plugin-geo':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    version: 3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@opendash/plugin-geo-maplibre':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    version: 3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@opendash/plugin-gtfs':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(dayjs@1.11.10)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse-hooks@0.4.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    version: 3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(dayjs@1.11.10)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse-hooks@0.4.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@opendash/plugin-highcharts':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-timeseries@3.0.0-nightly.1710491396)(@opendash/router@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(date-fns@2.30.0)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    version: 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-timeseries@3.0.0-nightly.1710345498)(@opendash/router@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(date-fns@2.30.0)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@opendash/plugin-knowledge':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@types/react@18.2.66)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    version: 3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@types/react@18.2.66)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@opendash/plugin-miaas':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-highcharts@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/plugin-timeseries@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+    version: 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-highcharts@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/plugin-timeseries@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
   '@opendash/plugin-monitoring':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    version: 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@opendash/plugin-openservice':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(dayjs@1.11.10)(eslint@8.57.0)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)(typescript@4.9.5)
+    version: 3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(dayjs@1.11.10)(eslint@8.57.0)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)(typescript@4.9.5)
   '@opendash/plugin-openware':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-bde@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/plugin-timeseries@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+    version: 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-bde@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/plugin-timeseries@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
   '@opendash/plugin-parse':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+    version: 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
   '@opendash/plugin-parse-monitoring':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-parse-schema@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)
+    version: 3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-parse-schema@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)
   '@opendash/plugin-plotly':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-timeseries@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(mapbox-gl@1.13.3)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+    version: 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-timeseries@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(mapbox-gl@1.13.3)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
   '@opendash/plugin-timeseries':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    version: 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@opendash/router':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
+    version: 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
   '@opendash/state':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
+    version: 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
   '@opendash/ui':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    version: 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@stdlib/stats':
     specifier: ^0.2.1
     version: 0.2.1
@@ -150,7 +150,7 @@ dependencies:
 devDependencies:
   '@opendash/cli':
     specifier: nightly
-    version: 3.0.0-nightly.1710491396(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
+    version: 3.0.0-nightly.1710345498(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
   '@types/parse':
     specifier: ^2.18.18
     version: 2.18.18
@@ -637,6 +637,7 @@ packages:
   /@babel/plugin-proposal-private-property-in-object@7.21.0-placeholder-for-preset-env.2(@babel/core@7.24.0):
     resolution: {integrity: sha512-SOSkfJDddaM7mak6cPEpswyTRnuRltl429hMraQEglW+OkovnCzsiszTmsrlY//qLFjCpQDFRvjdm2wA5pPm9w==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-property-in-object instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -2147,8 +2148,8 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  /@opendash/cli@3.0.0-nightly.1710491396(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
-    resolution: {integrity: sha512-5ZzcsA1H1CJ/kadsrBPUdZe6Fz5+bx7Dazcjf7qerTVj6Vx4MPhAUtyo85b1nZAXXaCcekMHBcuvgRc1tDLiHQ==}
+  /@opendash/cli@3.0.0-nightly.1710345498(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
+    resolution: {integrity: sha512-xYPbmrXgXnZJfSWXgM8BilEUpX/u9PcTXDlcUDgoGXFyxzUhr4c8uf784fvvGUeODDWCwk+ff6CzTHA6nJ1ouw==}
     hasBin: true
     dependencies:
       '@sucrase/webpack-loader': 2.0.0(sucrase@3.35.0)
@@ -2202,8 +2203,8 @@ packages:
       - webpack-cli
     dev: true
 
-  /@opendash/core@3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-l5NSErocWS3Em3qIePQkLKo/RV7xRSTgL+Pem7osjVS6W8GIOy7dcuTRolj6Wb1xM2LtMKXhNBaKPsXxAY4SPw==}
+  /@opendash/core@3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-3aXkQfRHSbAQMPxAH8k9Bpf6ZFwDe5sMYmSuuruwYK1UCJacjpZinrOWXBFS36fZ6eaoXvX4yAoIKtGYEKu9DA==}
     peerDependencies:
       antd: ^5.5.2
       dayjs: ^1.11.7
@@ -2211,10 +2212,10 @@ packages:
       react-dom: ^18.2.0
       styled-components: ^5.2.1
     dependencies:
-      '@opendash/i18n': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/router': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/i18n': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/router': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       async-validator: 3.5.2
       dayjs: 1.11.10
@@ -2237,8 +2238,8 @@ packages:
       - supports-color
     dev: false
 
-  /@opendash/i18n@3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-miWMNXQ3MCEHf8GJ24fCJt5pgY6pR5Xz/A+x2NX1nxgG39FX/y+BYdsQlzAUheyT3Vw49euW9AbEWwJYH5d2hQ==}
+  /@opendash/i18n@3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-hd4gqatHFbZKFipcm9i0sRSvvmDHx0w//YRUdj/XnAWzDnshc5h4WvjXxmi+V5eA1Me+sbhyQT94hp/bg0w+nQ==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -2247,8 +2248,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@opendash/icons@3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-C1nvmSAZuFyaWmpCa43XNZCbj4HTQ73y2Jl/kmOAUoqgDmz2QQxi6geafgpwLJE3+scjpnG9bYObKAVwFP8vQg==}
+  /@opendash/icons@3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-sxLr1yoPlobDd5wP4yWH36/hluhj6Se8fhc6/Spmn1Rby2Wwhc02wnOqiC2tfs27z/fMoa/YvfpgkLoii0DOjg==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -2257,24 +2258,24 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@opendash/plugin-bde@3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-mfn2okygt75wsmB0wLez/OdCwNLUi/kcgOn5i4JD3QJjrrgQM/OwRRoWm3Pyclfowl9/hwsf1vBrMuBeur1oZw==}
+  /@opendash/plugin-bde@3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-D9xaf57oXISkDX/on7jnTYRfG51QBbM7O61u16FRnVHwDK8NhSqfLPgRVP6d7/TcT4crHEpeTOUyajxaq0VMjA==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       parse: ^3.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       '@ant-design/icons': 4.8.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-layout': 7.17.20(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@opendash/router': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@opendash/router': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       date-fns: 2.30.0
       lodash: 4.17.21
@@ -2295,14 +2296,14 @@ packages:
       - react-native
     dev: false
 
-  /@opendash/plugin-feedback@3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse-hooks@0.4.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-StrMPQN4DJXmSnPZikseA2VXW3f5JsAwbJlUgx3115qgAKwbxb8NN1ffMnAOeyEABPcR7GzgoMbfoKZqGRrWGQ==}
+  /@opendash/plugin-feedback@3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse-hooks@0.4.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-7yaCJtjtPuL8gVnFmBmRhJtZB/wdIyYlwsRypBS80D/p7jg7Y9uZozaCqz8accTv37FvCvNfUzkOj5JD43qHUA==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/i18n': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/i18n': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       antd: ^5.5.2
       dayjs: ^1.11.7
       mobx: ^6.6.0
@@ -2313,11 +2314,11 @@ packages:
       react-dom: ^18.2.0
       styled-components: ^5.3.0
     dependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/i18n': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/i18n': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       dayjs: 1.11.10
       immutability-helper: 3.1.1
@@ -2338,25 +2339,25 @@ packages:
       - supports-color
     dev: false
 
-  /@opendash/plugin-geo-maplibre@3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-ZG9EIyar75nIhQPoarprxAETQiZnidU1ktDNo1ZqVqgSGMo0lv70MWL6bLJvCzQDt3jvxfozSl9NJMqoMTGjjw==}
+  /@opendash/plugin-geo-maplibre@3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-DFCFCQAKvC5wo2m240AZfmz/vJxbo78951ZEzjOHiieKBUXkpjFgeXXTO2J7IvO9jPLAljwv5mjqD3M8k+kvcQ==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-geo': 3.0.0-nightly.1710491396
-      '@opendash/state': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-geo': 3.0.0-nightly.1710345498
+      '@opendash/state': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       antd: ^5.5.2
       parse: ^3.4.1
       react: ^18.2.0
       react-dom: ^18.2.0
       styled-components: ^5.3.5
     dependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-geo': 3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/state': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-geo': 3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/state': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       '@turf/bbox': 6.5.0
       '@turf/center': 6.5.0
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
@@ -2369,23 +2370,23 @@ packages:
       styled-components: 5.3.11(@babel/core@7.24.0)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
     dev: false
 
-  /@opendash/plugin-geo@3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-Qx/Y0qaZY2EGnygwcG24sucePvmaCsFPAcrovUG8Qt1DRW+bxMCBnro/QO4rbuuOlKT58NNEZuTY2JjGgQGGmQ==}
+  /@opendash/plugin-geo@3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-kN/wUq6ezBqYwmTTf0HTweXVt8hoTG+cp2y+TFkdQCXzzBSvTlaQWRQfgXIwNJX5MQ3Bi9VutRO0ja4tMTDVkA==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/state': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/state': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       antd: ^5.5.2
       parse: ^3.4.1
       react: ^18.2.0
       react-dom: ^18.2.0
       styled-components: ^5.3.5
     dependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/state': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/state': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       parse: 3.5.1
       react: 18.2.0
@@ -2393,14 +2394,14 @@ packages:
       styled-components: 5.3.11(@babel/core@7.24.0)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
     dev: false
 
-  /@opendash/plugin-gtfs@3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(dayjs@1.11.10)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse-hooks@0.4.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-2RQJOXYIbjYS4V1+V0lrsmxbgZxt7OVW97onBexOXgwOJ4LxHXR2HBliXGlUqCgF5JRUKlLI96jvhSi5mC9RFQ==}
+  /@opendash/plugin-gtfs@3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(dayjs@1.11.10)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse-hooks@0.4.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-Dg3CS2nJN7zk1M9Dnu9r5EJRufRvyd1V0x2qcPvkrTmqql5JignSEIXAxEzesv6UCGj4bacZs2y/u6SxTe3Klg==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/i18n': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/i18n': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       antd: ^5.5.2
       dayjs: ^1.11.7
       mobx: ^6.6.0
@@ -2411,12 +2412,12 @@ packages:
       react-dom: ^18.2.0
       styled-components: ^5.3.0
     dependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/i18n': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@opendash/router': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/i18n': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@opendash/router': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       '@turf/turf': 6.5.0
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       dayjs: 1.11.10
@@ -2436,30 +2437,30 @@ packages:
       - react-native
     dev: false
 
-  /@opendash/plugin-highcharts@3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-timeseries@3.0.0-nightly.1710491396)(@opendash/router@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(date-fns@2.30.0)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-bqxbr7ys9itcLXvH+55bvRE9zanddNT+LYjlFaUtYqez6uTlBVU+hiaSe8/E9T6LjREBgYEOixTfb+HVemenzw==}
+  /@opendash/plugin-highcharts@3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-timeseries@3.0.0-nightly.1710345498)(@opendash/router@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(date-fns@2.30.0)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-B77H8XzloVIZpP3lvXtoICBlkK0KWNcwzd8ScKZJTx7poBQXUylep73zQ6r0JjSEyXJxMvLBxq3DXG7IsZy6ww==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/i18n': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396
-      '@opendash/plugin-timeseries': 3.0.0-nightly.1710491396
-      '@opendash/router': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/i18n': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498
+      '@opendash/plugin-timeseries': 3.0.0-nightly.1710345498
+      '@opendash/router': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       antd: ^5.5.2
       dayjs: ^1.11.7
       react: ^18.2.0
       react-dom: ^18.2.0
       styled-components: ^5.3.5
     dependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/i18n': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@opendash/plugin-timeseries': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/router': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/i18n': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@opendash/plugin-timeseries': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/router': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       dayjs: 1.11.10
       highcharts: 9.3.3
@@ -2480,24 +2481,24 @@ packages:
       - react-native
     dev: false
 
-  /@opendash/plugin-knowledge@3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@types/react@18.2.66)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-wlsK0YeQIuuu02ZPEj5ny0Qyo9ADvfS+4pVBqQpW0YRa+WiQeVAbm6Nr1qFwte4ArylvYegcQ8aWCs1MwbOZrw==}
+  /@opendash/plugin-knowledge@3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@types/react@18.2.66)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-bRLvnCPJMLBfs6DM6ZsSVTnravg1e9+jLFY7keXqpbB2KrjJzwqgX1csWx0ygVLc36uC7Xp4wg2RBP94UeHNMA==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396
-      '@opendash/state': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498
+      '@opendash/state': 3.0.0-nightly.1710345498
       antd: ^5.5.2
       parse: ^3.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
       styled-components: ^5.3.5
     dependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@opendash/router': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/state': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@opendash/router': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/state': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       parse: 3.5.1
       react: 18.2.0
@@ -2511,16 +2512,16 @@ packages:
       - supports-color
     dev: false
 
-  /@opendash/plugin-miaas@3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-highcharts@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/plugin-timeseries@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-cB1Mmmi/hBQN+ncSbR4yzU60Pw8Nwwe7erze5FWI+7ZR4C89Q16QrXJ9zQR3ZfklJOSBx7ACLolvFSoZ1PDytg==}
+  /@opendash/plugin-miaas@3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-highcharts@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/plugin-timeseries@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-o1ApWX4WWcKr69bg98JoS0iWvgxGI/3vfYApooBG1kqVV45QUu7dPtWvfGPaeVtBiXcSF+0HsDjqXQ15taYHZQ==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-highcharts': 3.0.0-nightly.1710491396
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396
-      '@opendash/plugin-timeseries': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-highcharts': 3.0.0-nightly.1710345498
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498
+      '@opendash/plugin-timeseries': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       parse: ^3.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -2528,14 +2529,14 @@ packages:
       '@ant-design/pro-layout': 7.17.20(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)
       '@esri/arcgis-to-geojson-utils': 1.3.0
       '@geoman-io/leaflet-geoman-free': 2.16.0(leaflet@1.9.4)
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-highcharts': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-timeseries@3.0.0-nightly.1710491396)(@opendash/router@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(date-fns@2.30.0)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@opendash/plugin-timeseries': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/router': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-highcharts': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-timeseries@3.0.0-nightly.1710345498)(@opendash/router@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(date-fns@2.30.0)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@opendash/plugin-timeseries': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/router': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       '@turf/turf': 6.5.0
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       axios: 0.21.4
@@ -2562,8 +2563,8 @@ packages:
       - react-native
     dev: false
 
-  /@opendash/plugin-monitoring@3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-kV8+u15PFJwaiMh1T+m4+9VzalsDazAUuG7FfwyV0gWXocmrPuNoiqwstfeHUrgQh3NFEvx6I/aPnnXEYNDR3w==}
+  /@opendash/plugin-monitoring@3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-H5g9PCvXfEAycSrQhgq+V2yx2CBHq0NjOMjr7P8Cpdq8koADK5jIGBEVRSp6BDzmNwP99biiiAeBYCGZFj5zbg==}
     peerDependencies:
       antd: ^5.5.2
       dayjs: ^1.11.7
@@ -2571,12 +2572,12 @@ packages:
       react-dom: ^18.2.0
       styled-components: ^5.2.1
     dependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/i18n': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-timeseries': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/router': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/i18n': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-timeseries': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/router': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       async-validator: 3.5.2
       dayjs: 1.11.10
@@ -2603,15 +2604,15 @@ packages:
       - supports-color
     dev: false
 
-  /@opendash/plugin-openservice@3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(dayjs@1.11.10)(eslint@8.57.0)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)(typescript@4.9.5):
-    resolution: {integrity: sha512-fjGO9FvM5yhAPdcBqZhI89KhmrnO6Qbpb+gGH0I2K/E0IsLmyREBhBlrSAtJB/PkO4fU4K5mXGbarlTN8G/o/w==}
+  /@opendash/plugin-openservice@3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(dayjs@1.11.10)(eslint@8.57.0)(mobx-react-lite@3.4.3)(mobx@6.12.0)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)(typescript@4.9.5):
+    resolution: {integrity: sha512-VoFrk9kog++0/UbdnAizB2mkii6/GR4ywI1MiHWj4eGG+LFeKDKbJEHhf+eq9zetWVe1up6L1STSMDaGsczDXA==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/i18n': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/i18n': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       antd: ^5.5.2
       dayjs: ^1.11.7
       mobx: ^6.6.0
@@ -2621,13 +2622,13 @@ packages:
       react-dom: ^18.2.0
       styled-components: ^5.3.0
     dependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/i18n': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@opendash/router': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/i18n': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@opendash/router': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       dayjs: 1.11.10
       eslint-plugin-react-hooks: 4.6.0(eslint@8.57.0)
@@ -2652,33 +2653,33 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@opendash/plugin-openware@3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-bde@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/plugin-timeseries@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-uufZWEjwXOukpuzkVHiHa/txKyF4mIPMFKHZnuDps7JnyAIDWHU43LgOg89NGPbxfFvJdegOd6FMUdjpkGEnXQ==}
+  /@opendash/plugin-openware@3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-bde@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/plugin-timeseries@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-BUB+Y42fhVtRc6UxIgJut/GSCoNfzzq7R7a0wgE5fhMF73dUzC8sL687fNQkYw8watmBwWIF7idpuahOm9yndA==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/i18n': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-bde': 3.0.0-nightly.1710491396
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396
-      '@opendash/plugin-timeseries': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/i18n': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-bde': 3.0.0-nightly.1710345498
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498
+      '@opendash/plugin-timeseries': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       parse: ^3.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       '@ant-design/pro-layout': 7.17.20(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)
       '@datasert/cronjs-matcher': 1.2.0
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/i18n': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-bde': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@opendash/plugin-highcharts': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-timeseries@3.0.0-nightly.1710491396)(@opendash/router@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(date-fns@2.30.0)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@opendash/plugin-timeseries': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/router': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/i18n': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-bde': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@opendash/plugin-highcharts': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-timeseries@3.0.0-nightly.1710345498)(@opendash/router@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(date-fns@2.30.0)(dayjs@1.11.10)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@opendash/plugin-timeseries': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/router': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       axios: 0.21.4
       cronstrue: 2.48.0
@@ -2702,28 +2703,28 @@ packages:
       - react-native
     dev: false
 
-  /@opendash/plugin-parse-monitoring@3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-parse-schema@3.0.0-nightly.1710491396)(@opendash/plugin-parse@3.0.0-nightly.1710491396)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-UYaQfSu4tOIatk/gxpVOzxESprutaXSr67p/XtKzuA7DPLLSsL4CSudXnrb0GuwBHsmojORstr0DUTBWEjE00g==}
+  /@opendash/plugin-parse-monitoring@3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-parse-schema@3.0.0-nightly.1710345498)(@opendash/plugin-parse@3.0.0-nightly.1710345498)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-LUL39w3Zdcty4iPJDU6RocJHZSzDvK2Q/wEc5md0jKtEFlaw1TJRmFmkoRpEnt7a+2w+Z/YWhlGUm8zBKXLiZQ==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396
-      '@opendash/plugin-parse-schema': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498
+      '@opendash/plugin-parse-schema': 3.0.0-nightly.1710345498
       parse: ^3.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/plugin-parse': 3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@opendash/plugin-parse-schema': 3.0.0-nightly.1710491396(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/plugin-parse': 3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      '@opendash/plugin-parse-schema': 3.0.0-nightly.1710345498(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)
       parse: 3.5.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@opendash/plugin-parse-schema@3.0.0-nightly.1710491396(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-vgfE6LyBV6IL3jKRz0OW6rQuH9qNRcwc/zgCHf7R8JU5zqP6Sznfh2QDctuZAIChJvgeYdtEi+DBQvJ3N4ukBw==}
+  /@opendash/plugin-parse-schema@3.0.0-nightly.1710345498(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-hDDbkUJCctc7SHXt0otlsCqmxkOX7Efs4bcZe2P+pDWf0d+A7fiuvOJe19wzWUE2U+W1/GVP9Q4qkDcHuSglMg==}
     peerDependencies:
       parse: ^3.1.0
       react: ^18.2.0
@@ -2734,27 +2735,27 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@opendash/plugin-parse@3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/i18n@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-geo@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-K/gQkCcRa2xdKihAKaQBsNMoa3z4yGrHRwvdyyAC31s3SSrPwgaYFQagA7aLo7DiN+AlT9VoOwB1TP1Q39HoCQ==}
+  /@opendash/plugin-parse@3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/i18n@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-geo@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(date-fns@2.30.0)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-8LH+gx0dxnK12EAkzLdF0Zt/apJ9zLfm1Lya6pE6NDGINJ3FUabXdkU2cE8tv5P9kJ9lqm4BSCnC8BvzkuH3tA==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/i18n': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-geo': 3.0.0-nightly.1710491396
-      '@opendash/state': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/i18n': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-geo': 3.0.0-nightly.1710345498
+      '@opendash/state': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       parse: ^3.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       '@ant-design/pro-layout': 7.17.20(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/i18n': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-geo': 3.0.0-nightly.1710491396(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/state@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/router': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/state': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/i18n': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-geo': 3.0.0-nightly.1710345498(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/state@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(antd@5.15.2)(parse@3.5.1)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/router': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/state': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       dayjs: 1.11.10
       parse: 3.5.1
@@ -2772,25 +2773,25 @@ packages:
       - react-native
     dev: false
 
-  /@opendash/plugin-plotly@3.0.0-nightly.1710491396(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710491396)(@opendash/icons@3.0.0-nightly.1710491396)(@opendash/plugin-monitoring@3.0.0-nightly.1710491396)(@opendash/plugin-timeseries@3.0.0-nightly.1710491396)(@opendash/ui@3.0.0-nightly.1710491396)(mapbox-gl@1.13.3)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-YVUU2dT27VGa51q3W2VOOn/qn40ViKqZxuJjVU8Sb7gu27UzFVSrIXxUKmiuyiqynBbz1kHG2fmkrvfj89LyCw==}
+  /@opendash/plugin-plotly@3.0.0-nightly.1710345498(@babel/core@7.24.0)(@opendash/core@3.0.0-nightly.1710345498)(@opendash/icons@3.0.0-nightly.1710345498)(@opendash/plugin-monitoring@3.0.0-nightly.1710345498)(@opendash/plugin-timeseries@3.0.0-nightly.1710345498)(@opendash/ui@3.0.0-nightly.1710345498)(mapbox-gl@1.13.3)(parse@3.5.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-T1ZL0ChBOm52NvefS0BGdwY1hsBUfBdJC9N68EpvRbfhkWw01yNo8lOr3U7uM+oD0EfoZ/7bI1qxc4qa7bOjvA==}
     peerDependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396
-      '@opendash/icons': 3.0.0-nightly.1710491396
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396
-      '@opendash/plugin-timeseries': 3.0.0-nightly.1710491396
-      '@opendash/ui': 3.0.0-nightly.1710491396
+      '@opendash/core': 3.0.0-nightly.1710345498
+      '@opendash/icons': 3.0.0-nightly.1710345498
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498
+      '@opendash/plugin-timeseries': 3.0.0-nightly.1710345498
+      '@opendash/ui': 3.0.0-nightly.1710345498
       parse: ^3.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       '@ant-design/pro-layout': 7.17.20(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)
       '@esri/arcgis-to-geojson-utils': 1.3.0
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/plugin-monitoring': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/plugin-timeseries': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/plugin-monitoring': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/plugin-timeseries': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       '@turf/turf': 6.5.0
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       axios: 0.21.4
@@ -2819,8 +2820,8 @@ packages:
       - supports-color
     dev: false
 
-  /@opendash/plugin-timeseries@3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-lIFZaCOYqZh0BX68HRULus/V1erJD0a/Bswt87Z7CnsUyFAZ8CdjlTHR1MGuozbWmklGfTjd+sFkZZZpE7dSkQ==}
+  /@opendash/plugin-timeseries@3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-M3cooEGPQRMC8AyAo+i2eAwXKP9dKWt0cinbNcn7rIchPnyjAnDGocLqAYdiy6FIi5EKShDprfqQIOaVWpSxjQ==}
     peerDependencies:
       antd: ^5.5.2
       dayjs: ^1.11.7
@@ -2828,10 +2829,10 @@ packages:
       react-dom: ^18.2.0
       styled-components: ^5.2.1
     dependencies:
-      '@opendash/core': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@opendash/i18n': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/ui': 3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/core': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(dayjs@1.11.10)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@opendash/i18n': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/ui': 3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       async-validator: 3.5.2
       dayjs: 1.11.10
@@ -2858,12 +2859,12 @@ packages:
       - supports-color
     dev: false
 
-  /@opendash/router@3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-jeuWPVx44AZZdOZXQy/KT4kF2D9IGfx3Kw0I6HjQ5C7XRM+Uq/+gQB1uG0xyBRkPp8ioOWwI+8IaChPF8JTw8Q==}
+  /@opendash/router@3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-38q92lme/HkLZBusfOtWaNBdX8DTDbPNVDlwz2dn4xm2iRhGbUY26+Jg8Px90QIwrWF/kYPCLNgypi2PDT3N9A==}
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@opendash/state': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/state': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-router: 6.22.3(react@18.2.0)
       react-router-dom: 6.22.3(react-dom@18.2.0)(react@18.2.0)
@@ -2872,8 +2873,8 @@ packages:
       - react-native
     dev: false
 
-  /@opendash/state@3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-2AUGvFS9OzSPJkE0GVMzLU8I9stOeXH3F0zgdx3/LIKuHuUX2iR58zLW7LK7dupEdaR1S+UMuW1PmDR/XIt+Pg==}
+  /@opendash/state@3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-DT0zsa1VTLKkqFGT/oUgKiBrkVZDEtM/A6TToaXtnpC7/PPAlxeEHAous3j5FFmJ8txk5i7UTZZNZ9vSnYK2tg==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -2887,16 +2888,16 @@ packages:
       - react-native
     dev: false
 
-  /@opendash/ui@3.0.0-nightly.1710491396(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-UtMT72q7Lh/8Vrz/ICrOt8FsaWKl7RM33blUjvMIJeF0lst1Dd3l1CbnQRtIPhEmQ9ItyV+PshRjk6c/Ctl4kw==}
+  /@opendash/ui@3.0.0-nightly.1710345498(@types/react@18.2.66)(antd@5.15.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-ZfSp4RdwWbDQSucE2WjkVVzSyY/u7W3zrowG9gQ0EFdZ3vOg+00PJFioaTPopR9MboXAd8rWR8fWIzlTNuX1Sw==}
     peerDependencies:
       antd: ^5.5.2
       react: ^18.2.0
       react-dom: ^18.2.0
       styled-components: ^5.2.1
     dependencies:
-      '@opendash/i18n': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
-      '@opendash/icons': 3.0.0-nightly.1710491396(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/i18n': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
+      '@opendash/icons': 3.0.0-nightly.1710345498(react-dom@18.2.0)(react@18.2.0)
       antd: 5.15.2(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       lodash.throttle: 4.1.1
       react: 18.2.0
@@ -3244,545 +3245,6 @@ packages:
       picomatch: 2.3.1
       rollup: 2.79.1
     dev: true
-
-  /@stdlib/array@0.2.1:
-    resolution: {integrity: sha512-rAwz3eZxtk0nnmqvUwK+6WVs7v2bGsEDJAHPoO4MZHeKMab9HAFjDDb/RTMCSa66o8VwOULBPoG/IFFU4JWM4g==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/assert': 0.2.1
-      '@stdlib/blas': 0.2.1
-      '@stdlib/buffer': 0.2.1
-      '@stdlib/complex': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/iter': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/ndarray': 0.2.1
-      '@stdlib/strided': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/symbol': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/assert@0.2.1:
-    resolution: {integrity: sha512-wZ40sWp8Pvd5CTpLO0xA41S9W6N/RlkFqapmjZycTT82pCxmSqZT7cZ8RLmVTT+mYsvghMgz3UI5/KTSFTHtyg==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/boolean': 0.2.1
-      '@stdlib/cli': 0.2.1
-      '@stdlib/complex': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/fs': 0.2.1
-      '@stdlib/function': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/ndarray': 0.2.1
-      '@stdlib/number': 0.2.1
-      '@stdlib/object': 0.2.1
-      '@stdlib/os': 0.2.1
-      '@stdlib/process': 0.2.1
-      '@stdlib/regexp': 0.2.1
-      '@stdlib/slice': 0.2.1
-      '@stdlib/streams': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/symbol': 0.2.1
-      '@stdlib/time': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/bigint@0.2.1:
-    resolution: {integrity: sha512-CDPr1IsXgNSe0lL595SU09x2JwmFfVGGzgDOlbo11313v+/hDeGRdbiWoKHEEH4V7f21YEbys1sDZZeD5ChKXQ==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/blas@0.2.1:
-    resolution: {integrity: sha512-e6VMknSxLDyosXo0fLYHH3CtHq2f+UnQP2bX+13YSlhI5/bRIcIa92Ar9HmjCz4OH13B0OLIwwLqaunyoOT6pQ==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/napi': 0.2.1
-      '@stdlib/number': 0.2.1
-      '@stdlib/strided': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/boolean@0.2.1:
-    resolution: {integrity: sha512-qMrUrw7+ArlNRqPKkPIjejHU9VE2yFBAXqZs4dMKG2moZg0h3TXN93LVvF+JUcGlmw5vlMgoudoq6cCJ0r/8Jg==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/buffer@0.2.1:
-    resolution: {integrity: sha512-6WdposBRToAKTYXTVkm8nycnpTqmgOlcnkB8l1yelymY/5He1kBRET5A+tJrx8E3po0FG1bOCU6vPwA22h1Cig==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/process': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/cli@0.2.1:
-    resolution: {integrity: sha512-DZn2QafvarkjcPSsBpTC64LlUzdwg47EuionawKh1SOxgDUCKplBvgDPEWnOrHI19WE5nIYM9MXBiYA+WRqVfA==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/string': 0.2.1
-      '@stdlib/utils': 0.2.1
-      minimist: 1.2.8
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/complex@0.2.1:
-    resolution: {integrity: sha512-xQBXXvkKpJRkqb4xo5y7/zOek/XJI1YWsRrRzYkxps/c+DFaBiPE49zRfW7siV1wI/HqGVe75AyXqpJ+BcULNw==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/number': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/constants@0.2.1:
-    resolution: {integrity: sha512-KlXXw3sCgtXI8WTAfJtgo2owNhfohZYyFcD8XGoQwISJIDsPl60MjiYXCku4yHD91lRk5gp+5zJUjFEu9498oA==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/complex': 0.2.1
-      '@stdlib/number': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/fs@0.2.1:
-    resolution: {integrity: sha512-FLEcQXvGdiZ9Gcxk7TBtQn/QV07CavQu+7Us1GHljNYMKpVW27JgvQV/bolm0ebiZ/Hdwvcuk+ei/nkNFyLGrQ==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/cli': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/object': 0.2.1
-      '@stdlib/process': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/utils': 0.2.1
-      debug: 2.6.9
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/function@0.2.1:
-    resolution: {integrity: sha512-vECYJgvBGDAoKUkvu/M4dldZI7OYVhIms11UV0hMGfsK1CsMHPIaowqs2XqpT5+AjFVnaSitmt7jvg/tZ9nl6Q==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/iter@0.2.1:
-    resolution: {integrity: sha512-ar773X/RsYkp/Mof+foco6IevnktBniUE+NzjFD0VeR6JY0TxCtcd8/J0nYJGPKPsP9qAoGhzBU6tAd/y9XSEA==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/symbol': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/math@0.2.1:
-    resolution: {integrity: sha512-uhqDhCA3RD+43MOaO5VedaIUW6j7xZfRA4/lT+eXZ6/IEVj0mNFT4N1taLV949hrMGE74xbM3hG8Dc+4gXpcEw==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/complex': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/function': 0.2.1
-      '@stdlib/napi': 0.2.1
-      '@stdlib/ndarray': 0.2.1
-      '@stdlib/number': 0.2.1
-      '@stdlib/strided': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/symbol': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-      debug: 2.6.9
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/napi@0.2.1:
-    resolution: {integrity: sha512-C7xDw+gcR1QjqPHoSFP8O9qoDLxk9f3mFsld4D/GUEegYPhejjeRmTqbWTuK5XhdrjKMcsWclNFyX6gkNk5xxQ==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/ndarray@0.2.1:
-    resolution: {integrity: sha512-3zhV7XFWiHkrW7Hvr4gXbGdofMkfSp3aEK5KDXoy6m7wfDAk2cGzJQ6Ouyc1/DnDV1PvkQiy3YMMutoNj3eFlw==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/bigint': 0.2.1
-      '@stdlib/boolean': 0.2.1
-      '@stdlib/buffer': 0.2.1
-      '@stdlib/complex': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/number': 0.2.1
-      '@stdlib/object': 0.2.1
-      '@stdlib/proxy': 0.2.1
-      '@stdlib/slice': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/symbol': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/nlp@0.2.1:
-    resolution: {integrity: sha512-XBkIRz6woTPzlV7niqtaeFnC7+Plstl7A3tTODyYSo7gLQd3srBLWWAPvOkFwmqsjvFS4Is54SQlvi+JmcsaHQ==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/random': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/number@0.2.1:
-    resolution: {integrity: sha512-uYBqR5wZF4RfgEgknUDVePrmRBSX0lapEuou4i+fD0Prozpwp/6JY4kkSxI11ambwCgfdaAQMQr3OrBACias9w==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/napi': 0.2.1
-      '@stdlib/os': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/object@0.2.1:
-    resolution: {integrity: sha512-G4yw42XFI3bC5JARdhWBtztH5H1fMB0Eb9iUE1wHpokS7WhQPNO+SqQ/q8CvlE1pXp0dqt0veTB+i/TYFiBOKg==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/assert': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/os@0.2.1:
-    resolution: {integrity: sha512-puGjQsbykGH/oQMS8KiGcfEXhiukthIWBMMdvhhOirCYMsi1ILXUmwRD0v3Qu2ZhvtOuwPguDaoObkijh8duTQ==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/assert': 0.2.1
-      '@stdlib/cli': 0.2.1
-      '@stdlib/fs': 0.2.1
-      '@stdlib/process': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/process@0.2.1:
-    resolution: {integrity: sha512-5J9BtHWY49oauo4eTmxUaaSANesVY+10rGMEmGGq1VZfo2fNOFf7pYb6haLCWg8JuNzzRXXU5q8tYfCCVDOEeA==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/assert': 0.2.1
-      '@stdlib/buffer': 0.2.1
-      '@stdlib/cli': 0.2.1
-      '@stdlib/fs': 0.2.1
-      '@stdlib/streams': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/proxy@0.2.1:
-    resolution: {integrity: sha512-hKJ20bUyvqmeSPMsojS9XekG+oYQEMZGpJFjviui8U+xuCmpHh02AHYtP3v0hfpooR93IIgxMkyDf3/M2m9uyA==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/assert': 0.2.1
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/random@0.2.1:
-    resolution: {integrity: sha512-VexY8DedZfbXvkJko5SyRYqci/HSWWfJdNO5DwT++j0Edtn4LSKZrI0RS4FnwSkvkr7hpxHMl5S4AMLkgO1CgA==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/blas': 0.2.1
-      '@stdlib/buffer': 0.2.1
-      '@stdlib/cli': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/fs': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/object': 0.2.1
-      '@stdlib/process': 0.2.1
-      '@stdlib/stats': 0.2.1
-      '@stdlib/streams': 0.2.1
-      '@stdlib/strided': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/symbol': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-      debug: 2.6.9
-      readable-stream: 2.3.8
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/regexp@0.2.1:
-    resolution: {integrity: sha512-UC4+t10EJe1o8+7WkeOaelaqgTY0yh2o/EfGH6ZsA91T5YQbhnse8f/XVv+1xJ5xtl2DxQxd3+M/rJqYHT8hRg==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/assert': 0.2.1
-      '@stdlib/function': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/slice@0.2.1:
-    resolution: {integrity: sha512-WngBEE4c9pVn5LEluBCrhJqil5GJ2pQvFMzqd79TW1m1vkGEcoO6BCq32vc5VIJ56/GXN/7bbMy4VXP0N9WhQg==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/assert': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/stats@0.2.1:
-    resolution: {integrity: sha512-p1RnpxbFbxcvOPWE0kqshGYCgpGhHxWbiIBo2ClPpC/3vqB+1PHRa9Ejlb7nhTmWbhK2iiIYo3U5/axNkz5ElA==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/blas': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/ndarray': 0.2.1
-      '@stdlib/number': 0.2.1
-      '@stdlib/random': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/symbol': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/streams@0.2.1:
-    resolution: {integrity: sha512-aaSFgSahTNZL31Vqz+lNeRE/jeEtxdzzRY6PrGTxPYpLrPuknm2836yzmIOkkxxnVANY7VU1K5QbBcpO6mt2Fg==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/assert': 0.2.1
-      '@stdlib/buffer': 0.2.1
-      '@stdlib/cli': 0.2.1
-      '@stdlib/fs': 0.2.1
-      '@stdlib/object': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-      debug: 2.6.9
-      readable-stream: 2.3.8
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/strided@0.2.1:
-    resolution: {integrity: sha512-IEpMIGGBZ5L/rQ/c7lekjvoF2RxZfDSqTwVllNJdVn+R8N/iNYW3tmaC3qlBi7mpvse0E6sCr4FKZ3rjnFyMzg==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/complex': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/ndarray': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/string@0.2.1:
-    resolution: {integrity: sha512-FV64bUBTL0nbTizFcW+IQCMrkztoC2pzFyt+YanQbMOETzhRLz8YJeoyOXB9dI1IOikEhrbZMKB+RDAUCxxQ9g==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/cli': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/fs': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/nlp': 0.2.1
-      '@stdlib/number': 0.2.1
-      '@stdlib/process': 0.2.1
-      '@stdlib/regexp': 0.2.1
-      '@stdlib/streams': 0.2.1
-      '@stdlib/symbol': 0.2.1
-      '@stdlib/types': 0.3.2
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/symbol@0.2.1:
-    resolution: {integrity: sha512-FlJNAESPST/iMbKFaJILp5t3RoffCsdcsOFRnU2RaKCQ6xLs9ghJGyqU3Z7CtdAJRzHvYYEZjBwLBmxHto7QaA==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/assert': 0.2.1
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/time@0.2.1:
-    resolution: {integrity: sha512-hGyAmELnd85hiKrH0JzCPpsjaspr7kbfCQ9H/uWQnM8XH8UIYcuo3Pzvv5CgTfMZrjnipXGAi4C2i+HdUrwFww==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/assert': 0.2.1
-      '@stdlib/cli': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/fs': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/process': 0.2.1
-      '@stdlib/regexp': 0.2.1
-      '@stdlib/streams': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/utils': 0.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@stdlib/types@0.3.2:
-    resolution: {integrity: sha512-4hBkuU8QNsvpoyPR3WmCP0Jq6hTuVpVnfJQKu+HRKVHKYXzsIQIt9wdW8FUm9/0GfFkVZDCc46TEkTI0bkq8vw==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dev: false
-
-  /@stdlib/utils@0.2.1:
-    resolution: {integrity: sha512-+uTayofmRLASNMSvHwiLdAeYyj32A7sN0gQYI9+KyQZTDKtQxhIg6G1slnzeg/v5kqSeLTL+HAvXaLrM4AZ/sQ==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/array': 0.2.1
-      '@stdlib/assert': 0.2.1
-      '@stdlib/blas': 0.2.1
-      '@stdlib/boolean': 0.2.1
-      '@stdlib/buffer': 0.2.1
-      '@stdlib/cli': 0.2.1
-      '@stdlib/constants': 0.2.1
-      '@stdlib/fs': 0.2.1
-      '@stdlib/function': 0.2.1
-      '@stdlib/math': 0.2.1
-      '@stdlib/ndarray': 0.2.1
-      '@stdlib/object': 0.2.1
-      '@stdlib/os': 0.2.1
-      '@stdlib/process': 0.2.1
-      '@stdlib/random': 0.2.1
-      '@stdlib/regexp': 0.2.1
-      '@stdlib/streams': 0.2.1
-      '@stdlib/string': 0.2.1
-      '@stdlib/symbol': 0.2.1
-      '@stdlib/time': 0.2.1
-      '@stdlib/types': 0.3.2
-      debug: 2.6.9
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
 
   /@sucrase/webpack-loader@2.0.0(sucrase@3.35.0):
     resolution: {integrity: sha512-KUfWr83g70Qm+ZqjGL+M4tX01taDP3BldQcI6NSMlDf7WTDfuo0RvLlS0ekF6dPVslNyZhbFFBy2OBTB6Sa6+Q==}
@@ -14022,7 +13484,7 @@ packages:
   /wide-align@1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 1.0.2
+      string-width: 4.2.3
     dev: true
 
   /workbox-background-sync@6.6.1:

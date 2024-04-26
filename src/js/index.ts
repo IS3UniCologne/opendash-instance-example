@@ -16,14 +16,14 @@ import { MIAASPlugin } from "@opendash/plugin-miaas";
 import { $monitoring, MonitoringPlugin } from "@opendash/plugin-monitoring";
 import { OpenServicePlugin } from "@opendash/plugin-openservice";
 import { OpenwarePlugin } from "@opendash/plugin-openware";
-import { $parse, ParsePlugin } from "@opendash/plugin-parse";
+import { ParsePlugin } from "@opendash/plugin-parse";
 import { ParseMonitoringPlugin } from "@opendash/plugin-parse-monitoring";
 import { PlotlyPlugin } from "@opendash/plugin-plotly";
 import { TimeseriesPlugin } from "@opendash/plugin-timeseries";
+import { TestPlugin } from "./components/testplugin/src";
 import HypothesisTimeWidget from "./widgets/hypothesis-time";
 import TripItineraryWidget from "./widgets/trip-itinerary";
 import "./leaflet.config";
-
 init("opendash", async (factory) => {
   // Icons
   // @ts-ignore
@@ -32,7 +32,6 @@ init("opendash", async (factory) => {
   // Translations:
 
   factory.registerLanguage("en", "English");
-  factory.registerLanguage("zh_Hans", "Chinese");
   factory.registerLanguage("de", "Deutsch", "en", true);
   // ant design translations
 
@@ -40,6 +39,7 @@ init("opendash", async (factory) => {
     "en",
     () => import("antd/lib/locale/en_US")
   );
+
   factory.registerAntDesignTranslation(
     "de",
     () => import("antd/lib/locale/de_DE")
@@ -78,17 +78,8 @@ init("opendash", async (factory) => {
       host: "openware.apps.openinc.dev",
       secure: true,
       disableFeature: {
-        menu: {
-          SensorsGroup: false,
-          DataPoints: false,
-          DataSources: false,
-        },
-        slideshow: false,
-        dataCollection: false,
-        VKPI: false,
-        forms: {
-          dateBySensor: false,
-        },
+        menu: {},
+        dataCollection: true,
         reporting: false,
       },
     })
@@ -99,6 +90,8 @@ init("opendash", async (factory) => {
     })
   );
   await factory.use(new HighchartsPlugin());
+  await factory.use(new TestPlugin());
+
 
   factory.registerStaticNavigationItem({
     id: "monitoring/dashboard",
@@ -112,7 +105,6 @@ init("opendash", async (factory) => {
     routeCondition: "**",
     activeCondition: "/",
   });
-
   factory.registerStaticNavigationItem({
     id: "admin/parse/item",
     group: "admin/parse",
@@ -127,8 +119,26 @@ init("opendash", async (factory) => {
     permission: "parse-admin",
   });
   // Widgets
+  addcss(`
+  .ant-modal-close-x {margin-top:16}
+  .ant-steps-item-icon span {line-height:32px!important}
+  .ant-steps-item-icon svg {margin-top:7}
+  .ant-drawer-body .data-item-boolean {margin-top:12} 
+  .ant-drawer-body .data-item-percentage {margin-top:10}
+  .leaflet-top {z-index:998!important} 
+
+  `);  
   $monitoring.registerWidget(HypothesisTimeWidget);
   $monitoring.registerWidget(TripItineraryWidget);
+  $monitoring.registerWidget(ExampleWidget);
 }).then((app) => {
   console.log("init open.DASH");
 });
+//@ts-expect-error
+function addcss(css) {
+  const head = document.getElementsByTagName("head")[0];
+  const s = document.createElement("style");
+  s.setAttribute("type", "text/css");
+  s.appendChild(document.createTextNode(css));
+  head.appendChild(s);
+}
